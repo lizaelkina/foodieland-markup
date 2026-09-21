@@ -1,0 +1,35 @@
+include ../helpers/mixins
+include ../data/site
+
+block variables
+
+-
+  const current = Object.assign({title: '', description: '', menu: true, bodyClass: ''}, typeof page === 'undefined' ? {} : page);
+  const documentTitle = current.title ? `${current.title} | ${site.name}` : site.name;
+
+doctype html
+html(lang=site.lang)
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    if current.base && production
+      base(href=current.base)
+    meta(name="description" content=current.description || site.description)
+    meta(name="author" content=site.author)
+    title= documentTitle
+    != faviconHtml
+    link(rel="stylesheet" href="styles/main.css")
+    block head
+  body.root(class=current.bodyClass || false)
+    a(href='#content').skip-link.js-skip-link Skip to content
+    div.page
+      block header
+        include ../../blocks/modules/header/header
+      main#content(tabindex='-1').content
+        block content
+      block footer
+        include ../../blocks/modules/footer/footer
+      if current.menu
+        include ../../blocks/modules/menu/menu
+    script(defer src="js/main.js")
+    block scripts

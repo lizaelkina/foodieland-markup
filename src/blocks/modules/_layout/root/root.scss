@@ -1,0 +1,15 @@
+@use "../../../../styles/helpers/variables" as vars;
+
+.root {
+  font-family: vars.$font-main;
+  background-color: vars.$secondary;
+  color: vars.$primary;
+}
+
+.root:has(dialog[open]) {
+  overflow: hidden;
+}
+
+.root_no-footer-offset .page__footer {
+  margin-top: 40px;
+}

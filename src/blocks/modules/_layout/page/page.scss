@@ -1,0 +1,48 @@
+@use "../../../../styles/helpers/mixins" as mix;
+
+.page {
+  --page-margin-desktop: 160px;
+  --page-margin-laptop: 100px;
+  --page-margin-tablet: 80px;
+  --page-margin-mobile: 60px;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100dvh;
+  margin: 0 auto;
+
+  &__header {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  &__footer {
+    @include mix.container;
+
+    margin-top: calc(var(--page-margin-desktop) - 40px);
+  }
+}
+
+@include mix.down(desktop-small) {
+  .page__footer {
+    margin-top: calc(var(--page-margin-laptop) - 20px);
+  }
+}
+
+@include mix.down(laptop) {
+  .page__header {
+    margin-bottom: 20px;
+  }
+
+  .page__footer {
+    margin-top: calc(var(--page-margin-tablet) - 20px);
+  }
+}
+
+@include mix.down(tablet) {
+  .page__footer {
+    margin-top: calc(var(--page-margin-mobile) - 20px);
+  }
+}

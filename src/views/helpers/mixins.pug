@@ -1,0 +1,73 @@
+mixin img(src, alt)
+  -
+    if (alt == null) {
+      throw new Error(`+img: alt is required for "${src}", pass '' for a decorative image`);
+    }
+  -
+    attributes.loading = attributes.loading === 'eager' ? false : attributes.loading || 'lazy';
+    const size = imageSizes && imageSizes[src.replace(/^(\.\/)?img\//, '').replace(/\.[a-z0-9]+$/i, '')];
+    if (size && attributes.width == null && attributes.height == null) {
+      attributes.width = size.width;
+      attributes.height = size.height;
+    }
+    if (attributes.sizes) {
+      if (/\.[a-z0-9]+$/i.test(src) || !size) {
+        throw new Error(`+img: sizes needs a PNG/JPEG/TIFF from src/img without an extension, got "${src}"`);
+      }
+      attributes.srcset = [...size.widths.map(width => `${src}-${width}w.webp ${width}w`), `${src}.webp ${size.width}w`].join(', ');
+    }
+  img(src=/\.[a-z0-9]+$/i.test(src) ? src : src + '.webp', alt=alt)&attributes(attributes)
+
+mixin svg(name)
+  svg(data-svg=name aria-hidden='true')&attributes(attributes)
+    use(href=`./img/sprites/sprite.svg#${name}`)
+
+mixin date(isoDate)
+  -
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(isoDate)) {
+      throw new Error(`+date: expected YYYY-MM-DD, got "${isoDate}"`);
+    }
+    const text = new Intl.DateTimeFormat('en-GB', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC'
+    }).format(new Date(isoDate));
+  time(datetime=isoDate)&attributes(attributes)= text
+
+mixin external-link(name, href)
+  a(href=href target='_blank' rel='noopener' aria-label=`${name} (opens in new tab)`)&attributes(attributes)= name
+
+mixin link(name, href)
+  a.link(href=href)&attributes(attributes)= name
+
+mixin swiper-navigation(classPrev, classNext)
+  button.swiper-button-prev(type='button' aria-label='Previous slide' disabled class=classPrev)
+    +svg('swiper-arrow').swiper-navigation-icon
+  button.swiper-button-next(type='button' aria-label='Next slide' disabled class=classNext)
+    +svg('swiper-arrow').swiper-navigation-icon
+
+mixin socials
+  ul(aria-label='Our socials').socials&attributes(attributes)
+    each item in socials
+      li
+        a(
+          href=item.href
+          target='_blank'
+          rel='noopener'
+          aria-label=`${item.title} (opens in new tab)`
+          class=['socials__link', `socials__link_${item.id}`])
+          +svg(item.id).socials__svg
+
+mixin nav-list(place, itemClass)
+  -
+    const places = ['header', 'menu', 'footer'];
+    const unknown = [place, ...nav.flatMap(item => item.hideIn || [])].find(name => !places.includes(name));
+    if (unknown !== undefined) {
+      throw new Error(`+nav-list: unknown place "${unknown}", expected one of: ${places.join(', ')}`);
+    }
+  ul&attributes(attributes)
+    each item in nav
+      unless item.hideIn && item.hideIn.includes(place)
+        li(class=itemClass)
+          +link(item.title, item.href)(aria-current=item.id != null && item.id === current.id && 'page')

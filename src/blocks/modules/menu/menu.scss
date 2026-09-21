@@ -1,0 +1,115 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+
+.menu {
+  width: 400px;
+  max-width: 100%;
+  height: 100dvh;
+  max-height: 100%;
+  margin: 0 0 0 auto;
+  border: none;
+  padding: 0;
+  background-color: vars.$secondary;
+  box-shadow: -5px 0 25px rgb(0 0 0 / 15%);
+
+  &[open] {
+    animation: menu-slide-in .4s ease-out forwards;
+  }
+
+  &[open]::backdrop {
+    animation: menu-fade-in .4s ease-out forwards;
+  }
+
+  &.is-closing {
+    animation: menu-slide-out .4s ease-in forwards;
+  }
+
+  &.is-closing::backdrop {
+    animation: menu-fade-out .4s ease-in forwards;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    gap: 20px;
+    background-color: vars.$secondary;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    gap: 16px;
+    width: fit-content;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: fit-content;
+  }
+}
+
+@include mix.down(tablet) {
+  .menu__container {
+    padding: 10px 16px;
+  }
+
+  .menu__buttons {
+    min-height: 32px;
+  }
+}
+
+@keyframes menu-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes menu-slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes menu-fade-in {
+  from {
+    background-color: rgb(0 0 0 / 0%);
+  }
+
+  to {
+    background-color: rgb(0 0 0 / 80%);
+  }
+}
+
+@keyframes menu-fade-out {
+  from {
+    background-color: rgb(0 0 0 / 80%);
+  }
+
+  to {
+    background-color: rgb(0 0 0 / 0%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu[open], .menu[open]::backdrop, .menu.is-closing, .menu.is-closing::backdrop {
+    animation: none;
+  }
+}

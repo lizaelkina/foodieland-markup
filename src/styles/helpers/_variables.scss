@@ -1,0 +1,52 @@
+// breakpoints
+$breakpoints: (
+  mobile: 480px,
+  mobile-wide: 640px,
+  tablet: 768px,
+  tablet-wide: 800px,
+  laptop-small: 960px,
+  laptop: 1024px,
+  desktop-small: 1170px,
+  desktop: 1200px,
+  desktop-wide: 2000px
+);
+
+// sticky header
+$sticky-header-min-viewport-height: 600px;
+
+// fonts
+$font-main: Inter, Arial, Helvetica, sans-serif;
+$font-promo: Lobster, "Times New Roman", serif;
+$font-copyright: EudoxusSans, Arial, Helvetica, sans-serif;
+$font-inst: "San Francisco", Inter, Arial, Helvetica, sans-serif;
+
+// colors
+$primary: var(--color-1);
+$secondary: var(--color-2);
+$background: var(--color-3);
+$accent: var(--color-4);
+$promo: var(--color-5);
+$promo-dark: var(--color-6);
+$like: var(--color-7);
+$like-active: var(--color-8);
+$text-inst: var(--color-9);
+$text-inst-light: var(--color-10);
+$footer-accent: var(--color-11);
+$category-breakfast: var(--color-12);
+$category-vegan: var(--color-13);
+$category-meat: var(--color-14);
+$category-dessert: var(--color-15);
+$category-lunch: var(--color-16);
+$category-chocolate: var(--color-17);
+$text-subtitle: rgb(from var(--color-1) r g b / 60%);
+$text-placeholder: rgb(from var(--color-1) r g b / 40%);
+$label: rgb(from var(--color-1) r g b / 5%);
+$card-gradient: linear-gradient(to bottom, rgb(from var(--color-3) r g b / 0%) 0, rgb(from var(--color-3) r g b / 100%) 100%);
+$slide-gradient: linear-gradient(to right, transparent 0%, var(--color-2) 20%, var(--color-2) 80%, transparent 100%);
+$promo-gradient: linear-gradient(to bottom, var(--color-5) 0, var(--color-6) 100%);
+$promo-mask: radial-gradient(closest-side, transparent 22%, var(--color-1) 30%, rgb(from var(--color-1) r g b / 60%) 55%, transparent 90%);
+$promo-text: rgb(from var(--color-2) r g b / 60%);
+$quote-gradient: linear-gradient(to right, rgb(from var(--color-1) r g b / 5%) 0%, var(--color-1) 100%);
+
+// other
+$border: 1px solid rgb(from var(--color-1) r g b / 10%);

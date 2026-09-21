@@ -1,0 +1,8 @@
+dialog#mobile-menu(aria-label='Menu').menu.js-menu
+  div.menu__container
+    div.menu__buttons
+      button(autofocus type='button' aria-label='Close menu').burger.js-menu-close
+        span.burger__line
+    nav(aria-label='Mobile')
+      +nav-list('menu', 'js-menu-link').menu__list
+    +socials.socials_menu

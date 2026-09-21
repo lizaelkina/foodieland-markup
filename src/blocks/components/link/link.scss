@@ -1,0 +1,21 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
+
+.link {
+  @include mix.link-hover(vars.$accent);
+
+  font-weight: 500;
+  font-size: func.rem(16);
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: vars.$primary;
+
+  &[aria-current="page"], &[aria-current="location"] {
+    color: vars.$accent;
+
+    &::after {
+      display: none;
+    }
+  }
+}

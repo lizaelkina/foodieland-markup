@@ -1,0 +1,87 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+
+.burger {
+  --burger-line-offset: 8px;
+  --burger-duration: .2s;
+
+  display: block;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+
+  @media (prefers-reduced-motion: reduce) {
+    --burger-duration: 0s;
+  }
+
+  @media (forced-colors: active) {
+    .burger__line, .burger__line::before, .burger__line::after {
+      forced-color-adjust: none;
+      background-color: currentcolor;
+    }
+  }
+
+  @include mix.hover-or-focus {
+    &:hover .burger__line, &:hover .burger__line::before, &:hover .burger__line::after {
+      background-color: vars.$accent;
+    }
+
+    &:hover.is-active .burger__line {
+      background-color: transparent;
+    }
+  }
+
+  &__line {
+    @include mix.position-center;
+
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 6px;
+    background-color: vars.$primary;
+    transition: background-color var(--burger-duration);
+
+    &::before, &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+      background-color: vars.$primary;
+      transition: translate var(--burger-duration) var(--burger-duration), rotate var(--burger-duration) 0s, background-color var(--burger-duration);
+    }
+
+    &::before {
+      translate: 0 calc(-1 * var(--burger-line-offset));
+      rotate: 0deg;
+    }
+
+    &::after {
+      translate: 0 var(--burger-line-offset);
+      rotate: 0deg;
+    }
+  }
+
+  &.is-active .burger__line {
+    background-color: transparent;
+
+    &::before, &::after {
+      translate: 0 0;
+      transition: translate var(--burger-duration) 0s, rotate var(--burger-duration) var(--burger-duration);
+    }
+  }
+
+  &.is-active .burger__line::before {
+    rotate: 45deg;
+  }
+
+  &.is-active .burger__line::after {
+    rotate: -45deg;
+  }
+}

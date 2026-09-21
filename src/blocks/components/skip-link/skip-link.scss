@@ -1,0 +1,25 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/functions" as func;
+
+.skip-link {
+  position: fixed;
+  z-index: 10;
+  top: 8px;
+  left: 8px;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-weight: 500;
+  font-size: func.rem(16);
+  line-height: 120%;
+  color: vars.$secondary;
+  background-color: vars.$primary;
+  transform: translateY(-200%);
+
+  @media (forced-colors: active) {
+    border: 1px solid currentcolor;
+  }
+
+  &:focus {
+    transform: none;
+  }
+}

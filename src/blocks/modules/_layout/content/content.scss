@@ -1,0 +1,56 @@
+@use "../../../../styles/helpers/mixins" as mix;
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-margin-desktop);
+  min-height: calc(100svh - var(--header-height, 0px));
+
+  &:has(&__container_not-found) {
+    flex-grow: 1;
+    min-height: auto;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &__container {
+    @include mix.container;
+
+    &_slider {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &:has(> section:first-child) section:first-child:not(&__container_slider) {
+    margin-top: 40px;
+  }
+}
+
+@include mix.down(desktop-small) {
+  .content {
+    gap: var(--page-margin-laptop);
+  }
+}
+
+@include mix.down(laptop) {
+  .content {
+    gap: var(--page-margin-tablet);
+
+    &:has(> section:first-child) section:first-child:not(&__container_slider) {
+      margin-top: 20px;
+    }
+  }
+}
+
+@include mix.down(tablet) {
+  .content {
+    gap: var(--page-margin-mobile);
+
+    &:has(> section:first-child) section:first-child:not(&__container_slider) {
+      margin-top: 10px;
+    }
+  }
+}

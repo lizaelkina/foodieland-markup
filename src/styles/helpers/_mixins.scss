@@ -1,0 +1,145 @@
+@use "sass:map";
+@use "variables" as vars;
+@use "functions" as func;
+
+// centered content column
+@mixin container {
+  width: 100%;
+  max-width: 1312px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+@mixin title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+// opacity-block
+@mixin opacity-block {
+  display: block;
+  width: 100%;
+  height: auto;
+  mask-image: vars.$slide-gradient;
+}
+
+// absolute position center
+@mixin position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// hover and keyboard focus
+@mixin hover-or-focus {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+
+      @media (prefers-reduced-motion: reduce) {
+        transform: none;
+      }
+    }
+  }
+
+  &:focus-visible {
+    @content;
+  }
+}
+
+@mixin focus-ring-contrast {
+  &:focus-visible {
+    outline-color: vars.$secondary;
+    box-shadow: 0 0 0 3px vars.$primary;
+  }
+}
+
+// hover
+@mixin link-hover($color) {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: $color;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .5s ease;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  @media (any-hover: hover) {
+    &:hover::after {
+      height: 2px;
+      transform: scaleX(1);
+    }
+  }
+
+  &:focus-visible {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+@mixin img-hover {
+  transition: transform .5s ease, filter .5s ease;
+}
+
+@mixin img-hover-card {
+  transform: scale(1.2);
+  filter: brightness(80%);
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
+}
+
+// stretched-link
+@mixin stretched-link {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+// text overflow
+@mixin text-overflow($line) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+
+// breakpoints
+@mixin down($name) {
+  @media (max-width: map.get(vars.$breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin up($name) {
+  @media (min-width: map.get(vars.$breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin not-down($name) {
+  @media not all and (max-width: map.get(vars.$breakpoints, $name)) {
+    @content;
+  }
+}

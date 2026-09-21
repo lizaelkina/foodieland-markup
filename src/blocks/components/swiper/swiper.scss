@@ -1,0 +1,13 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+
+.swiper {
+  --swiper-theme-color: #{vars.$accent};
+  --swiper-navigation-color: #{vars.$accent};
+  --swiper-navigation-size: 32px;
+  --swiper-navigation-sides-offset: 4px;
+  --swiper-pagination-bullet-size: 10px;
+  --swiper-pagination-bullet-horizontal-gap: 7px;
+  --swiper-pagination-bullet-inactive-color: #{vars.$primary};
+  --swiper-pagination-bullet-inactive-opacity: .45;
+}
