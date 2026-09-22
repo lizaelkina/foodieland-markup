@@ -1,2 +1,72 @@
 @use "../../../styles/helpers/variables" as vars;
 @use "../../../styles/helpers/mixins" as mix;
+
+@media (min-height: vars.$sticky-header-min-viewport-height) {
+  .header {
+    position: sticky;
+    z-index: 5;
+    top: 0;
+    backdrop-filter: blur(10px);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+
+    &.is-scrolled {
+      background-color: rgb(from vars.$secondary r g b / 90%);
+      box-shadow: 0 25px 20px -20px rgb(0 0 0 / 45%);
+    }
+  }
+}
+
+.header {
+  border-bottom: vars.$border;
+  padding: 40px 0;
+
+  &__container {
+    @include mix.container;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+  }
+
+  &__logo {
+    margin-right: 30px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 60px;
+  }
+
+  &__mobile {
+    display: none;
+  }
+}
+
+@include mix.down(desktop-small) {
+  .header {
+    padding: 16px 0;
+  }
+}
+
+@include mix.down(laptop) {
+  .header__desktop {
+    display: none;
+  }
+
+  .header__mobile {
+    display: flex;
+  }
+
+  .header__logo {
+    margin-right: 0;
+  }
+}

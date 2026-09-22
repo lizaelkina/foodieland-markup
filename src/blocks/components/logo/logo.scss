@@ -1,0 +1,22 @@
+@use "../../../styles/helpers/mixins" as mix;
+
+.logo {
+  flex-shrink: 0;
+  width: fit-content;
+  transition: transform .5s ease;
+
+  @include mix.hover-or-focus {
+    transform: scale(1.2);
+  }
+
+  &:focus-visible {
+    transform: none;
+    transition: none;
+  }
+
+  &__img {
+    width: 110px;
+    aspect-ratio: 110 / 30;
+    object-fit: contain;
+  }
+}

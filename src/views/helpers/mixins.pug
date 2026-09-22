@@ -71,3 +71,9 @@ mixin nav-list(place, itemClass)
       unless item.hideIn && item.hideIn.includes(place)
         li(class=itemClass)
           +link(item.title, item.href)(aria-current=item.id != null && item.id === current.id && 'page')
+
+mixin logo(loadingAttr)
+  a(href='index.html').logo&attributes(attributes)
+    picture
+      source(srcset='./img/logo-2' + '.webp' media='(forced-colors: active)')
+      +img('./img/logo', `${site.name} - home`)(loading=loadingAttr).logo__img

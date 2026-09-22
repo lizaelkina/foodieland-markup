@@ -1,4 +1,9 @@
 header.header.page__header.js-header
+  div.header__container
+    +logo('eager').header__logo
+    nav(aria-label='Main').header__nav.header__desktop
+      +nav-list('header').header__list
+    +socials.header__desktop
 
     if current.menu
       div.header__mobile
