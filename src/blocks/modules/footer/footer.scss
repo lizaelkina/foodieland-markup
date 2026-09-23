@@ -1,3 +1,122 @@
 @use "../../../styles/helpers/variables" as vars;
 @use "../../../styles/helpers/mixins" as mix;
 @use "../../../styles/helpers/functions" as func;
+
+.footer {
+  display: flex;
+  flex-direction: column;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    padding: 40px 0 48px;
+    border-bottom: vars.$border;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 450px;
+    gap: 16px;
+  }
+
+  &__text {
+    @include mix.text-subtitle;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 60px;
+  }
+
+  &__bottom {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    padding: 48px 0;
+    gap: 20px 80px;
+  }
+
+  &__copyright {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  &__copyright-text {
+    text-align: center;
+    font-family: vars.$font-copyright;
+    font-weight: 500;
+    font-size: func.rem(18);
+    line-height: 128%;
+    letter-spacing: -0.02em;
+    color: vars.$text-subtitle;
+  }
+
+  &__link {
+    @include mix.link-hover(vars.$footer-accent);
+
+    color: vars.$footer-accent;
+  }
+
+  &__socials {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+}
+
+@include mix.down(desktop-small) {
+  .footer__top {
+    padding: 20px 0;
+  }
+
+  .footer__list {
+    gap: 10px 40px;
+  }
+
+  .footer__bottom {
+    padding: 20px 0;
+  }
+}
+
+@include mix.down(laptop) {
+  .footer__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .footer__list {
+    gap: 10px 20px;
+  }
+
+  .footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer__copyright-text {
+    text-align: left;
+    font-size: func.rem(14);
+  }
+
+  .footer__socials {
+    gap: 20px;
+  }
+}
+
+@include mix.down(tablet) {
+  .footer__list {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+

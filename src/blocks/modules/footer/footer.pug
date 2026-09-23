@@ -1,1 +1,13 @@
 footer.footer.page__footer
+  div.footer__top
+    div.footer__container
+      +logo()
+      p.footer__text
+        | Lorem ipsum dolor sit amet, consectetuipisicing elit
+    nav(aria-label='Footer')
+      +nav-list('footer').footer__list
+  div.footer__bottom
+    +socials.footer__socials
+    div.footer__copyright
+      p.footer__copyright-text
+        | © 2020 Flowbase. Powered by #[+external-link('Webflow', '#').footer__link]
