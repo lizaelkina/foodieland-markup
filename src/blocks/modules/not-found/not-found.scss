@@ -1,0 +1,41 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+
+  &__code {
+    font-weight: 700;
+    font-size: clamp(#{func.rem(70)}, 4.5vw, #{func.rem(120)});
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    color: vars.$primary;
+  }
+
+  &__title {
+    @include mix.section-title;
+  }
+
+  &__text {
+    @include mix.text-subtitle;
+
+    line-height: 130%;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  &__link {
+    @include mix.link-hover(vars.$accent);
+
+    font: inherit;
+    font-weight: 600;
+    color: vars.$primary;
+    cursor: pointer;
+  }
+}

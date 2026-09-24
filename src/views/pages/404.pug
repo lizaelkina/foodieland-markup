@@ -1,0 +1,7 @@
+extends ../layouts/default
+
+block variables
+  - const page = {id: '404', title: 'Page not found', base: site.basePath, bodyClass: 'root_no-footer-offset'}
+
+block content
+  include ../../blocks/modules/not-found/not-found
