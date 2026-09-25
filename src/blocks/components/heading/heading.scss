@@ -1,0 +1,28 @@
+@use "../../../styles/helpers/mixins" as mix;
+
+.heading {
+  @include mix.title-wrapper;
+
+  &__title-page {
+    @include mix.page-title;
+  }
+
+  &__subtitle {
+    @include mix.text-subtitle;
+
+    width: 100%;
+    max-width: 840px;
+
+    &_type_big {
+      max-width: 1060px;
+    }
+  }
+}
+
+@include mix.down(laptop) {
+  .heading {
+    &__subtitle {
+      max-width: 600px;
+    }
+  }
+}

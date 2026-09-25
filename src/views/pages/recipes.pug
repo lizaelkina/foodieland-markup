@@ -1,0 +1,12 @@
+extends ../layouts/default
+
+block variables
+  - const page = {id: 'recipes', title: 'Recipes'}
+
+block content
+  section(aria-labelledby='recipes-heading').content__container
+    +page-heading({
+      id: 'recipes-heading',
+      title: 'Recipes',
+      subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+    })

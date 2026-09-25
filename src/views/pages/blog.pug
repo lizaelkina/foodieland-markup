@@ -1,0 +1,12 @@
+extends ../layouts/default
+
+block variables
+  - const page = {id: 'blog', title: 'Blog'}
+
+block content
+  section(aria-labelledby='blog-heading').content__container
+    +page-heading({
+      id: 'blog-heading',
+      title: 'Blog &amp; Article',
+      subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+    })

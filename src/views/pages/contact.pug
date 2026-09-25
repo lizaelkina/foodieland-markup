@@ -1,0 +1,11 @@
+extends ../layouts/default
+
+block variables
+  - const page = {id: 'contact', title: 'Contact'}
+
+block content
+  section(aria-labelledby='contact-heading').content__container
+    +page-heading({
+      id: 'contact-heading',
+      title: 'Contact us',
+    })

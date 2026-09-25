@@ -1,0 +1,13 @@
+extends ../layouts/default
+
+block variables
+  - const page = {id: 'about', title: 'About us', bodyClass: 'root_no-footer-offset'}
+
+block content
+  section(aria-labelledby='about-us-heading').content__container
+    +page-heading({
+      id: 'about-us-heading',
+      title: 'About us - coming soon',
+      subtitle: 'We are preparing a page about our project, our mission and the chefs who help us curate recipes and food stories.',
+      sizeSubtitle: 'heading__subtitle_type_big',
+    })

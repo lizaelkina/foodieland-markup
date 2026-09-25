@@ -77,3 +77,9 @@ mixin logo(loadingAttr)
     picture
       source(srcset='./img/logo-2' + '.webp' media='(forced-colors: active)')
       +img('./img/logo', `${site.name} - home`)(loading=loadingAttr).logo__img
+
+mixin page-heading(data)
+  hgroup.heading&attributes(attributes)
+    h1.heading__title-page(id= data.id class=data.sizeTitle)!= data.title
+    if data.subtitle
+      p.heading__subtitle(class=data.sizeSubtitle)!= data.subtitle
