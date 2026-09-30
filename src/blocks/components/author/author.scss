@@ -1,0 +1,107 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
+
+.author {
+  display: grid;
+  grid-template-columns: repeat(2, fit-content(100%));
+  gap: 8px 16px;
+  position: relative;
+
+  @include mix.hover-or-focus {
+    .author__name {
+      color: vars.$accent;
+    }
+  }
+
+  &_blog {
+    grid-template-columns: repeat(3, fit-content(100%));
+    align-items: center;
+    gap: 8px 16px;
+  }
+
+  &__photo {
+    grid-column: 1;
+    grid-row: span 2;
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: vars.$like;
+
+    &_blog {
+      grid-row: 1;
+      width: 40px;
+    }
+  }
+
+  &__name {
+    align-self: end;
+    grid-column: 2;
+    grid-row: 1;
+    transition: color .5s ease;
+    font-weight: 700;
+    font-size: func.rem(16);
+    letter-spacing: -0.02em;
+    color: vars.$primary;
+
+    &::before {
+      @include mix.stretched-link;
+    }
+
+    &_blog {
+      align-self: auto;
+      margin-right: 8px;
+    }
+  }
+
+  &__date {
+    @include mix.text-label;
+
+    grid-column: 2;
+    grid-row: 2;
+
+    &_blog {
+      display: flex;
+      align-items: center;
+      grid-column: 3;
+      grid-row: 1;
+      position: relative;
+      gap: 24px;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 40px;
+        border-left: vars.$border;
+      }
+    }
+  }
+}
+
+@include mix.down(tablet) {
+  .author {
+    &_blog {
+      grid-template-columns: repeat(2, fit-content(100%));
+      justify-items: start;
+    }
+
+    &__photo_blog {
+      grid-row: span 2;
+    }
+
+    &__name_blog {
+      margin-right: 0;
+    }
+
+    &__date_blog {
+      display: block;
+      grid-column: 2;
+      grid-row: 2;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

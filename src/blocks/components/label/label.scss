@@ -1,0 +1,84 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: fit-content;
+
+  @media (forced-colors: active) {
+    &_slide {
+      border: 1px solid currentcolor;
+    }
+  }
+
+  &__text {
+    @include mix.text-label;
+    @include mix.text-overflow(1);
+
+    transition: color .5s ease;
+
+    &_hot {
+      font-weight: 600;
+      color: vars.$primary;
+    }
+  }
+
+  &__svg {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    fill: currentcolor;
+    transition: fill .5s ease;
+  }
+
+  &_slide {
+    min-height: 40px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    color: vars.$primary;
+    background-color: vars.$label;
+  }
+
+  &_hot {
+    max-width: 160px;
+    min-height: 45px;
+    gap: 14px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: vars.$secondary;
+    box-shadow: 10px 20px 40px 0 rgb(41 64 70 / 10%);
+
+    &::before {
+      content: "";
+      display: block;
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      background-image: url("../img/roll.webp");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  &_link {
+    z-index: 3;
+
+    @include mix.hover-or-focus {
+      .label__text {
+        color: vars.$accent;
+      }
+
+      .label__svg {
+        fill: vars.$accent;
+
+        @media (forced-colors: active) {
+          fill: currentcolor;
+        }
+      }
+    }
+  }
+}

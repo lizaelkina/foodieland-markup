@@ -1,0 +1,97 @@
+@use "../../../styles/helpers/mixins" as mix;
+
+.hero {
+  --hero-slider-max-width: var(--page-slider-max-width);
+  --hero-slide-max-width: 1280px;
+  --hero-gap: 40px;
+  --hero-peek: 20px;
+  --hero-height-diff: 40px;
+  --hero-radius: 50px;
+  --hero-slide-width: min(var(--hero-slide-max-width), 100% - 2 * (var(--hero-gap) + var(--hero-peek)));
+  --hero-navigation-sides-offset: calc(51% - var(--hero-slide-width) / 2 - var(--swiper-navigation-size) / 2);
+
+  max-width: none;
+
+  &__slider {
+    position: relative;
+    max-width: var(--hero-slider-max-width);
+    margin-right: auto;
+    margin-left: auto;
+    overflow: clip;
+
+    // noinspection CssInvalidFunction
+    &:not(.swiper-initialized) .swiper-wrapper {
+      gap: var(--hero-gap);
+      transform: translateX(calc((100% - var(--hero-slide-width)) / 2));
+    }
+
+    &:not(.swiper-initialized) &__slide:first-child {
+      --hero-card-shift: 0;
+    }
+  }
+
+  &__slide {
+    width: var(--hero-slide-width);
+    height: auto;
+  }
+
+  &__card {
+    clip-path: inset(calc(var(--hero-card-shift, 1) * var(--hero-height-diff) / 2) 0 round var(--hero-radius));
+    transition: clip-path var(--hero-card-duration, 0ms);
+  }
+
+  &__slider .swiper-button-prev {
+    left: var(--hero-navigation-sides-offset);
+  }
+
+  &__slider .swiper-button-next {
+    right: var(--hero-navigation-sides-offset);
+  }
+}
+
+@include mix.down(desktop) {
+  .hero {
+    --hero-gap: 30px;
+  }
+}
+
+@include mix.down(laptop) {
+  .hero {
+    --hero-slide-width: calc((100% - var(--hero-gap) * .1) / 1.1);
+    --hero-gap: 20px;
+
+    &__slider {
+      padding: 0 16px;
+
+      &:not(.swiper-initialized) .swiper-wrapper {
+        transform: none;
+      }
+    }
+
+    &__slider .swiper-button-prev {
+      left: var(--swiper-navigation-sides-offset);
+    }
+
+    &__slider .swiper-button-next {
+      right: var(--swiper-navigation-sides-offset);
+    }
+  }
+}
+
+@include mix.down(tablet) {
+  .hero {
+    --hero-slide-width: 100%;
+    --hero-gap: 16px;
+
+    &__pagination {
+      display: block;
+      min-height: 32px;
+    }
+  }
+}
+
+@include mix.up(desktop-wide) {
+  .hero__slider {
+    @include mix.opacity-block;
+  }
+}

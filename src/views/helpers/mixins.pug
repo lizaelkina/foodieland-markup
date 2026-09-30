@@ -83,3 +83,49 @@ mixin page-heading(data)
     h1.heading__title-page(id= data.id class=data.sizeTitle)!= data.title
     if data.subtitle
       p.heading__subtitle(class=data.sizeSubtitle)!= data.subtitle
+
+mixin button(name)
+  a(href='#').button&attributes(attributes)
+    span.button__text= name
+
+mixin button-icon(name, icon)
+  a(href='#').button.button_icon&attributes(attributes)
+    span.button__text= name
+    +svg(icon).button__svg
+
+mixin label-timer(time)
+  div.label&attributes(attributes)
+    +svg('timer').label__svg
+    span.label__text= time
+
+mixin label-category(category)
+  a(href='#').label.label_link&attributes(attributes)
+    +svg('fork-knife').label__svg
+    span.label__text= category
+
+mixin slide(data)
+  article.slide&attributes(attributes)
+    div.slide__content
+      div.label.label_hot
+        span.label__text.label__text_hot Hot Recipes
+      hgroup.slide__title-wrapper
+        h2.slide__title= data.title
+        p.slide__subtitle= data.subtitle
+      div.slide__labels
+        +label-timer(data.timer).label_slide
+        +label-category(data.category).label_slide
+      div.slide__container
+        div.author
+          +img(data.authorPhoto, '').author__photo
+          a(href='#').author__name= data.authorName
+          +date(data.authorDate).author__date
+        +button-icon('View Recipes', 'play')
+    div.slide__img-wrapper
+      +img('./img/handpicked', 'Handpicked')(loading=data.isFirst ? 'eager' : null).slide__handpicked
+      +img(data.img, '')(
+        loading=data.isFirst ? 'eager' : null,
+        fetchpriority=data.isFirst ? 'high' : null,
+        sizes='(max-width: 800px) calc(100vw - 32px), ' +
+        '(max-width: 1024px) 36vw, ' +
+        '(max-width: 1200px) 40vw, ' +
+        '(max-width: 1400px) calc(51.5vw - 62px), 660px').slide__img

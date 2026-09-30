@@ -1,0 +1,72 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 200px;
+  min-height: 60px;
+  padding: 20px 46px;
+  border-radius: 16px;
+  color: vars.$secondary;
+  background-color: vars.$primary;
+  transition: background-color .5s ease;
+  cursor: pointer;
+
+  @media (forced-colors: active) {
+    border: 1px solid currentcolor;
+  }
+
+  @include mix.hover-or-focus {
+    background-color: vars.$accent;
+
+    .button__text {
+      color: vars.$primary;
+    }
+
+    .button__svg {
+      fill: vars.$primary;
+
+      @media (forced-colors: active) {
+        fill: currentcolor;
+      }
+    }
+  }
+
+  &__text {
+    @include mix.text-overflow(1);
+
+    font-weight: 600;
+    font-size: func.rem(14);
+    line-height: 121%;
+    letter-spacing: -0.02em;
+    color: vars.$secondary;
+    transition: color .5s ease;
+
+    &_secondary {
+      font-size: func.rem(16);
+      color: vars.$primary;
+    }
+  }
+
+  &__svg {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    fill: currentcolor;
+    transition: fill .5s ease;
+  }
+
+  &_secondary {
+    padding: 20px 26px;
+    background-color: vars.$background;
+  }
+
+  &_icon {
+    padding: 18px 33px;
+    gap: 15px;
+  }
+}

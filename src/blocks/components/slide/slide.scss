@@ -1,0 +1,141 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
+
+.slide {
+  display: grid;
+  grid-template-columns: .94fr 1fr;
+  width: 100%;
+  height: 100%;
+  background-color: vars.$background;
+  border-radius: 50px;
+
+  @media (forced-colors: active) {
+    border: 1px solid currentcolor;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    padding: 50px;
+    gap: 29px;
+  }
+
+  &__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+  }
+
+  &__title {
+    @include mix.page-title;
+    @include mix.text-overflow(3);
+
+    font-size: clamp(#{func.rem(36)}, 4.5vw, #{func.rem(64)});
+  }
+
+  &__subtitle {
+    @include mix.text-subtitle;
+    @include mix.text-overflow(2);
+  }
+
+  &__labels {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-top: auto;
+  }
+
+  &__img-wrapper {
+    grid-column: 2;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__handpicked {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    left: -50px;
+    width: 150px;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    background-color: vars.$promo;
+  }
+}
+
+@include mix.down(desktop) {
+  .slide {
+    grid-template-columns: 1fr .8fr;
+
+    &__content {
+      padding: 40px;
+    }
+
+    &__handpicked {
+      width: 100px;
+    }
+  }
+}
+
+@include mix.down(laptop) {
+  .slide {
+    grid-template-columns: 1fr .7fr;
+
+    &__content {
+      padding: 40px 30px;
+    }
+
+    &__handpicked {
+      top: 15px;
+    }
+  }
+}
+
+@include mix.down(tablet-wide) {
+  .slide {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto 300px;
+
+    &__content {
+      padding: 30px 20px 40px;
+    }
+
+    &__title {
+      width: 100%;
+      max-width: 450px;
+    }
+
+    &__subtitle {
+      @include mix.text-overflow(none);
+
+      width: 100%;
+      max-width: 500px;
+    }
+
+    &__img-wrapper {
+      grid-column: 1;
+    }
+
+    &__handpicked {
+      left: 15px;
+    }
+  }
+}

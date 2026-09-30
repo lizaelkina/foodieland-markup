@@ -10,4 +10,36 @@
   --swiper-pagination-bullet-horizontal-gap: 7px;
   --swiper-pagination-bullet-inactive-color: #{vars.$primary};
   --swiper-pagination-bullet-inactive-opacity: .45;
+
+  @include mix.hover-or-focus {
+    .swiper-button-prev, .swiper-button-next {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+@media (any-hover: hover) {
+  .swiper-button-prev:not(:focus-visible), .swiper-button-next:not(:focus-visible) {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+  }
+}
+
+.swiper-pagination {
+  display: none;
+  position: static;
+  margin-top: 3px;
+  padding-block: 7px;
+}
+
+.swiper-pagination-bullet {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -7px;
+  }
 }
