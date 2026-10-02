@@ -1,0 +1,26 @@
+section(aria-labelledby='subscription-heading').content__container.subscribe.js-subscribe
+  form(method='post').subscribe__form.js-subscribe-form
+    hgroup.subscribe__title-wrapper
+      h2#subscription-heading.subscribe__title.js-subscribe-title
+        span.visually-hidden Deliciousness to your inbox
+        span.subscribe__title-text(
+          aria-hidden='true'
+          data-title='default') Deliciousness to your inbox
+        span.subscribe__title-text(
+          aria-hidden='true'
+          data-title='success') Thanks for subscribing!
+      p.subscribe__subtitle
+        | Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor
+        | incididunt ut labore et dolore magna aliqut enim ad minim
+    div.subscribe__container
+      label.visually-hidden(for='subscribe-email') Enter your email address
+      input.subscribe__input(
+        id='subscribe-email'
+        required
+        type='email'
+        name='email'
+        autocomplete='email'
+        placeholder="Your email address...")
+      button(type='submit').button.subscribe__submit.js-subscribe-submit
+        span.button__text Subscribe
+    span.visually-hidden.js-subscribe-status(role='status')

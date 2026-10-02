@@ -1,0 +1,214 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
+
+.subscribe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1280px;
+  padding: 0;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    padding: 80px 40px;
+    gap: 62px;
+    border-radius: 60px;
+    background-color: vars.$background;
+    background-image: url("../img/deliciousness-1.webp"), url("../img/deliciousness-2.webp");
+    background-position: bottom left, bottom right;
+    background-repeat: no-repeat;
+    background-size: 29.5%, 27%;
+
+    @media (forced-colors: active) {
+      border: 1px solid currentcolor;
+    }
+  }
+
+  &__title-wrapper {
+    @include mix.title-wrapper;
+  }
+
+  &__title {
+    @include mix.section-title;
+
+    display: grid;
+  }
+
+  &__title-text {
+    grid-area: 1 / 1;
+
+    &[data-title="default"] {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &[data-title="success"] {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  &__subtitle {
+    @include mix.text-subtitle;
+
+    width: 100%;
+    max-width: 620px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 24px 10px;
+    width: 100%;
+    max-width: 480px;
+    padding: 10px;
+    border-radius: 24px;
+    background-color: vars.$secondary;
+  }
+
+  &__input {
+    @include mix.text-label;
+
+    flex-grow: 1;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 16px;
+    background-color: vars.$secondary;
+    font-size: func.rem(16);
+    color: vars.$primary;
+
+    &::placeholder {
+      @include mix.text-label;
+
+      color: vars.$text-placeholder;
+      background-color: transparent;
+    }
+
+    &:focus, &:focus-visible {
+      border-radius: 16px;
+    }
+
+    &:-webkit-autofill, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+      @include mix.text-label;
+
+      box-shadow: 0 0 0 1000px vars.$secondary inset;
+      -webkit-text-fill-color: vars.$primary;
+      font-size: func.rem(16);
+      color: vars.$primary;
+    }
+
+    @media (forced-colors: active) {
+      border: 1px solid currentcolor;
+    }
+  }
+
+  &__submit {
+    min-width: 160px;
+  }
+}
+
+@include mix.down(tablet) {
+  .subscribe__form {
+    padding: 40px 30px;
+    gap: 40px;
+  }
+
+  .subscribe__subtitle {
+    max-width: 450px;
+  }
+}
+
+@include mix.down(mobile-wide) {
+  .subscribe__form {
+    background-size: 40%, 35%;
+  }
+
+  .subscribe__container {
+    flex-direction: column;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .subscribe__input {
+    padding: 16px;
+  }
+}
+
+/* animation */
+.subscribe__title[data-state="success"] .subscribe__title-text[data-title="default"] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.subscribe__title[data-state="success"] .subscribe__title-text[data-title="success"] {
+  visibility: visible;
+  opacity: 1;
+}
+
+.subscribe__title[data-state="to-success"] .subscribe__title-text, .subscribe__title[data-state="to-default"] .subscribe__title-text {
+  visibility: visible;
+  opacity: 1;
+  will-change: clip-path, transform, filter;
+}
+
+.subscribe__title[data-state="to-success"] .subscribe__title-text[data-title="default"], .subscribe__title[data-state="to-default"] .subscribe__title-text[data-title="success"] {
+  animation: subscribe-title-mask-out .9s steps(18, end) both, subscribe-title-shift-out .9s cubic-bezier(.45, 0, .55, 1) both;
+}
+
+.subscribe__title[data-state="to-success"] .subscribe__title-text[data-title="success"], .subscribe__title[data-state="to-default"] .subscribe__title-text[data-title="default"] {
+  animation: subscribe-title-mask-in .9s steps(18, end) both, subscribe-title-shift-in .9s cubic-bezier(.22, .75, .25, 1) both;
+}
+
+@keyframes subscribe-title-mask-out {
+  0% {
+    clip-path: inset(0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+@keyframes subscribe-title-mask-in {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  100% {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes subscribe-title-shift-out {
+  0% {
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  100% {
+    transform: translateY(-.08em);
+    filter: blur(1.5px);
+  }
+}
+
+@keyframes subscribe-title-shift-in {
+  0% {
+    transform: translateY(.08em);
+    filter: blur(1.5px);
+  }
+
+  100% {
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .subscribe__title[data-state] .subscribe__title-text[data-title] {
+    animation: none;
+  }
+}
