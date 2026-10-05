@@ -1,0 +1,177 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
+
+.categories {
+  @include mix.section;
+
+  &__title {
+    @include mix.section-title;
+  }
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 40px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 60px 40px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 20px 30px;
+    transition: background .5s ease;
+    gap: 50px;
+    border-radius: 50px;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+    &:nth-child(1) {
+      background-image: linear-gradient(180deg, rgb(from vars.$category-breakfast r g b / 0%) 0%, rgb(from vars.$category-breakfast r g b / 10%) 100%);
+
+      & > .categories__img {
+        filter: drop-shadow(15px 20px 20px rgb(from vars.$category-breakfast r g b / 40%));
+      }
+    }
+
+    &:nth-child(2) {
+      background-image: linear-gradient(180deg, rgb(from vars.$category-vegan r g b / 0%) 0%, rgb(from vars.$category-vegan r g b / 10%) 100%);
+
+      & > .categories__img {
+        filter: drop-shadow(15px 20px 20px rgb(from vars.$category-vegan r g b / 40%));
+      }
+    }
+
+    &:nth-child(3) {
+      background-image: linear-gradient(180deg, rgb(from vars.$category-meat r g b / 0%) 0%, rgb(from vars.$category-meat r g b / 10%) 100%);
+
+      & > .categories__img {
+        filter: drop-shadow(12px 20px 20px rgb(from vars.$category-meat r g b / 30%));
+      }
+    }
+
+    &:nth-child(4) {
+      background-image: linear-gradient(180deg, rgb(from vars.$category-dessert r g b / 0%) 0%, rgb(from vars.$category-dessert r g b / 10%) 100%);
+
+      & > .categories__img {
+        filter: drop-shadow(15px 20px 20px rgb(from vars.$category-dessert r g b / 40%));
+      }
+    }
+
+    &:nth-child(5) {
+      background-image: linear-gradient(180deg, rgb(from vars.$category-lunch r g b / 0%) 0%, rgb(from vars.$category-lunch r g b / 10%) 100%);
+
+      & > .categories__img {
+        filter: drop-shadow(15px 20px 20px rgb(from vars.$category-lunch r g b / 40%));
+      }
+    }
+
+    &:nth-child(6) {
+      background-image: linear-gradient(180deg, rgb(from vars.$category-chocolate r g b / 0%) 0%, rgb(from vars.$category-chocolate r g b / 10%) 100%);
+
+      & > .categories__img {
+        filter: drop-shadow(15px 20px 20px rgb(from vars.$category-chocolate r g b / 40%));
+      }
+    }
+
+    @include mix.hover-or-focus {
+      background-size: 100% 100%;
+
+      &:nth-child(1) {
+        background-image: linear-gradient(180deg, rgb(from vars.$category-breakfast r g b / 0%) 0%, rgb(from vars.$category-breakfast r g b / 20%) 100%);
+      }
+
+      &:nth-child(2) {
+        background-image: linear-gradient(180deg, rgb(from vars.$category-vegan r g b / 0%) 0%, rgb(from vars.$category-vegan r g b / 20%) 100%);
+      }
+
+      &:nth-child(3) {
+        background-image: linear-gradient(180deg, rgb(from vars.$category-meat r g b / 0%) 0%, rgb(from vars.$category-meat r g b / 20%) 100%);
+      }
+
+      &:nth-child(4) {
+        background-image: linear-gradient(180deg, rgb(from vars.$category-dessert r g b / 0%) 0%, rgb(from vars.$category-dessert r g b / 20%) 100%);
+      }
+
+      &:nth-child(5) {
+        background-image: linear-gradient(180deg, rgb(from vars.$category-lunch r g b / 0%) 0%, rgb(from vars.$category-lunch r g b / 20%) 100%);
+      }
+
+      &:nth-child(6) {
+        background-image: linear-gradient(180deg, rgb(from vars.$category-chocolate r g b / 0%) 0%, rgb(from vars.$category-chocolate r g b / 20%) 100%);
+      }
+
+      .categories__img {
+        transform: scale(1.1);
+
+        @media (prefers-reduced-motion: reduce) {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  &__img {
+    width: 100px;
+    aspect-ratio: 1;
+    margin: 0 auto;
+    transition: transform .5s ease;
+  }
+
+  &__name-wrapper {
+    width: fit-content;
+    text-align: center;
+  }
+
+  &__name {
+    @include mix.text-overflow(2);
+
+    font-weight: 600;
+    font-size: func.rem(18);
+    line-height: 120%;
+    letter-spacing: -0.02em;
+
+    &::before {
+      @include mix.stretched-link;
+    }
+  }
+}
+
+@include mix.down(desktop-small) {
+  .categories__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@include mix.down(laptop) {
+  .categories__list {
+    gap: 40px 16px;
+  }
+
+  .categories__item {
+    gap: 30px;
+  }
+}
+
+@include mix.down(mobile-wide) {
+  .categories__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include mix.down(mobile) {
+  .categories__list {
+    grid-template-columns: 1fr;
+  }
+}

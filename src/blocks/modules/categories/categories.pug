@@ -1,0 +1,37 @@
+mixin category(data)
+  li.categories__item
+    +img(data.img, '').categories__img
+    h3.categories__name-wrapper
+      a(href='#').categories__name= data.name
+
+section(aria-labelledby='categories-heading').content__container.categories
+  div.categories__header
+    h2#categories-heading.categories__title Categories
+    a(href='#').button.button_secondary
+      span.button__text.button__text_secondary
+        | View All Categories
+  ul.categories__list
+    +category({
+      img: './img/category-breakfast',
+      name: 'Breakfast'
+    })
+    +category({
+      img: './img/category-vegan',
+      name: 'Vegan'
+    })
+    +category({
+      img: './img/category-meat',
+      name: 'Meat'
+    })
+    +category({
+      img: './img/category-dessert',
+      name: 'Dessert'
+    })
+    +category({
+      img: './img/category-lunch',
+      name: 'Lunch'
+    })
+    +category({
+      img: './img/category-chocolate',
+      name: 'Chocolate'
+    })

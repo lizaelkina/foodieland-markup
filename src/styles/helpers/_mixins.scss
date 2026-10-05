@@ -12,6 +12,21 @@
   padding-left: 16px;
 }
 
+// section
+@mixin section {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  @include down(desktop-small) {
+    gap: 60px;
+  }
+
+  @include down(laptop) {
+    gap: 40px;
+  }
+}
+
 // title-wrapper
 @mixin title-wrapper {
   display: flex;
