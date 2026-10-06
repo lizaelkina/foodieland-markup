@@ -84,6 +84,12 @@ mixin page-heading(data)
     if data.subtitle
       p.heading__subtitle(class=data.sizeSubtitle)!= data.subtitle
 
+mixin section-heading(data)
+  hgroup.heading&attributes(attributes)
+    h2.heading__title-section(id= data.id class=data.sizeTitle)!= data.title
+    if data.subtitle
+      p.heading__subtitle(class=data.sizeSubtitle)= data.subtitle
+
 mixin button(name)
   a(href='#').button&attributes(attributes)
     span.button__text= name
