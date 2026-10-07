@@ -1,0 +1,204 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
+
+.card-inst {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 290px;
+  height: 100%;
+  border-radius: 8px;
+  background-color: #fff;
+  color: vars.$text-inst;
+
+  @media (forced-colors: active) {
+    forced-color-adjust: none;
+  }
+
+  @include mix.hover-or-focus {
+    .card-inst__img {
+      @include mix.img-hover-card;
+    }
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 25px 1fr 11px;
+    align-items: center;
+    gap: 1px 8px;
+    padding: 7px 12px 8px 7px;
+  }
+
+  &__avatar {
+    grid-column: 1;
+    grid-row: span 2;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: vars.$primary;
+  }
+
+  &__acc {
+    @include mix.text-instagram;
+
+    display: flex;
+    align-items: center;
+    grid-column: 2;
+    grid-row: 1;
+    gap: 3px;
+    font-weight: 600;
+    font-size: func.rem(10);
+    letter-spacing: -0.01em;
+
+    &::after {
+      content: "";
+      display: block;
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      background-image: url("../img/verification.webp");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  &__place {
+    @include mix.text-instagram;
+
+    grid-column: 2;
+    grid-row: 2;
+    font-size: func.rem(8);
+    line-height: 125%;
+    letter-spacing: 0.01em;
+  }
+
+  &__more {
+    grid-column: 3;
+    grid-row: span 2;
+    width: 11px;
+    height: 3px;
+  }
+
+  &__img-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__img {
+    @include mix.img-hover;
+
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: vars.$like;
+  }
+
+  &__number {
+    @include mix.text-instagram;
+
+    display: block;
+    position: absolute;
+    top: 11px;
+    right: 11px;
+    width: fit-content;
+    padding: 4px 7px;
+    border-radius: 10px;
+    background: rgb(18 18 18 / 70%);
+    font-size: func.rem(9);
+    line-height: 125%;
+    color: vars.$text-inst-light;
+  }
+
+  &__nav {
+    display: grid;
+    align-items: center;
+    position: relative;
+    padding: 11px 12px;
+    grid-template-columns: repeat(3, fit-content(100%)) 1fr fit-content(100%);
+    gap: 13px;
+  }
+
+  &__like {
+    grid-column: 1;
+    width: 18px;
+    height: 16px;
+    fill: currentcolor;
+  }
+
+  &__comment {
+    grid-column: 2;
+    width: 17px;
+    height: 17px;
+    fill: currentcolor;
+  }
+
+  &__messenger {
+    grid-column: 3;
+    width: 18px;
+    height: 15px;
+    fill: currentcolor;
+  }
+
+  &__pagination {
+    @include mix.position-center;
+
+    width: 20px;
+    height: 5px;
+    fill: currentcolor;
+  }
+
+  &__save {
+    grid-column: 5;
+    width: 16px;
+    height: 17px;
+    fill: currentcolor;
+  }
+
+  &__users-wrapper {
+    display: grid;
+    flex-grow: 1;
+    align-items: center;
+    padding: 0 12px 11px;
+    grid-template-columns: 14px 1fr;
+    gap: 4px;
+  }
+
+  &__users-avatar {
+    grid-column: 1;
+    grid-row: 1;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: vars.$like;
+  }
+
+  &__users-text {
+    @include mix.text-instagram;
+
+    grid-column: 2;
+    grid-row: 1;
+    font-size: func.rem(10);
+    letter-spacing: -0.01em;
+  }
+
+  &__title {
+    @include mix.text-instagram;
+
+    grid-column: span 2;
+    grid-row: 2;
+    font-size: func.rem(10);
+    letter-spacing: -0.01em;
+  }
+
+  &__date {
+    @include mix.text-instagram;
+
+    grid-column: span 2;
+    grid-row: 3;
+    margin-top: 4px;
+    font-size: func.rem(9);
+    line-height: 120%;
+    color: vars.$text-placeholder;
+  }
+}

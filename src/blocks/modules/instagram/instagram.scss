@@ -1,0 +1,51 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+
+.instagram {
+  width: 100%;
+  max-width: var(--page-slider-max-width);
+  background-image: vars.$card-gradient;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  &__container {
+    @include mix.section;
+
+    align-items: center;
+    padding-bottom: 80px;
+  }
+
+  &__heading {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  &__slider {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  &__slide {
+    max-width: 290px;
+    height: auto;
+  }
+}
+
+@include mix.down(desktop-small) {
+  .instagram__container {
+    padding-bottom: 60px;
+  }
+}
+
+@include mix.down(laptop) {
+  .instagram__container {
+    padding-bottom: 40px;
+  }
+}
+
+@include mix.up(desktop-wide) {
+  .instagram {
+    @include mix.opacity-block;
+  }
+}

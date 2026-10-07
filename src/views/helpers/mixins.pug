@@ -135,3 +135,24 @@ mixin slide(data)
         '(max-width: 1024px) 36vw, ' +
         '(max-width: 1200px) 40vw, ' +
         '(max-width: 1400px) calc(51.5vw - 62px), 660px').slide__img
+
+mixin post(data)
+  a(href='#' target='_blank' rel='noopener' aria-label=`Open the Instagram post ${data.title} (opens in new tab)`).card-inst
+    div.card-inst__header
+      +img('./img/inst-logo', '').card-inst__avatar
+      span.card-inst__acc Foodieland.
+      span.card-inst__place Tokyo, Japan
+      +svg('inst-more').card-inst__more
+    div.card-inst__img-wrapper
+      +img(data.img, '').card-inst__img
+      div(aria-hidden='true').card-inst__number 1/3
+    div(aria-hidden='true').card-inst__nav
+      +svg('inst-like').card-inst__like
+      +svg('inst-comment').card-inst__comment
+      +svg('inst-messenger').card-inst__messenger
+      +svg('inst-pagination').card-inst__pagination
+      +svg('inst-save').card-inst__save
+    div.card-inst__users-wrapper
+      +img('./img/inst-avatar', '').card-inst__users-avatar
+      span.card-inst__users-text Liked by #[strong craig_love] and #[strong 44,686 others]
+      h3.card-inst__title #[strong(aria-hidden='true') Foodieland.] #{data.title}
