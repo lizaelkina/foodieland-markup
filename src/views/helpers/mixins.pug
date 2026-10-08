@@ -156,3 +156,11 @@ mixin post(data)
       +img('./img/inst-avatar', '').card-inst__users-avatar
       span.card-inst__users-text Liked by #[strong craig_love] and #[strong 44,686 others]
       h3.card-inst__title #[strong(aria-hidden='true') Foodieland.] #{data.title}
+
+mixin promo
+  aside(aria-labelledby='promo-heading').promo&attributes(attributes)
+    h3#promo-heading.promo__title
+      | Don’t forget to eat healthy food
+    div.promo__media
+      +img('./img/promo', 'Salad with grilled salmon').promo__img
+    +external-link('www.foodieland.com', '#').promo__link
