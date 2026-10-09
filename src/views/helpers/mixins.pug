@@ -157,6 +157,36 @@ mixin post(data)
       span.card-inst__users-text Liked by #[strong craig_love] and #[strong 44,686 others]
       h3.card-inst__title #[strong(aria-hidden='true') Foodieland.] #{data.title}
 
+mixin recipe-big(data)
+  article.card-recipe.card-recipe_big&attributes(attributes)
+    div.card-recipe__img-wrapper
+      +img(data.img, '').card-recipe__img.card-recipe__img_big
+      button(
+        type='button'
+        aria-pressed=data.like ? 'true' : 'false'
+        aria-label=`Like ${data.title}`).card-recipe__like.card-recipe__like_big.js-card-recipe-like
+        +svg('like').card-recipe__svg
+    h3.card-recipe__title-wrapper
+      a(href='#').card-recipe__title= data.title
+    div.card-recipe__labels
+      +label-timer('30 Minutes')
+      +label-category(data.category)
+
+mixin recipe-small(data)
+  article.card-recipe&attributes(attributes)
+    div.card-recipe__img-wrapper
+      +img(data.img, '').card-recipe__img
+      button(
+        type='button'
+        aria-pressed=data.like ? 'true' : 'false'
+        aria-label=`Like ${data.title}`).card-recipe__like.js-card-recipe-like
+        +svg('like').card-recipe__svg
+    h3.card-recipe__title-wrapper
+      a(href='#').card-recipe__title.card-recipe__title_small= data.title
+    div.card-recipe__labels
+      +label-timer('30 Minutes')
+      +label-category(data.category)
+
 mixin promo
   aside(aria-labelledby='promo-heading').promo&attributes(attributes)
     h3#promo-heading.promo__title

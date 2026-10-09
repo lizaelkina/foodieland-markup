@@ -1,0 +1,111 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
+
+.card-recipe {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  gap: 16px;
+
+  @include mix.hover-or-focus {
+    .card-recipe__img {
+      @include mix.img-hover-card;
+    }
+  }
+
+  &_big {
+    gap: 24px;
+    padding: 16px 16px 32px;
+    border-radius: 30px;
+    background-image: vars.$card-gradient;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  &__img-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+
+  &__img {
+    @include mix.img-hover;
+
+    width: 100%;
+    aspect-ratio: 290 / 200;
+    background-color: vars.$promo;
+
+    &_big {
+      aspect-ratio: 368 / 250;
+    }
+  }
+
+  &__like {
+    @include mix.focus-ring-contrast;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+    top: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: vars.$secondary;
+    cursor: pointer;
+
+    @include mix.hover-or-focus {
+      .card-recipe__svg {
+        transform: scale(1.2);
+      }
+    }
+
+    &[aria-pressed="true"] .card-recipe__svg {
+      fill: vars.$like-active;
+    }
+
+    &_big {
+      top: 20px;
+      right: 20px;
+    }
+  }
+
+  &__svg {
+    width: 24px;
+    height: 24px;
+    fill: vars.$like;
+    transition: transform .5s ease, fill .5s ease;
+  }
+
+  &__title-wrapper {
+    flex-grow: 1;
+  }
+
+  &__title {
+    @include mix.card-title;
+    @include mix.text-overflow(2);
+
+    &_small {
+      font-size: func.rem(18);
+      line-height: 144%;
+      margin-bottom: 8px;
+    }
+
+    &::before {
+      @include mix.stretched-link;
+    }
+  }
+
+  &__labels {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+}

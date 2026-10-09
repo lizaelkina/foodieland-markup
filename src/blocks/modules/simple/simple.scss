@@ -1,0 +1,82 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+
+.simple {
+  @include mix.section;
+
+  @include mix.not-down(mobile-wide) {
+    &__container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    &__slider, &__slider-wrapper {
+      display: contents;
+    }
+
+    &__navigation {
+      display: none;
+    }
+
+    &__promo {
+      grid-column: 3;
+      grid-row: 2;
+    }
+  }
+
+  &__heading {
+    padding: 0 16px;
+  }
+}
+
+@include mix.down(laptop) {
+  .simple__container {
+    gap: 30px;
+  }
+}
+
+@include mix.down(laptop-small) {
+  .simple__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 16px;
+  }
+
+  .simple__promo {
+    grid-column: span 2;
+    grid-row: 3;
+  }
+}
+
+@include mix.down(mobile-wide) {
+  .simple__container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0;
+  }
+
+  .simple__slider {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 16px;
+  }
+
+  .simple__slider-wrapper {
+    display: flex;
+  }
+
+  .simple__slide {
+    max-width: 400px;
+    height: auto;
+  }
+
+  .simple__promo {
+    padding: 0 16px;
+  }
+
+  .simple__navigation, .simple__pagination {
+    display: block;
+  }
+}
