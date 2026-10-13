@@ -1,0 +1,67 @@
+section(aria-labelledby='try-heading').recipes
+  +section-heading({
+    id: 'try-heading',
+    title: 'Try this delicious recipe to make your day',
+    subtitle: 'Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim',
+    sizeTitle: 'heading__title-section_type_row',
+    sizeSubtitle: 'heading__subtitle_type_row',
+  }).heading_row.recipes__heading
+  div.content__container.recipes__container.recipes__container_try
+    //- = down('mobile-wide'); must match not-down(mobile-wide) in recipes.scss
+    div.swiper.recipes__slider.js-recipes-slider(data-swiper-media='(max-width: 640px)')
+      div.swiper-wrapper.recipes__slider-wrapper
+        div.swiper-slide.recipes__slide.recipes__slide_try
+          +recipe-small({
+            img: './img/recipe-9',
+            title: 'Mixed Tropical Fruit Salad with Superfood Boosts',
+            category: 'Healthy',
+            like: true,
+          })
+        div.swiper-slide.recipes__slide.recipes__slide_try
+          +recipe-small({
+            img: './img/recipe-10',
+            title: 'Big and Juicy Wagyu Beef Cheeseburger',
+            category: 'Western',
+          })
+        div.swiper-slide.recipes__slide.recipes__slide_try
+          +recipe-small({
+            img: './img/recipe-11',
+            title: 'Healthy Japanese Fried Rice with Asparagus',
+            category: 'Healthy',
+            like: true,
+          })
+        div.swiper-slide.recipes__slide.recipes__slide_try
+          +recipe-small({
+            img: './img/recipe-12',
+            title: 'Cauliflower Walnut Vegetarian Taco Meat',
+            category: 'Eastern',
+          })
+        div.swiper-slide.recipes__slide.recipes__slide_try
+          +recipe-small({
+            img: './img/recipe-13',
+            title: 'Rainbow Chicken Salad with Almond Honey Mustard Dressing',
+            category: 'Healthy',
+            like: true,
+          })
+        div.swiper-slide.recipes__slide.recipes__slide_try
+          +recipe-small({
+            img: './img/recipe-14',
+            title: 'Barbeque Spicy Sandwiches with Chips',
+            category: 'Snack',
+          })
+        div.swiper-slide.recipes__slide.recipes__slide_try
+          +recipe-small({
+            img: './img/recipe-15',
+            title: 'Firecracker Vegan Lettuce Wraps - Spicy!',
+            category: 'Seafood',
+          })
+        div.swiper-slide.recipes__slide.recipes__slide_try
+          +recipe-small({
+            img: './img/recipe-16',
+            title: 'Chicken Ramen Soup with Mushroom',
+            category: 'Japanese',
+            like: true,
+          })
+      div.recipes__navigation
+        +swiper-navigation('js-recipes-button-prev', 'js-recipes-button-next')
+      div.swiper-pagination.recipes__pagination.recipes__pagination_try.js-recipes-pagination

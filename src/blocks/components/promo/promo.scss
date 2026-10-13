@@ -16,7 +16,7 @@
   isolation: isolate;
   background: vars.$promo-gradient;
 
-  &_simple {
+  &_recipes {
     padding: 20px;
   }
 
@@ -78,21 +78,21 @@
 }
 
 @include mix.down(desktop-small) {
-  .promo_simple {
+  .promo_recipes {
     gap: 20px;
   }
 
-  .promo_simple .promo__media {
+  .promo_recipes .promo__media {
     width: 158px;
   }
 }
 
 @include mix.down(laptop-small) {
-  .promo_simple {
+  .promo_recipes {
     padding: 40px 40px 32px;
   }
 
-  .promo_simple .promo__media {
+  .promo_recipes .promo__media {
     width: 198px;
   }
 }

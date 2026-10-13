@@ -1,67 +1,67 @@
-section(aria-labelledby='simple-heading').simple
+section(aria-labelledby='simple-heading').recipes
   +section-heading({
     id: 'simple-heading',
     title: 'Simple and tasty recipes',
     subtitle: 'Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim',
     sizeSubtitle: 'heading__subtitle_type_small',
-  }).simple__heading
-  div.simple__container.content__container
-    //- = down('mobile-wide'); must match not-down(mobile-wide) in simple.scss
-    div.swiper.simple__slider.js-simple-slider(data-swiper-media='(max-width: 640px)')
-      div.swiper-wrapper.simple__slider-wrapper
-        div.swiper-slide.simple__slide
+  }).recipes__heading
+  div.content__container.recipes__container
+    //- = down('mobile-wide'); must match not-down(mobile-wide) in recipes.scss
+    div.swiper.recipes__slider.js-recipes-slider(data-swiper-media='(max-width: 640px)')
+      div.swiper-wrapper.recipes__slider-wrapper
+        div.swiper-slide.recipes__slide
           +recipe-big({
             img: './img/recipe-1',
             title: 'Big and Juicy Wagyu Beef Cheeseburger',
             category: 'Snack',
             like: true,
           })
-        div.swiper-slide.simple__slide
+        div.swiper-slide.recipes__slide
           +recipe-big({
             img: './img/recipe-2',
             title: 'Fresh Lime Roasted Salmon with Ginger Sauce',
             category: 'Fish',
           })
-        div.swiper-slide.simple__slide
+        div.swiper-slide.recipes__slide
           +recipe-big({
             img: './img/recipe-3',
             title: 'Strawberry Oatmeal Pancake with Honey Syrup',
             category: 'Breakfast',
           })
-        div.swiper-slide.simple__slide
+        div.swiper-slide.recipes__slide
           +recipe-big({
             img: './img/recipe-4',
             title: 'Fresh and Healthy Mixed Mayonnaise Salad',
             category: 'Healthy',
             like: true,
           })
-        div.swiper-slide.simple__slide
+        div.swiper-slide.recipes__slide
           +recipe-big({
             img: './img/recipe-5',
             title: 'Chicken Meatballs with Cream Cheese',
             category: 'Meat',
           })
-        div.swiper-slide.simple__slide
+        div.swiper-slide.recipes__slide
           +recipe-big({
             img: './img/recipe-6',
             title: 'Fruity Pancake with Orange & Blueberry',
             category: 'Sweet',
             like: true,
           })
-        div.swiper-slide.simple__slide
+        div.swiper-slide.recipes__slide
           +recipe-big({
             img: './img/recipe-7',
             title: 'The Best Easy One Pot Chicken and Rice',
             category: 'Chicken',
           })
-        div.swiper-slide.simple__slide
+        div.swiper-slide.recipes__slide
           +recipe-big({
             img: './img/recipe-8',
             title: 'The Creamiest Creamy Chicken and Bacon Pasta',
             category: 'Noodles',
           })
-      div.simple__navigation
-        +swiper-navigation('js-simple-button-prev', 'js-simple-button-next')
-      div.swiper-pagination.simple__pagination.js-simple-pagination
-    div.simple__promo
-      +promo.promo_simple
+      div.recipes__navigation
+        +swiper-navigation('js-recipes-button-prev', 'js-recipes-button-next')
+      div.swiper-pagination.recipes__pagination.js-recipes-pagination
+    div.recipes__promo
+      +promo.promo_recipes

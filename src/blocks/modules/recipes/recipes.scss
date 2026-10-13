@@ -1,7 +1,7 @@
 @use "../../../styles/helpers/variables" as vars;
 @use "../../../styles/helpers/mixins" as mix;
 
-.simple {
+.recipes {
   @include mix.section;
 
   @include mix.not-down(mobile-wide) {
@@ -9,6 +9,10 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 40px;
+
+      &_try {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     &__slider, &__slider-wrapper {
@@ -26,57 +30,79 @@
   }
 
   &__heading {
-    padding: 0 16px;
+    @include mix.container;
   }
 }
 
-@include mix.down(laptop) {
-  .simple__container {
+@include mix.down(desktop-small) {
+  .recipes__container {
     gap: 30px;
+
+    &_try {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
 
 @include mix.down(laptop-small) {
-  .simple__container {
+  .recipes__container {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 16px;
+
+    &_try {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
-  .simple__promo {
+  .recipes__promo {
     grid-column: span 2;
     grid-row: 3;
   }
 }
 
+@include mix.down(tablet-wide) {
+  .recipes__container_try {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @include mix.down(mobile-wide) {
-  .simple__container {
+  .recipes__container {
     display: flex;
     flex-direction: column;
     gap: 30px;
     padding: 0;
   }
 
-  .simple__slider {
+  .recipes__slider {
     display: block;
     width: 100%;
     overflow: hidden;
     padding: 0 16px;
   }
 
-  .simple__slider-wrapper {
+  .recipes__slider-wrapper {
     display: flex;
   }
 
-  .simple__slide {
+  .recipes__slide {
     max-width: 400px;
     height: auto;
+
+    &_try {
+      max-width: 290px;
+    }
   }
 
-  .simple__promo {
+  .recipes__promo {
     padding: 0 16px;
   }
 
-  .simple__navigation, .simple__pagination {
+  .recipes__navigation, .recipes__pagination {
     display: block;
+  }
+
+  .recipes__pagination_try {
+    margin-top: 15px;
   }
 }

@@ -93,7 +93,7 @@
     @include mix.text-overflow(2);
 
     &_small {
-      font-size: func.rem(18);
+      font-size: clamp(#{func.rem(16)}, 2vw, #{func.rem(18)});
       line-height: 144%;
       margin-bottom: 8px;
     }
@@ -107,5 +107,11 @@
     display: flex;
     align-items: center;
     gap: 24px;
+  }
+}
+
+@include mix.down(desktop-small) {
+  .card-recipe__title_small {
+    margin-bottom: 0;
   }
 }
