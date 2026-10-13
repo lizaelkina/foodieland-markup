@@ -8,7 +8,8 @@
   --hero-height-diff: 40px;
   --hero-radius: 50px;
   --hero-slide-width: min(var(--hero-slide-max-width), 100% - 2 * (var(--hero-gap) + var(--hero-peek)));
-  --hero-navigation-sides-offset: calc(51% - var(--hero-slide-width) / 2 - var(--swiper-navigation-size) / 2);
+  --hero-navigation-sides-offset-desktop: calc(50.5% - var(--hero-slide-width) / 2 - var(--swiper-navigation-size) / 2 - var(--hero-gap) / 2);
+  --hero-navigation-sides-offset-laptop: calc((98% - var(--hero-slide-width)) / 2 + var(--swiper-navigation-size) / 2 + var(--hero-gap));
 
   max-width: none;
 
@@ -25,7 +26,7 @@
       transform: translateX(calc((100% - var(--hero-slide-width)) / 2));
     }
 
-    &:not(.swiper-initialized) &__slide:first-child {
+    &:not(.swiper-initialized) .hero__slide:first-child {
       --hero-card-shift: 0;
     }
   }
@@ -41,11 +42,11 @@
   }
 
   &__slider .swiper-button-prev {
-    left: var(--hero-navigation-sides-offset);
+    left: var(--hero-navigation-sides-offset-desktop);
   }
 
   &__slider .swiper-button-next {
-    right: var(--hero-navigation-sides-offset);
+    right: var(--hero-navigation-sides-offset-desktop);
   }
 }
 
@@ -73,7 +74,7 @@
     }
 
     &__slider .swiper-button-next {
-      right: var(--swiper-navigation-sides-offset);
+      right: var(--hero-navigation-sides-offset-laptop);
     }
   }
 }
@@ -82,6 +83,10 @@
   .hero {
     --hero-slide-width: 100%;
     --hero-gap: 16px;
+
+    &__slider .swiper-button-prev, &__slider .swiper-button-next {
+      display: none;
+    }
 
     &__pagination {
       display: block;

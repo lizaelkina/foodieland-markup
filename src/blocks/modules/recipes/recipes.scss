@@ -19,10 +19,6 @@
       display: contents;
     }
 
-    &__navigation {
-      display: none;
-    }
-
     &__promo {
       grid-column: 3;
       grid-row: 2;
@@ -98,11 +94,11 @@
     padding: 0 16px;
   }
 
-  .recipes__navigation, .recipes__pagination {
+  .recipes__pagination {
     display: block;
-  }
 
-  .recipes__pagination_try {
-    margin-top: 15px;
+    &_try {
+      margin-top: 15px;
+    }
   }
 }
