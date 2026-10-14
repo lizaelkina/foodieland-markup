@@ -156,6 +156,7 @@ mixin post(data)
       +img('./img/inst-avatar', '').card-inst__users-avatar
       span.card-inst__users-text Liked by #[strong craig_love] and #[strong 44,686 others]
       h3.card-inst__title #[strong(aria-hidden='true') Foodieland.] #{data.title}
+      time(datetime='09-19').card-inst__date September 19
 
 mixin recipe-big(data)
   article.card-recipe.card-recipe_big&attributes(attributes)
