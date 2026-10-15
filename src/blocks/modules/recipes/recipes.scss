@@ -1,5 +1,6 @@
 @use "../../../styles/helpers/variables" as vars;
 @use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
 
 .recipes {
   @include mix.section;
@@ -10,7 +11,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 40px;
 
-      &_try {
+      &_small {
         grid-template-columns: repeat(4, 1fr);
       }
     }
@@ -27,38 +28,32 @@
 
   &__heading {
     @include mix.container;
+
+    &_small {
+      @include mix.section-title;
+
+      align-self: center;
+      text-align: center;
+      font-size: clamp(#{func.rem(26)}, 4.5vw, #{func.rem(36)});
+    }
   }
 }
 
 @include mix.down(desktop-small) {
   .recipes__container {
-    gap: 30px;
-
-    &_try {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    gap: 24px;
   }
 }
 
-@include mix.down(laptop-small) {
+@include mix.down(laptop) {
   .recipes__container {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 16px;
-
-    &_try {
-      grid-template-columns: repeat(3, 1fr);
-    }
   }
 
   .recipes__promo {
     grid-column: span 2;
     grid-row: 3;
-  }
-}
-
-@include mix.down(tablet-wide) {
-  .recipes__container_try {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -85,7 +80,7 @@
     max-width: 400px;
     height: auto;
 
-    &_try {
+    &_small {
       max-width: 290px;
     }
   }
@@ -97,7 +92,7 @@
   .recipes__pagination {
     display: block;
 
-    &_try {
+    &_small {
       margin-top: 15px;
     }
   }
