@@ -1,0 +1,151 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
+
+.input {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  padding: 10px;
+  gap: 24px 10px;
+  border-radius: 24px;
+  background-color: vars.$secondary;
+
+  &_search {
+    max-width: 700px;
+    outline: vars.$border;
+    background-color: transparent;
+
+    @media (forced-colors: active) {
+      outline: none;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__field {
+    @include mix.text-label;
+
+    width: 100%;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 16px;
+    background-color: vars.$secondary;
+    font-size: func.rem(16);
+    color: vars.$primary;
+
+    @media (forced-colors: active) {
+      border: 1px solid currentcolor;
+    }
+
+    &_search {
+      padding: 10px 30px 10px 24px;
+    }
+
+    &::placeholder {
+      @include mix.text-label;
+
+      color: vars.$text-placeholder;
+      background-color: transparent;
+    }
+
+    &:focus, &:focus-visible {
+      border-radius: 16px;
+    }
+
+    &:-webkit-autofill, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+      @include mix.text-label;
+
+      box-shadow: 0 0 0 1000px vars.$secondary inset;
+      -webkit-text-fill-color: vars.$primary;
+      font-size: func.rem(16);
+      color: vars.$primary;
+    }
+  }
+
+  &__submit {
+    min-width: 160px;
+  }
+
+  &__clear {
+    @include mix.active-state;
+
+    display: none;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-left: -30px;
+    cursor: pointer;
+
+    @include mix.hover-or-focus {
+      &::before, &::after {
+        background-color: vars.$accent;
+      }
+    }
+
+    &::before, &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 10px;
+      width: 24px;
+      height: 2px;
+      background-color: vars.$primary;
+      transition: background-color .5s ease;
+
+      @media (forced-colors: active) {
+        forced-color-adjust: none;
+        background-color: currentcolor;
+      }
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__field:not(:placeholder-shown) + .input__clear {
+    display: block;
+  }
+}
+
+@include mix.down(mobile-wide) {
+  .input {
+    flex-direction: column;
+    padding: 0;
+    background-color: transparent;
+
+    &_search {
+      outline: none;
+    }
+
+    &__container {
+      max-width: 450px;
+    }
+
+    &__field {
+      max-width: 350px;
+      padding: 16px;
+
+      &_search {
+        max-width: none;
+        padding-right: 34px;
+        border: vars.$border;
+      }
+    }
+
+    &__clear {
+      margin-left: -34px;
+    }
+  }
+}

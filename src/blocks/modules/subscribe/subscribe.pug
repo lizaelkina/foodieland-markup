@@ -12,15 +12,15 @@ section(aria-labelledby='subscription-heading').content__container.subscribe.js-
       p.subscribe__subtitle
         | Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor
         | incididunt ut labore et dolore magna aliqut enim ad minim
-    div.subscribe__container
+    div.input
       label.visually-hidden(for='subscribe-email') Enter your email address
-      input.subscribe__input(
+      input.input__field(
         id='subscribe-email'
         required
         type='email'
         name='subscribeEmail'
         autocomplete='email'
         placeholder="Your email address...")
-      button(type='submit').button.subscribe__submit.js-subscribe-submit
+      button(type='submit').button.input__submit.js-subscribe-submit
         span.button__text Subscribe
     span.visually-hidden.js-subscribe-status(role='status')

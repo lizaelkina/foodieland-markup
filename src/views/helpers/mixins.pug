@@ -195,3 +195,17 @@ mixin promo
     div.promo__media
       +img('./img/promo', 'Salad with grilled salmon').promo__img
     +external-link('www.foodieland.com', '#').promo__link
+
+mixin search
+  search(aria-label="Search recipe")&attributes(attributes)
+    form.input.input_search
+      div.input__container
+        label.visually-hidden(for='input-field') Search recipe
+        input.input__field.input__field_search(
+          id='input-field'
+          type='search'
+          name='search'
+          placeholder="Search recipe...")
+        button(type='reset' aria-label='Clear search').input__clear
+      button(type='submit').button.input__submit.js-input-submit
+        span.button__text Search
