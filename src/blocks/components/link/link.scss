@@ -4,6 +4,7 @@
 
 .link {
   @include mix.link-hover(vars.$accent);
+  @include mix.active-state;
 
   font-weight: 500;
   font-size: func.rem(16);

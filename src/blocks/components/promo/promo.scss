@@ -63,6 +63,7 @@
   &__link {
     @include mix.text-label;
     @include mix.focus-ring-contrast;
+    @include mix.active-state;
 
     color: vars.$promo-text;
     transition: color .5s ease;
@@ -87,7 +88,7 @@
   }
 }
 
-@include mix.down(laptop-small) {
+@include mix.down(laptop) {
   .promo_recipes {
     padding: 40px 40px 32px;
   }

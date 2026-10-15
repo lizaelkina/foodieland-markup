@@ -47,6 +47,7 @@
 
   &__like {
     @include mix.focus-ring-contrast;
+    @include mix.active-state;
 
     display: flex;
     align-items: center;
@@ -63,7 +64,11 @@
 
     @include mix.hover-or-focus {
       .card-recipe__svg {
-        transform: scale(1.2);
+        scale: 1.2;
+
+        @media (prefers-reduced-motion: reduce) {
+          scale: none;
+        }
       }
     }
 
@@ -81,7 +86,7 @@
     width: 24px;
     height: 24px;
     fill: vars.$like;
-    transition: transform .5s ease, fill .5s ease;
+    transition: scale .5s ease, fill .5s ease;
   }
 
   &__title-wrapper {
@@ -91,6 +96,7 @@
   &__title {
     @include mix.card-title;
     @include mix.text-overflow(2);
+    @include mix.active-state;
 
     &_small {
       font-size: clamp(#{func.rem(16)}, 2vw, #{func.rem(18)});

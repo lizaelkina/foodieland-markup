@@ -3,8 +3,6 @@ export const BREAKPOINTS = {
   'mobile': 480,
   'mobile-wide': 640,
   'tablet': 768,
-  'tablet-wide': 800,
-  'laptop-small': 960,
   'laptop': 1024,
   'desktop-small': 1170,
   'desktop': 1200,

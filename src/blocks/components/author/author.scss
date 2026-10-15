@@ -35,6 +35,8 @@
   }
 
   &__name {
+    @include mix.active-state;
+
     align-self: end;
     grid-column: 2;
     grid-row: 1;
@@ -43,6 +45,10 @@
     font-size: func.rem(16);
     letter-spacing: -0.02em;
     color: vars.$primary;
+
+    @include mix.hover-or-focus {
+      color: vars.$accent;
+    }
 
     &::before {
       @include mix.stretched-link;

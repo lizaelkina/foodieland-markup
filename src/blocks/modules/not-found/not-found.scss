@@ -32,6 +32,7 @@
 
   &__link {
     @include mix.link-hover(vars.$accent);
+    @include mix.active-state;
 
     font: inherit;
     font-weight: 600;

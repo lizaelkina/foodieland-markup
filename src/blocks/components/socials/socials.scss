@@ -24,6 +24,7 @@
     position: relative;
     color: vars.$primary;
     transition: color .5s ease;
+    -webkit-tap-highlight-color: vars.$active;
 
     &::before {
       content: "";

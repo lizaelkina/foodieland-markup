@@ -60,6 +60,7 @@
 
   &__link {
     @include mix.link-hover(vars.$footer-accent);
+    @include mix.active-state;
 
     color: vars.$footer-accent;
   }
@@ -119,4 +120,3 @@
     align-items: flex-start;
   }
 }
-

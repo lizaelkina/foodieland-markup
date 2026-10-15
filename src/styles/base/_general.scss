@@ -65,6 +65,10 @@ button {
   background: none;
 }
 
+a, button, input, select, textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

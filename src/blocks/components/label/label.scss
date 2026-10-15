@@ -65,6 +65,8 @@
   }
 
   &_link {
+    @include mix.active-state;
+
     z-index: 3;
 
     @include mix.hover-or-focus {

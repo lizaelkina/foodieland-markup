@@ -25,6 +25,10 @@
     }
   }
 
+  @include mix.active-state {
+    transition: background-color .2s ease;
+  }
+
   @include mix.hover-or-focus {
     &:hover .burger__line, &:hover .burger__line::before, &:hover .burger__line::after {
       background-color: vars.$accent;

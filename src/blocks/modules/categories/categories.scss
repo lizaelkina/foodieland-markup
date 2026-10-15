@@ -113,10 +113,10 @@
       }
 
       .categories__img {
-        transform: scale(1.1);
+        scale: 1.1;
 
         @media (prefers-reduced-motion: reduce) {
-          transform: none;
+          scale: none;
         }
       }
     }
@@ -126,7 +126,7 @@
     width: 100px;
     aspect-ratio: 1;
     margin: 0 auto;
-    transition: transform .5s ease;
+    transition: scale .5s ease;
   }
 
   &__name-wrapper {
@@ -135,6 +135,7 @@
   }
 
   &__name {
+    @include mix.active-state;
     @include mix.text-overflow(2);
 
     font-weight: 600;

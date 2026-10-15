@@ -3,6 +3,8 @@
 @use "../../../styles/helpers/functions" as func;
 
 .card-inst {
+  @include mix.active-state;
+
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -11,6 +13,11 @@
   border-radius: 8px;
   background-color: #fff;
   color: vars.$text-inst;
+  isolation: isolate;
+
+  &:focus-visible {
+    outline-offset: -3px;
+  }
 
   @media (forced-colors: active) {
     forced-color-adjust: none;
@@ -83,6 +90,7 @@
 
   &__img-wrapper {
     position: relative;
+    z-index: -1;
     overflow: hidden;
   }
 

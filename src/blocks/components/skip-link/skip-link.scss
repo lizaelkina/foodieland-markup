@@ -1,7 +1,10 @@
 @use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
 @use "../../../styles/helpers/functions" as func;
 
 .skip-link {
+  @include mix.active-state;
+
   position: fixed;
   z-index: 10;
   top: 8px;

@@ -59,7 +59,7 @@
       @content;
 
       @media (prefers-reduced-motion: reduce) {
-        transform: none;
+        scale: none;
       }
     }
   }
@@ -69,6 +69,7 @@
   }
 }
 
+// contrast focus
 @mixin focus-ring-contrast {
   &:focus-visible {
     outline-color: vars.$secondary;
@@ -76,7 +77,20 @@
   }
 }
 
-// hover
+// active
+@mixin active-state {
+  @media (pointer: coarse) {
+    @content;
+
+    transition: background-color .3s ease;
+
+    &:active {
+      background-color: vars.$active;
+    }
+  }
+}
+
+// hover nav links
 @mixin link-hover($color) {
   position: relative;
 
@@ -112,16 +126,17 @@
   }
 }
 
+// hover images
 @mixin img-hover {
-  transition: transform .5s ease, filter .5s ease;
+  transition: scale .5s ease, filter .5s ease;
 }
 
 @mixin img-hover-card {
-  transform: scale(1.2);
+  scale: 1.2;
   filter: brightness(80%);
 
   @media (prefers-reduced-motion: reduce) {
-    transform: none;
+    scale: none;
   }
 }
 
