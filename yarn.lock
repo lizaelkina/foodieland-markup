@@ -3503,6 +3503,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"custom-event-polyfill@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "custom-event-polyfill@npm:0.3.0"
+  checksum: 10c0/5c4dd32739e8f4b3c1d2fe0e11708f3dd6f89b5efc228a1f9ac49b95f4725c66c72fbfa569508c6fcc25c39fd93a0a9865d86a7b818d9249b9890157651e92c7
+  languageName: node
+  linkType: hard
+
+"custom-select@npm:^1.1.15":
+  version: 1.1.15
+  resolution: "custom-select@npm:1.1.15"
+  dependencies:
+    custom-event-polyfill: "npm:^0.3.0"
+  checksum: 10c0/eab3b2b26370e4adb4e6b2dd032db1d9914ec16d602bc619f95bf22cf6e94668b79316d12f8531bfcbe03981ea7dead46b135f376a483d2c7970dfbd004afb6d
+  languageName: node
+  linkType: hard
+
 "debug@npm:2.6.9, debug@npm:^2.2.0":
   version: 2.6.9
   resolution: "debug@npm:2.6.9"
@@ -4394,6 +4410,7 @@ __metadata:
     babel-loader: "npm:10.1.1"
     browser-sync: "npm:3.0.4"
     cssnano: "npm:9.0.3"
+    custom-select: "npm:^1.1.15"
     eslint: "npm:10.10.0"
     favicons: "npm:7.3.1"
     gh-pages: "npm:6.3.0"

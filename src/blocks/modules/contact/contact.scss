@@ -1,0 +1,185 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+
+.contact {
+  &__form {
+    display: grid;
+    grid-template-columns: minmax(0, 400px) 1fr;
+    align-items: end;
+    gap: 48px 40px;
+  }
+
+  &__title {
+    @include mix.page-title;
+
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 32px;
+  }
+
+  &__img-wrapper {
+    display: flex;
+    justify-content: center;
+    grid-column: 1;
+    grid-row: 2;
+    border-radius: 30px;
+    background-image: vars.$card-gradient;
+    background-size: 100% 91%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 350 / 472;
+  }
+
+  &__fields-wrapper {
+    display: grid;
+    align-items: start;
+    grid-column: 2;
+    grid-row: 2;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 40px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    height: 100%;
+
+    &_textarea {
+      grid-column: span 2;
+    }
+  }
+
+  &__label {
+    @include mix.text-form-label;
+  }
+
+  &__input {
+    @include mix.text-form-input;
+
+    flex-grow: 1;
+    border: vars.$border;
+    padding: 16px 20px;
+    border-radius: 16px;
+    background-color: vars.$secondary;
+
+    &::placeholder {
+      background-color: transparent;
+    }
+
+    &:focus, &:focus-visible {
+      border-radius: 16px;
+    }
+
+    &:-webkit-autofill, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+      @include mix.text-form-input;
+
+      box-shadow: 0 0 0 1000px vars.$secondary inset;
+      -webkit-text-fill-color: vars.$text-subtitle;
+    }
+
+    &_textarea {
+      min-height: 200px;
+      resize: none;
+    }
+
+    @media (forced-colors: active) {
+      border: 1px solid currentcolor;
+    }
+  }
+
+  &__submit {
+    grid-column: 2;
+    grid-row: 3;
+    min-width: 180px;
+    padding: 24px 35px;
+    text-transform: capitalize;
+  }
+
+  &__message {
+    @include mix.text-form-input;
+
+    align-self: center;
+    grid-column: 2;
+    grid-row: 3;
+    transition: visibility .3s ease-in-out, opacity .3s ease-in-out;
+    margin-top: -105px;
+    visibility: hidden;
+    opacity: 0;
+
+    &.is-success {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+@include mix.down(desktop-small) {
+  .contact__form {
+    grid-template-columns: minmax(0, 320px) 1fr;
+    column-gap: 24px;
+  }
+
+  .contact__title {
+    margin-bottom: 12px;
+  }
+
+  .contact__img {
+    max-width: 270px;
+  }
+
+  .contact__fields-wrapper {
+    column-gap: 24px;
+  }
+}
+
+@include mix.down(laptop) {
+  .contact__form {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+
+  .contact__title {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    margin-bottom: 0;
+  }
+
+  .contact__img-wrapper {
+    display: none;
+  }
+
+  .contact__fields-wrapper {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .contact__submit {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: center;
+  }
+
+  .contact__message {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: center;
+  }
+}
+
+@include mix.down(tablet) {
+  .contact__fields-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__field_textarea {
+    grid-column: 1;
+  }
+}

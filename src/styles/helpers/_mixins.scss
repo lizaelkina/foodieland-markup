@@ -205,3 +205,20 @@
   font-weight: 400;
   line-height: 138%;
 }
+
+@mixin text-form-label {
+  font-weight: 500;
+  font-size: func.rem(12);
+  line-height: 167%;
+  letter-spacing: 0.08em;
+  color: vars.$text-subtitle;
+  text-transform: uppercase;
+}
+
+@mixin text-form-input {
+  font-weight: 400;
+  font-size: func.rem(16);
+  line-height: 171%;
+  letter-spacing: -0.02em;
+  color: vars.$text-subtitle;
+}

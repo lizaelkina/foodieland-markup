@@ -1,0 +1,55 @@
+section(aria-labelledby='contact-heading').content__container.contact
+  form(method='post').contact__form.js-contact-form
+    h1#contact-heading.contact__title Contact us
+    div.contact__img-wrapper(aria-hidden='true')
+      +img('./img/chef-2', '').contact__img
+    div.contact__fields-wrapper
+      div.contact__field
+        label(for='contact-name').contact__label Name
+        input.contact__input(
+          id='contact-name'
+          required
+          type='text'
+          name='contactName'
+          autocomplete='name'
+          placeholder="Enter your name...")
+      div.contact__field
+        label(for='contact-email').contact__label Email address
+        input.contact__input(
+          id='contact-email'
+          required
+          type='email'
+          name='contactEmail'
+          autocomplete='email'
+          placeholder="Your email address...")
+      div.contact__field
+        label(for='contact-subject').contact__label Subject
+        input.contact__input(
+          id='contact-subject'
+          required
+          type='text'
+          name='contactSubject'
+          autocomplete="on"
+          placeholder="Enter subject...")
+      div.contact__field
+        label(for='enquiry-type').contact__label.js-custom-label Enquiry type
+        select.visually-hidden.js-custom-select(
+          id='enquiry-type'
+          name='enquiryType')
+          option(value='advertising') Advertising
+          option(value='partnership') Partnership &amp; Cooperation
+          option(value='support') Technical Support
+          option(value='general') General Inquiry
+      div.contact__field.contact__field_textarea
+        label(for='contact-message').contact__label Messages
+        textarea.contact__input.contact__input_textarea(
+          id='contact-message'
+          required
+          name='contactMessage'
+          autocomplete="on"
+          placeholder="Enter your messages...")
+
+    button(type='submit').button.contact__submit.js-contact-submit
+      span.button__text Send message
+    span(aria-live='polite').contact__message.js-contact-message
+      | Thank you for your message!

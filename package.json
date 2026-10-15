@@ -99,6 +99,7 @@
     "node": ">=24.20.0"
   },
   "dependencies": {
+    "custom-select": "^1.1.15",
     "swiper": "14.2.0"
   }
 }
