@@ -32,7 +32,7 @@ section(aria-labelledby='contact-heading').content__container.contact
           autocomplete="on"
           placeholder="Enter subject...")
       div.contact__field
-        label(for='enquiry-type').contact__label.js-custom-label Enquiry type
+        label(for='enquiry-type').contact__label Enquiry type
         select.visually-hidden.js-custom-select(
           id='enquiry-type'
           name='enquiryType')
@@ -51,5 +51,5 @@ section(aria-labelledby='contact-heading').content__container.contact
 
     button(type='submit').button.contact__submit.js-contact-submit
       span.button__text Send message
-    span(aria-live='polite').contact__message.js-contact-message
-      | Thank you for your message!
+    span(aria-hidden='true').contact__message.js-contact-message Thank you for your message!
+    span.visually-hidden.js-contact-status(role='status')

@@ -43,7 +43,7 @@
     if (isTransitioning) return;
 
     isTransitioning = true;
-    submitButton.disabled = true;
+    submitButton.setAttribute('aria-disabled', 'true');
 
     try {
       subscribeForm.reset();
@@ -52,10 +52,8 @@
       await delay(SUCCESS_MESSAGE_DURATION_MS);
       liveStatus.textContent = '';
       await transitionTitleTo('default');
-    } catch (error) {
-      console.error('Error submitting the form:', error);
     } finally {
-      submitButton.disabled = false;
+      submitButton.removeAttribute('aria-disabled');
       isTransitioning = false;
     }
   }

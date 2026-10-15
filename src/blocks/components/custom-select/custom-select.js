@@ -4,7 +4,7 @@ import customSelect from 'custom-select';
 
   const SELECT_CLASSES = {
     containerClass: 'custom-select',
-    openerClass: 'custom-select__opener js-custom-select',
+    openerClass: 'custom-select__opener',
     panelClass: 'custom-select__panel',
     optionClass: 'custom-select__option',
     optgroupClass: 'custom-select__optgroup',
@@ -14,6 +14,53 @@ import customSelect from 'custom-select';
     isOpenClass: 'is-open',
   };
 
+  function setupA11y(mySelect, nativeSelect) {
+    const {opener, panel} = mySelect;
+    const container = opener.parentElement;
+    const options = [...panel.querySelectorAll(`.${SELECT_CLASSES.optionClass}`)];
+
+    nativeSelect.setAttribute('aria-hidden', 'true');
+
+    opener.removeAttribute('aria-owns');
+    opener.removeAttribute('aria-autocomplete');
+    opener.setAttribute('aria-controls', panel.id);
+    opener.setAttribute('aria-haspopup', 'listbox');
+
+    const labelId = opener.getAttribute('aria-labelledby');
+    if (labelId) {
+      panel.setAttribute('aria-labelledby', labelId);
+    }
+
+    const syncA11y = () => {
+      options.forEach((option, index) => {
+        if (!option.id) {
+          option.id = `${panel.id}-option-${index}`;
+        }
+        option.setAttribute(
+          'aria-selected',
+          String(option.classList.contains(SELECT_CLASSES.isSelectedClass))
+        );
+      });
+
+      const focusedOption = panel.querySelector(`.${SELECT_CLASSES.hasFocusClass}`);
+      const isOpen = container.classList.contains(SELECT_CLASSES.isOpenClass);
+
+      if (isOpen && focusedOption) {
+        opener.setAttribute('aria-activedescendant', focusedOption.id);
+      } else {
+        opener.removeAttribute('aria-activedescendant');
+      }
+    };
+
+    new MutationObserver(syncA11y).observe(container, {
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    syncA11y();
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.js-custom-select').forEach(nativeSelect => {
       const [mySelect] = customSelect(nativeSelect, SELECT_CLASSES);
@@ -21,6 +68,8 @@ import customSelect from 'custom-select';
 
       const {opener, panel} = mySelect;
       const NAV_KEYS = [' ', 'ArrowUp', 'ArrowDown'];
+
+      setupA11y(mySelect, nativeSelect);
 
       opener.addEventListener('keydown', (event) => {
         if (NAV_KEYS.includes(event.key)) {
@@ -38,6 +87,12 @@ import customSelect from 'custom-select';
           opener.focus();
         });
       }
+
+      nativeSelect.form?.addEventListener('reset', () => {
+        window.setTimeout(() => {
+          mySelect.value = nativeSelect.value;
+        });
+      });
 
       panel.addEventListener('custom-select:focus-outside-panel', (event) => {
         event.stopPropagation();
