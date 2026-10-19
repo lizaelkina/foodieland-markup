@@ -2,7 +2,7 @@ section(aria-labelledby='contact-heading').content__container.contact
   form(method='post').contact__form.js-contact-form
     h1#contact-heading.contact__title Contact us
     div.contact__img-wrapper(aria-hidden='true')
-      +img('./img/chef-2', '').contact__img
+      +img('./img/chef-2', '')(loading='eager' fetchpriority='high').contact__img
     div.contact__fields-wrapper
       div.contact__field
         label(for='contact-name').contact__label Name
