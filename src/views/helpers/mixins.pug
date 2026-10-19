@@ -188,13 +188,13 @@ mixin recipe-small(data)
       +label-timer('30 Minutes')
       +label-category(data.category)
 
-mixin recipe-list(data)
+mixin card-list(data)
   article.card-list&attributes(attributes)
     div.card-list__img-wrapper
       +img(data.img, '').card-list__img
     div.card-list__container
       h2.card-list__title-wrapper
-        a(href='#').card-list__title= data.title
+        a(href=data.href || '#').card-list__title= data.title
       p.card-list__subtitle= data.subtitle
       div.author.author_blog
         +img(data.authorPhoto, '').author__photo.author__photo_blog
