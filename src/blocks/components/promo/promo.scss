@@ -49,6 +49,11 @@
     }
   }
 
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
   &__title {
     width: 100%;
     max-width: 172px;
@@ -82,19 +87,17 @@
   .promo_recipes {
     gap: 20px;
   }
-
-  .promo_recipes .promo__media {
-    width: 158px;
-  }
 }
 
 @include mix.down(laptop) {
   .promo_recipes {
     padding: 40px 40px 32px;
   }
+}
 
-  .promo_recipes .promo__media {
-    width: 198px;
+@include mix.down(mobile-wide) {
+  .promo__media {
+    width: 158px;
   }
 }
 

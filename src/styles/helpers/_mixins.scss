@@ -192,6 +192,14 @@
   color: vars.$primary;
 }
 
+@mixin sidebar-title {
+  font-weight: 600;
+  font-size: clamp(#{func.rem(26)}, 2.5vw, #{func.rem(32)});
+  letter-spacing: -0.04em;
+  line-height: 122%;
+  color: vars.$primary;
+}
+
 @mixin text-subtitle {
   font-weight: 400;
   font-size: func.rem(16);
@@ -211,6 +219,14 @@
   font-weight: 600;
   font-size: clamp(#{func.rem(20)}, 2vw, #{func.rem(24)});
   line-height: 133%;
+  letter-spacing: -0.04em;
+  color: vars.$primary;
+}
+
+@mixin small-title {
+  font-weight: 600;
+  font-size: clamp(#{func.rem(16)}, 1.5vw, #{func.rem(20)});
+  line-height: 140%;
   letter-spacing: -0.04em;
   color: vars.$primary;
 }

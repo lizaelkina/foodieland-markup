@@ -1,0 +1,113 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+
+.sidebar {
+  @include mix.section;
+
+  &__articles {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__heading {
+    @include mix.sidebar-title;
+    @include mix.text-overflow(2);
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px 16px;
+  }
+
+  &__card {
+    display: grid;
+    align-items: center;
+    position: relative;
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+
+    @include mix.hover-or-focus {
+      .sidebar__img {
+        @include mix.img-hover-card;
+      }
+    }
+  }
+
+  &__img-wrapper {
+    overflow: hidden;
+    border-radius: 20px;
+  }
+
+  &__img {
+    @include mix.img-hover;
+
+    width: 100%;
+    aspect-ratio: 180 / 120;
+    background-color: vars.$promo;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__title-wrapper {
+    flex-grow: 1;
+    width: fit-content;
+  }
+
+  &__title {
+    @include mix.small-title;
+    @include mix.text-overflow(2);
+    @include mix.active-state;
+
+
+    &::before {
+      @include mix.stretched-link;
+    }
+  }
+
+  &__author {
+    @include mix.text-label;
+    @include mix.text-overflow(1);
+    @include mix.active-state;
+
+    z-index: 3;
+    width: fit-content;
+    transition: color .5s ease;
+
+    @include mix.hover-or-focus {
+      color: vars.$accent;
+    }
+  }
+
+  &__promo {
+    height: auto;
+  }
+}
+
+@include mix.down(laptop) {
+  .sidebar__list {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .sidebar__card {
+    grid-template-columns: 1fr;
+    grid-template-rows: fit-content(100%) 1fr;
+    align-items: start;
+  }
+
+  .sidebar__container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@include mix.down(mobile) {
+  .sidebar__list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -188,9 +188,18 @@ mixin recipe-small(data)
       +label-timer('30 Minutes')
       +label-category(data.category)
 
+mixin sidebar-card(data)
+  li.sidebar__card
+    div.sidebar__img-wrapper
+      +img(data.img, '').sidebar__img
+    div.sidebar__container
+      h3.sidebar__title-wrapper
+        a(href='#').sidebar__title= data.title
+      a(href='#').sidebar__author= data.author
+
 mixin promo
-  aside(aria-labelledby='promo-heading').promo&attributes(attributes)
-    h3#promo-heading.promo__title
+  article.promo&attributes(attributes)
+    h3.promo__title
       | Don’t forget to eat healthy food
     div.promo__media
       +img('./img/promo', 'Salad with grilled salmon').promo__img
