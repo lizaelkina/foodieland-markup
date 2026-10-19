@@ -4,9 +4,10 @@
 
 .author {
   display: grid;
+  position: relative;
+  width: fit-content;
   grid-template-columns: repeat(2, fit-content(100%));
   gap: 8px 16px;
-  position: relative;
 
   @include mix.hover-or-focus {
     .author__name {
@@ -85,6 +86,22 @@
   }
 }
 
+@include mix.down(desktop-small) {
+  .author {
+    &_blog {
+      gap: 4px 8px;
+    }
+
+    &__name_blog {
+      margin-right: 0;
+    }
+
+    &__date_blog {
+      gap: 7px;
+    }
+  }
+}
+
 @include mix.down(tablet) {
   .author {
     &_blog {
@@ -94,10 +111,6 @@
 
     &__photo_blog {
       grid-row: span 2;
-    }
-
-    &__name_blog {
-      margin-right: 0;
     }
 
     &__date_blog {

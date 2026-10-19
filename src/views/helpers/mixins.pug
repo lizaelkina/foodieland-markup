@@ -188,6 +188,19 @@ mixin recipe-small(data)
       +label-timer('30 Minutes')
       +label-category(data.category)
 
+mixin recipe-list(data)
+  article.card-list&attributes(attributes)
+    div.card-list__img-wrapper
+      +img(data.img, '').card-list__img
+    div.card-list__container
+      h2.card-list__title-wrapper
+        a(href='#').card-list__title= data.title
+      p.card-list__subtitle= data.subtitle
+      div.author.author_blog.card-list__author
+        +img(data.authorPhoto, '').author__photo.author__photo_blog
+        a(href='#').author__name.author__name_blog= data.authorName
+        +date(data.authorDate).author__date.author__date_blog
+
 mixin sidebar-card(data)
   li.sidebar__card
     div.sidebar__img-wrapper
@@ -206,7 +219,7 @@ mixin promo
     +external-link('www.foodieland.com', '#').promo__link
 
 mixin search
-  search(aria-label="Search recipe")&attributes(attributes)
+  search(aria-label='Search recipe')&attributes(attributes)
     form.input.input_search
       div.input__container
         label.visually-hidden(for='input-field') Search recipe
@@ -214,7 +227,7 @@ mixin search
           id='input-field'
           type='search'
           name='search'
-          placeholder="Search recipe...")
+          placeholder='Search recipe...')
         button(type='reset' aria-label='Clear search').input__clear
       button(type='submit').button.input__submit.js-input-submit
         span.button__text Search
