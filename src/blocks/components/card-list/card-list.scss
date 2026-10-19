@@ -57,22 +57,13 @@
     @include mix.text-subtitle;
     @include mix.text-overflow(2);
   }
-
-  &__author {
-    margin-top: 16px;
-  }
 }
 
 @include mix.down(desktop) {
   .card-list {
     column-gap: 24px;
-
-    &__author {
-      margin-top: 0;
-    }
   }
 }
-
 
 @include mix.down(laptop) {
   .card-list {
