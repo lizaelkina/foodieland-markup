@@ -128,7 +128,7 @@ mixin slide(data)
         +button-icon('View Recipes', 'play', data.href)
     div.slide__img-wrapper
       +img('./img/handpicked', 'Handpicked')(loading=data.isFirst ? 'eager' : null).slide__handpicked
-      +img(data.img, '')(
+      +img(data.imgSlide, '')(
         loading=data.isFirst ? 'eager' : null,
         fetchpriority=data.isFirst ? 'high' : null,
         sizes='(max-width: 800px) calc(100vw - 32px), ' +
@@ -208,7 +208,7 @@ mixin sidebar-card(data)
     div.sidebar__container
       h3.sidebar__title-wrapper
         a(href=data.href || '#').sidebar__title= data.title
-      a(href='#').sidebar__author= data.author
+      a(href='#').sidebar__author= `By ${data.authorName}`
 
 mixin promo
   article.promo&attributes(attributes)

@@ -1,8 +1,9 @@
 extends ../layouts/default
 
 block variables
-  - const page = {id: 'recipes', title: 'Recipes'}
+  - listPageData = recipesPage;
+  - const page = {id: 'recipes', title: listPageData.title}
 
 block content
-  include ../../blocks/modules/list/list-recipes/list-recipes
+  include ../../blocks/modules/list/list
   include ../../blocks/modules/subscribe/subscribe

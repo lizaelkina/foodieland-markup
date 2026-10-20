@@ -1,16 +1,15 @@
 section(aria-labelledby='blog-post-heading').content__container.post
   hgroup.heading.post__heading
-    h1#blog-post-heading.heading__title-page
-      | Full Guide to Becoming a Professional Chef
+    h1#blog-post-heading.heading__title-page= blogData.title || 'Blog'
     p.author.author_blog.post__author
-      +img('./img/author-7', '')(loading='eager' fetchpriority='high').author__photo.author__photo_blog
-      a(href='#').author__name.author__name_blog Dianne Russell
-      +date('2021-11-12').author__date.author__date_blog
+      +img(blogData.authorPhoto, '')(loading='eager').author__photo.author__photo_blog
+      a(href='#').author__name.author__name_blog= blogData.authorName
+      +date(blogData.authorDate).author__date.author__date_blog
     p.heading__subtitle.heading__subtitle_type_big
       | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       | Curabitur ac ultrices odio. Nulla at congue diam, at dignissim turpis.
       | Ut vehicula sed velit a faucibus. In feugiat vestibulum velit vel pulvinar.
-  +img('./img/blog-big', 'Chef')(loading='eager' fetchpriority='high').post__img
+  +img(blogData.imgBig, 'Chef')(loading='eager' fetchpriority='high').post__img
   div.post__container
     div.post__interview
       div.post__interview-wrapper

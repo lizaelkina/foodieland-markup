@@ -1,0 +1,21 @@
+section(aria-labelledby=listPageData.id).content__container.list
+  +page-heading({
+    id: listPageData.id,
+    title: listPageData.title,
+    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+  })
+  +search(listPageData.searchTitle).list__searh
+  div.list__container
+    ul.list__elements
+      each item in listPageData.list
+        li
+          +card-list({...item})
+    +pagination({total: listPageData.totalPages}).list__pagination
+
+    aside.sidebar.list__sidebar
+      section(aria-labelledby='sidebar-articles').sidebar__articles
+        h2#sidebar-articles.sidebar__heading= listPageData.sidebarTitle
+        ul.sidebar__list
+          each item in listPageData.sidebarList
+            +sidebar-card({...item})
+      +promo.sidebar__promo

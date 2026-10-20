@@ -2,66 +2,8 @@ section(aria-labelledby='slider-heading').content__container.content__container_
   h1#slider-heading.visually-hidden= site.name
   div.swiper.hero__slider.js-hero-slider
     div.swiper-wrapper
-      div.swiper-slide.hero__slide
-        +slide({
-          isFirst: true,
-          img: './img/slide-1',
-          title: 'Spicy delicious chicken wings',
-          subtitle: 'Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim ',
-          timer: '30 Minutes',
-          category: 'Chicken',
-          authorPhoto: './img/author-1',
-          authorName: 'John Smith',
-          authorDate: '2022-03-15',
-          href: 'recipe-details-1.html'
-        }).hero__card
-      div.swiper-slide.hero__slide
-        +slide({
-          img: './img/slide-2',
-          title: 'Health Japanese Fried Rice',
-          subtitle: 'Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim ',
-          timer: '30 Minutes',
-          category: 'Healthy',
-          authorPhoto: './img/author-2',
-          authorName: 'Leslie Alexander',
-          authorDate: '2022-03-15',
-          href: 'recipe-details-2.html'
-        }).hero__card
-      div.swiper-slide.hero__slide
-        +slide({
-          img: './img/slide-3',
-          title: 'Mixed Tropical Fruit Salad with Superfood Boosts',
-          subtitle: 'Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim ',
-          timer: '30 Minutes',
-          category: 'Healthy',
-          authorPhoto: './img/author-3',
-          authorName: 'Wade Warren',
-          authorDate: '2022-03-15',
-          href: 'recipe-details-3.html'
-        }).hero__card
-      div.swiper-slide.hero__slide
-        +slide({
-          img: './img/slide-4',
-          title: 'Big and Juicy Wagyu Beef',
-          subtitle: 'Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim ',
-          timer: '30 Minutes',
-          category: 'Western',
-          authorPhoto: './img/author-4',
-          authorName: 'Albert Flores',
-          authorDate: '2022-03-15',
-          href: 'recipe-details-4.html'
-        }).hero__card
-      div.swiper-slide.hero__slide
-        +slide({
-          img: './img/slide-5',
-          title: 'Big and Juicy Wagyu Beef Cheeseburger',
-          subtitle: 'Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim ',
-          timer: '30 Minutes',
-          category: 'Snack',
-          authorPhoto: './img/author-5',
-          authorName: 'Courtney Henry',
-          authorDate: '2022-03-15',
-          href: 'recipe-details-5.html'
-        }).hero__card
+      each item, index in recipesBig
+        div.swiper-slide.hero__slide
+          +slide({...item, isFirst: index === 0}).hero__card
     +swiper-navigation('js-hero-button-prev', 'js-hero-button-next')
     div.swiper-pagination.hero__pagination.js-hero-pagination

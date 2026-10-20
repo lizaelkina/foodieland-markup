@@ -1,7 +1,8 @@
 extends ../layouts/default
 
 block variables
-  - const page = {id: 'blog-post-1', title: 'Full Guide to Becoming a Professional Chef'}
+  - blogData = blogs[0];
+  - const page = {id: 'blog-post-1', title: blogData.title}
 
 block content
   include ../../blocks/modules/post/post
