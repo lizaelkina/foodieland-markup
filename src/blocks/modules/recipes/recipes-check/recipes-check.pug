@@ -1,5 +1,5 @@
 section(aria-labelledby='recipes-check-heading').recipes
-  h2#check-heading.recipes__heading.recipes__heading_small Check out the delicious recipe
+  h2#check-heading.recipes__heading.recipes__heading_small= checkHeading || 'Check out the delicious recipe'
   div.content__container.recipes__container.recipes__container_small
     //- = down('mobile-wide'); must match not-down(mobile-wide) in recipes.scss
     div.swiper.recipes__slider.js-recipes-slider(data-swiper-media='(max-width: 640px)')
@@ -9,20 +9,23 @@ section(aria-labelledby='recipes-check-heading').recipes
             img: './img/recipe-9',
             title: 'Mixed Tropical Fruit Salad with Superfood Boosts',
             category: 'Healthy',
-            like: true
+            like: true,
+            href: 'recipe-details-3.html'
           })
         div.swiper-slide.recipes__slide.recipes__slide_small
           +recipe-small({
             img: './img/recipe-10',
             title: 'Big and Juicy Wagyu Beef Cheeseburger',
-            category: 'Western'
+            category: 'Western',
+            href: 'recipe-details-4.html'
           })
         div.swiper-slide.recipes__slide.recipes__slide_small
           +recipe-small({
             img: './img/recipe-11',
             title: 'Healthy Japanese Fried Rice with Asparagus',
             category: 'Healthy',
-            like: true
+            like: true,
+            href: 'recipe-details-2.html'
           })
         div.swiper-slide.recipes__slide.recipes__slide_small
           +recipe-small({

@@ -94,8 +94,8 @@ mixin button(name)
   a(href='#').button&attributes(attributes)
     span.button__text= name
 
-mixin button-icon(name, icon)
-  a(href='#').button.button_icon&attributes(attributes)
+mixin button-icon(name, icon, href)
+  a(href=href || '#').button.button_icon&attributes(attributes)
     span.button__text= name
     +svg(icon).button__svg
 
@@ -125,7 +125,7 @@ mixin slide(data)
           +img(data.authorPhoto, '').author__photo
           a(href='#').author__name= data.authorName
           +date(data.authorDate).author__date
-        +button-icon('View Recipes', 'play')
+        +button-icon('View Recipes', 'play', data.href)
     div.slide__img-wrapper
       +img('./img/handpicked', 'Handpicked')(loading=data.isFirst ? 'eager' : null).slide__handpicked
       +img(data.img, '')(
@@ -168,7 +168,7 @@ mixin recipe-big(data)
         aria-label=`Like ${data.title}`).card-recipe__like.card-recipe__like_big.js-card-recipe-like
         +svg('like').card-recipe__svg
     h3.card-recipe__title-wrapper
-      a(href='#').card-recipe__title= data.title
+      a(href=data.href || '#').card-recipe__title= data.title
     div.card-recipe__labels
       +label-timer('30 Minutes')
       +label-category(data.category)
@@ -183,7 +183,7 @@ mixin recipe-small(data)
         aria-label=`Like ${data.title}`).card-recipe__like.js-card-recipe-like
         +svg('like').card-recipe__svg
     h3.card-recipe__title-wrapper
-      a(href='#').card-recipe__title.card-recipe__title_small= data.title
+      a(href=data.href || '#').card-recipe__title.card-recipe__title_small= data.title
     div.card-recipe__labels
       +label-timer('30 Minutes')
       +label-category(data.category)
@@ -207,7 +207,7 @@ mixin sidebar-card(data)
       +img(data.img, '').sidebar__img
     div.sidebar__container
       h3.sidebar__title-wrapper
-        a(href='#').sidebar__title= data.title
+        a(href=data.href || '#').sidebar__title= data.title
       a(href='#').sidebar__author= data.author
 
 mixin promo
