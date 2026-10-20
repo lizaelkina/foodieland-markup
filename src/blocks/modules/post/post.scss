@@ -1,0 +1,156 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
+
+.post {
+  @include mix.section;
+
+  &__heading {
+    gap: 32px;
+  }
+
+  &__author {
+    margin-bottom: 16px;
+  }
+
+  &__img {
+    margin-top: -16px;
+    width: 100%;
+    max-width: 1280px;
+    aspect-ratio: 1280 / 600;
+    border-radius: 30px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr fit-content(100%);
+    margin: 0 auto;
+    gap: 40px 50px;
+  }
+
+  &__interview {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 920px;
+    gap: 95px;
+  }
+
+  &__interview-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    gap: 24px;
+
+    &_img {
+      gap: 32px;
+    }
+  }
+
+  &__question {
+    @include mix.card-title;
+
+    width: 100%;
+    max-width: 705px;
+
+    &_big {
+      max-width: 855px;
+    }
+  }
+
+  &__answer {
+    @include mix.text-subtitle;
+
+    width: 100%;
+    max-width: 840px;
+  }
+
+  &__interview-img {
+    width: 100%;
+    max-width: 840px;
+    aspect-ratio: 840 / 400;
+    border-radius: 20px;
+  }
+
+  &__blockquote {
+    margin-inline: 0;
+    margin-block: -35px;
+    border-top: vars.$border;
+    border-bottom: vars.$border;
+    background: vars.$quote-gradient;
+  }
+
+  &__blockquote-text {
+    padding: 48px 40px;
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(#{func.rem(26)}, 4.5vw, #{func.rem(36)});
+    line-height: 178%;
+    letter-spacing: -0.04em;
+    color: vars.$primary;
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+    gap: 32px 16px;
+  }
+
+  &__social-title {
+    font-weight: 600;
+    font-size: func.rem(14);
+    line-height: 122%;
+    letter-spacing: 0.1em;
+    color: vars.$primary;
+    text-transform: uppercase;
+  }
+}
+
+@include mix.down(desktop-small) {
+  .post__interview {
+    gap: 70px;
+  }
+}
+
+@include mix.down(laptop) {
+  .post__author {
+    margin-bottom: 0;
+  }
+
+  .post__img {
+    margin-top: 0;
+  }
+
+  .post__interview {
+    gap: 40px;
+  }
+
+  .post__interview-wrapper {
+    padding-left: 0;
+  }
+
+  .post__blockquote {
+    margin-block: 0;
+  }
+
+  .post__blockquote-text {
+    padding: 28px;
+  }
+
+  .post__social {
+    padding-right: 0;
+  }
+}
+
+@include mix.down(tablet) {
+  .post__container {
+    grid-template-columns: 1fr;
+  }
+
+  .post__social {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

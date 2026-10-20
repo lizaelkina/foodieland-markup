@@ -48,7 +48,7 @@ mixin swiper-navigation(classPrev, classNext)
     +svg('swiper-arrow').swiper-navigation-icon
 
 mixin socials
-  ul(aria-label='Our socials').socials&attributes(attributes)
+  ul(aria-label=attributes['aria-labelledby'] ? null : 'Our socials').socials&attributes(attributes)
     each item in socials
       li
         a(

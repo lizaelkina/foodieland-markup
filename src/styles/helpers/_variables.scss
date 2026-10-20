@@ -44,6 +44,6 @@ $slide-gradient: linear-gradient(to right, transparent 0%, var(--color-2) 20%, v
 $promo-gradient: linear-gradient(to bottom, var(--color-5) 0, var(--color-6) 100%);
 $promo-mask: radial-gradient(closest-side, transparent 22%, var(--color-1) 30%, rgb(from var(--color-1) r g b / 60%) 55%, transparent 90%);
 $promo-text: rgb(from var(--color-2) r g b / 60%);
-$quote-gradient: linear-gradient(to right, rgb(from var(--color-1) r g b / 5%) 0%, var(--color-1) 100%);
+$quote-gradient: linear-gradient(to right, rgb(from var(--color-1) r g b / 5%) 0%, rgb(from var(--color-1) r g b / 0%) 100%);
 $active: rgb(from var(--color-4) r g b / 50%);
 $border: 1px solid rgb(from var(--color-1) r g b / 10%);

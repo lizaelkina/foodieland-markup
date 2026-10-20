@@ -1,0 +1,62 @@
+section(aria-labelledby='blog-post-heading').content__container.post
+  hgroup.heading.post__heading
+    h1#blog-post-heading.heading__title-page
+      | Full Guide to Becoming a Professional Chef
+    p.author.author_blog.post__author
+      +img('./img/author-7', '')(loading='eager' fetchpriority='high').author__photo.author__photo_blog
+      a(href='#').author__name.author__name_blog Dianne Russell
+      +date('2021-11-12').author__date.author__date_blog
+    p.heading__subtitle.heading__subtitle_type_big
+      | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      | Curabitur ac ultrices odio. Nulla at congue diam, at dignissim turpis.
+      | Ut vehicula sed velit a faucibus. In feugiat vestibulum velit vel pulvinar.
+  +img('./img/blog-big', 'Chef')(loading='eager' fetchpriority='high').post__img
+  div.post__container
+    div.post__interview
+      div.post__interview-wrapper
+        p.post__question
+          | How did you start out in the food industry?
+        p.post__answer
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          | Curabitur ac ultrices odio. Nulla at congue diam, at dignissim turpis.
+          | Ut vehicula sed velit a faucibus. In feugiat vestibulum velit vel pulvinar.
+          | Fusce id mollis ex. Praesent feugiat elementum ex ut suscipit.
+      div.post__interview-wrapper
+        p.post__question
+          | What do you like most about your job?
+        p.post__answer
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          | Curabitur ac ultrices odio. Nulla at congue diam, at dignissim turpis.
+          | Ut vehicula sed velit a faucibus. In feugiat vestibulum velit vel pulvinar.
+          | Fusce id mollis ex. Praesent feugiat elementum ex ut suscipit.
+      div.post__interview-wrapper.post__interview-wrapper_img
+        p.post__question
+          | What do you like most about your job?
+        +img('./img/cook', 'Chef').post__interview-img
+        p.post__answer
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          | Curabitur ac ultrices odio. Nulla at congue diam, at dignissim turpis.
+          | Ut vehicula sed velit a faucibus. In feugiat vestibulum velit vel pulvinar.
+          | Fusce id mollis ex. Praesent feugiat elementum ex ut suscipit.
+      div.post__interview-wrapper
+        p.post__question.post__question_big
+          | What would your advice be to young people looking to get their foot in the door?
+        p.post__answer
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          | Curabitur ac ultrices odio. Nulla at congue diam, at dignissim turpis.
+          | Ut vehicula sed velit a faucibus. In feugiat vestibulum velit vel pulvinar.
+          | Fusce id mollis ex. Praesent feugiat elementum ex ut suscipit.
+      blockquote.post__blockquote
+        p.post__blockquote-text
+          | “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac ultrices odio.”
+      div.post__interview-wrapper
+        p.post__question
+          | What is the biggest misconception that people have about being a professional chef?
+        p.post__answer
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          | Curabitur ac ultrices odio. Nulla at congue diam, at dignissim turpis.
+          | Ut vehicula sed velit a faucibus. In feugiat vestibulum velit vel pulvinar.
+          | Fusce id mollis ex. Praesent feugiat elementum ex ut suscipit.
+    aside.post__social
+      h2#list-social.post__social-title Share this on:
+      +socials(aria-labelledby='list-social').socials_vertical

@@ -1,0 +1,9 @@
+extends ../layouts/default
+
+block variables
+  - const page = {id: 'blog-post-1', title: 'Full Guide to Becoming a Professional Chef'}
+
+block content
+  include ../../blocks/modules/post/post
+  include ../../blocks/modules/subscribe/subscribe
+  include ../../blocks/modules/recipes/recipes-check/recipes-check
