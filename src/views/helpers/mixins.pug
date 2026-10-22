@@ -80,13 +80,13 @@ mixin logo(loadingAttr)
 
 mixin page-heading(data)
   hgroup.heading&attributes(attributes)
-    h1.heading__title-page(id= data.id class=data.sizeTitle)!= data.title
+    h1.heading__title-page(id= data.id class=data.sizeTitle)= data.title
     if data.subtitle
-      p.heading__subtitle(class=data.sizeSubtitle)!= data.subtitle
+      p.heading__subtitle(class=data.sizeSubtitle)= data.subtitle
 
 mixin section-heading(data)
   hgroup.heading&attributes(attributes)
-    h2.heading__title-section(id= data.id class=data.sizeTitle)!= data.title
+    h2.heading__title-section(id= data.id class=data.sizeTitle)= data.title
     if data.subtitle
       p.heading__subtitle(class=data.sizeSubtitle)= data.subtitle
 
@@ -99,10 +99,30 @@ mixin button-icon(name, icon, href)
     span.button__text= name
     +svg(icon).button__svg
 
+mixin button-round(name, icon)
+  button(type='button').button-round&attributes(attributes)
+    +svg(icon).button-round__svg
+    span.button-round__text= name
+
+mixin button-play-video
+  button(
+    type='button'
+    aria-label='Play video'
+    aria-haspopup='dialog'
+    aria-controls='video'
+    aria-expanded='false').play-video.details__play-video
+    +svg('play-video').play-video__svg
+
 mixin label-timer(time)
   div.label&attributes(attributes)
     +svg('timer').label__svg
     span.label__text= time
+
+mixin label-timer-details(title, time)
+  div.label&attributes(attributes)
+    +svg('timer').label__svg.label__svg_details
+    span.label__title= title
+    span.label__text.label__text_details= time
 
 mixin label-category(category)
   a(href='#').label.label_link&attributes(attributes)
@@ -247,3 +267,30 @@ mixin pagination(data)
           if hasGaps && page === 1
             li.js-pagination-gap(hidden)
               span.pagination__dots …
+
+mixin nutrition
+  article.nutrition&attributes(attributes)
+    h2#nutrition-information.nutrition__title Nutrition information
+    table(aria-labelledby='nutrition-information').nutrition__table
+      thead.visually-hidden
+        tr
+          th(scope='col') Nutrient
+          th(scope='col') Amount
+      tbody
+        tr.nutrition__table-row
+          th.nutrition__table-th(scope='row') Calories
+          td.nutrition__table-td 219.9 kcal
+        tr.nutrition__table-row
+          th.nutrition__table-th(scope='row') Total fat
+          td.nutrition__table-td 10.7 g
+        tr.nutrition__table-row
+          th.nutrition__table-th(scope='row') Protein
+          td.nutrition__table-td 7.9 g
+        tr.nutrition__table-row
+          th.nutrition__table-th(scope='row') Carbohydrate
+          td.nutrition__table-td 22.3 g
+        tr.nutrition__table-row
+          th.nutrition__table-th(scope='row') Cholesterol
+          td.nutrition__table-td 37.4 mg
+    p.nutrition__caption
+      | adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

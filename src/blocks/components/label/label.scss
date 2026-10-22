@@ -14,6 +14,15 @@
     }
   }
 
+  &__title {
+    @include mix.title-label;
+    @include mix.text-overflow(1);
+
+    align-self: end;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
   &__text {
     @include mix.text-label;
     @include mix.text-overflow(1);
@@ -24,6 +33,11 @@
       font-weight: 600;
       color: vars.$primary;
     }
+
+    &_details {
+      grid-column: 2;
+      grid-row: 2;
+    }
   }
 
   &__svg {
@@ -32,6 +46,11 @@
     height: 24px;
     fill: currentcolor;
     transition: fill .5s ease;
+
+    &_details {
+      grid-column: 1;
+      grid-row: span 2;
+    }
   }
 
   &_slide {
@@ -82,5 +101,11 @@
         }
       }
     }
+  }
+
+  &_details {
+    display: grid;
+    grid-template-columns: repeat(2, fit-content(100%));
+    gap: 8px 16px;
   }
 }

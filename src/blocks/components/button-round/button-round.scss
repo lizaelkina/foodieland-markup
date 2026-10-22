@@ -1,0 +1,44 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+
+.button-round {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  cursor: pointer;
+
+  @include mix.hover-or-focus {
+    .button-round__svg {
+      stroke: vars.$accent;
+    }
+  }
+
+  &__svg {
+    @include mix.active-state;
+
+    width: 80px;
+    height: 80px;
+    padding: 28px;
+    transition: stroke .5s ease, background-color .3s ease;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: vars.$primary;
+    border-radius: 50%;
+    background-color: vars.$background;
+  }
+
+  &__text {
+    @include mix.title-label;
+  }
+}
+
+@include mix.down(laptop) {
+  .button-round__svg {
+    width: 50px;
+    height: 50px;
+    padding: 16px;
+  }
+}

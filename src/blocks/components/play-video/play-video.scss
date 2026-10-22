@@ -1,0 +1,40 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+
+.play-video {
+  @include mix.active-state;
+  @include mix.focus-ring-contrast;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 5px solid transparent;
+  transition: border-color .5s ease, scale .5s ease, opacity .5s ease;
+  border-radius: 50%;
+  color: vars.$button-play;
+  background-color: vars.$button-play-round;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+
+  @include mix.hover-or-focus {
+    border-color: vars.$button-play;
+    scale: 1.2;
+    opacity: .9;
+  }
+
+  &__svg {
+    width: 32px;
+    height: 32px;
+    fill: currentcolor;
+  }
+}
+
+@include mix.down(tablet) {
+  .play-video {
+    width: 100px;
+    height: 100px;
+  }
+}

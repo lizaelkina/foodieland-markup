@@ -1,0 +1,71 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+
+.nutrition {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  height: 100%;
+  padding: 32px;
+  border-radius: 30px;
+  background-color: vars.$background;
+
+  @media (forced-colors: active) {
+    border: 1px solid currentcolor;
+  }
+
+  &__title {
+    @include mix.card-title;
+
+    text-transform: capitalize;
+  }
+
+  &__table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  &__table-row {
+    border-bottom: vars.$border;
+
+    &:first-child .nutrition__table-th, .nutrition__table-td {
+      padding-top: 0;
+    }
+  }
+
+  &__table-th {
+    @include mix.text-table;
+
+    text-align: left;
+    padding: 16px 0;
+    text-transform: capitalize;
+    color: vars.$text-subtitle;
+  }
+
+  &__table-td {
+    @include mix.text-table;
+
+    text-align: right;
+    padding: 16px 0;
+    color: vars.$primary;
+  }
+
+  &__caption {
+    @include mix.text-subtitle;
+
+    align-self: center;
+    width: 100%;
+    max-width: 340px;
+    margin-top: auto;
+    line-height: clamp(130%, 2vw, 150%);
+    text-align: center;
+  }
+}
+
+@include mix.down(mobile) {
+  .nutrition {
+    padding: 24px;
+  }
+}
