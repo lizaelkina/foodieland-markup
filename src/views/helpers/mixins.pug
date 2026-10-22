@@ -294,3 +294,37 @@ mixin nutrition
           td.nutrition__table-td 37.4 mg
     p.nutrition__caption
       | adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+mixin checklist(data)
+  fieldset.checklist
+    legend
+      h3.checklist__title= data.title
+    ul
+      each item in data.items
+        li.checklist__item
+          label.checklist__label
+            input(type='checkbox' checked=item.checked).checklist__input
+            span(aria-hidden='true').checklist__box
+              svg(viewBox="0 0 14 14")
+                path(pathLength="1" d="M3 7.3l2.7 2.7L11 4.5")
+            span.checklist__text= item.text
+
+mixin checklist-big(data)
+  fieldset.checklist
+    legend
+    ol.checklist__num
+      each item, index in data.items
+        li.checklist__item.checklist__item_num
+          label.checklist__label.checklist__label_num
+            input(type='checkbox' checked=item.checked).checklist__input
+            span(aria-hidden='true').checklist__box
+              svg(viewBox="0 0 14 14")
+                path(pathLength="1" d="M3 7.3l2.7 2.7L11 4.5")
+            span.checklist__text.checklist__text_num= `${index + 1}. ${item.text}`
+          if item.description
+            div.checklist__description-wrapper
+              p.checklist__description= item.description
+              if item.img
+                +img(item.img, 'Directions').checklist__img
+              if item.caption
+                p.checklist__description= item.caption

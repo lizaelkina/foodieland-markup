@@ -1,0 +1,191 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
+
+.checklist {
+  --checklist-box-size: 24px;
+  --checklist-gap: 24px;
+
+  margin: 0;
+  border: 0;
+  padding: 0;
+  min-inline-size: 0;
+
+  &__title {
+    @include mix.card-title;
+  }
+
+  &__num {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__item {
+    border-bottom: vars.$border;
+
+    &_num {
+      padding-bottom: 48px;
+
+      &:not(:first-child) {
+        padding-top: 24px;
+      }
+    }
+  }
+
+  &__label {
+    --checklist-padding-y: 33px;
+    --checklist-text-height: 22px;
+
+    @include mix.active-state;
+
+    display: block;
+    position: relative;
+    padding: var(--checklist-padding-y) 0 var(--checklist-padding-y) calc(var(--checklist-box-size) + var(--checklist-gap));
+    line-height: var(--checklist-text-height);
+    cursor: pointer;
+
+    &_num {
+      --checklist-padding-y: 24px;
+      --checklist-text-height: 26px;
+    }
+  }
+
+  &__input, &__box {
+    position: absolute;
+    top: calc(var(--checklist-padding-y) + (var(--checklist-text-height) - var(--checklist-box-size)) / 2);
+    left: 0;
+    width: var(--checklist-box-size);
+    height: var(--checklist-box-size);
+  }
+
+  &__input {
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked + .checklist__box {
+      background-color: vars.$primary;
+      border-color: vars.$primary;
+      animation: checklist-box-pop .3s ease-out;
+    }
+
+    &:checked + .checklist__box path {
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset .3s ease-out .12s;
+    }
+
+    &:checked ~ .checklist__text {
+      color: vars.$no-active;
+      background-size: 100% 1px;
+    }
+
+    &:focus-visible + .checklist__box {
+      outline: 3px solid vars.$primary;
+      outline-offset: 3px;
+    }
+  }
+
+  &__box {
+    display: grid;
+    place-items: center;
+    border: 2px solid vars.$no-active;
+    border-radius: 50%;
+    color: vars.$secondary;
+    pointer-events: none;
+    transition: background-color .2s, border-color .2s;
+
+    & svg {
+      width: 14px;
+      height: 14px;
+      overflow: visible;
+    }
+
+    & path {
+      fill: none;
+      stroke: currentcolor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset .15s ease-in;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: func.rem(18);
+    line-height: var(--checklist-text-height);
+    letter-spacing: -0.02em;
+    background: linear-gradient(currentcolor, currentcolor) no-repeat 0 55% / 0 1px;
+    transition: background-size .5s ease-in-out, color .8s;
+
+    &_num {
+      @include mix.card-title;
+
+      line-height: var(--checklist-text-height);
+    }
+  }
+
+  &__description-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin-left: calc(var(--checklist-box-size) + var(--checklist-gap));
+  }
+
+  &__description {
+    @include mix.text-subtitle;
+
+    line-height: 163%;
+    letter-spacing: -0.02em;
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 792 / 400;
+    border-radius: 20px;
+    background-color: vars.$no-active;
+  }
+}
+
+/* animation */
+@keyframes checklist-box-pop {
+  50% {
+    scale: .85;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .checklist__box, .checklist__box path, .checklist__text {
+    transition: none;
+    animation: none;
+  }
+}
+
+@include mix.down(laptop) {
+  .checklist {
+    &__item_num {
+      padding-top: 0;
+      padding-bottom: 24px;
+
+      &:not(:first-child) {
+        padding-top: 0;
+      }
+    }
+
+    &__label {
+      --checklist-padding-y: 24px;
+    }
+
+    &__description-wrapper {
+      gap: 24px;
+    }
+  }
+}
+
+@include mix.down(mobile-wide) {
+  .checklist {
+    --checklist-gap: 12px;
+  }
+}

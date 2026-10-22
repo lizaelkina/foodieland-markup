@@ -32,16 +32,16 @@
 @include mix.down(desktop-small) {
   .content {
     gap: var(--page-margin-laptop);
+
+    &:has(> section:first-child) section:first-child:not(&__container_slider, aside > section) {
+      margin-top: 20px;
+    }
   }
 }
 
 @include mix.down(laptop) {
   .content {
     gap: var(--page-margin-tablet);
-
-    &:has(> section:first-child) section:first-child:not(&__container_slider, aside > section) {
-      margin-top: 20px;
-    }
   }
 }
 
@@ -50,7 +50,7 @@
     gap: var(--page-margin-mobile);
 
     &:has(> section:first-child) section:first-child:not(&__container_slider, aside > section) {
-      margin-top: 10px;
+      margin-top: 0;
     }
   }
 }

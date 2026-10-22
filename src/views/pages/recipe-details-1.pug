@@ -1,0 +1,12 @@
+extends ../layouts/default
+
+block variables
+  - resipeData = recipesBig[0];
+  - otherRecipe = smallRecipes;
+  - const page = {id: 'recipe-details-1', title: resipeData.title};
+  - const checkHeading = 'You may like these recipe too';
+
+block content
+  include  ../../blocks/modules/details/details
+  include ../../blocks/modules/subscribe/subscribe
+  include ../../blocks/modules/recipes/recipes-check/recipes-check

@@ -1,0 +1,87 @@
+section(aria-labelledby='recipe-details-heading').content__container.details
+  div.details__header
+    h1#recipe-details-heading.details__title= resipeData.title || 'Recipe'
+    div.author.details__author
+      +img(resipeData.authorPhoto, '').author__photo
+      a(href='#').author__name= resipeData.authorName
+      +date(resipeData.authorDate).author__date
+    div.details__labels
+      div.details__column
+        +label-timer-details('Prep time', resipeData.prepTime).label_details
+      div.details__column
+        +label-timer-details('Cook time', resipeData.cookTime).label_details
+      div.details__column
+        +label-category(resipeData.category)
+    ul(aria-label='Page actions').details__buttons
+      li
+        +button-round('Print', 'printer')(onclick='window.print()')
+      li
+        +button-round('Share', 'share')(aria-haspopup='true' aria-expanded='false')
+  div.details__information
+    div.details__img-wrapper
+      +img(resipeData.imgVideo, '')(
+        loading='eager'
+        fetchpriority='high'
+        sizes='(max-width: 800px) calc(100vw - 32px), ' +
+        '(max-width: 1024px) 36vw, ' +
+        '(max-width: 1200px) 40vw, ' +
+        '(max-width: 1400px) calc(51.5vw - 62px), 660px').details__img
+      +button-play-video
+    +nutrition
+  p.details__text
+    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    | Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    | Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+  div.details__container
+    div.details__intro
+      article.details__ingredients
+        h2.details__ingredients-title Ingredients
+        +checklist({
+          title: 'For main dish',
+          items: [
+            {text: 'Lorem ipsum dolor sit amet', checked: true},
+            {text: 'Lorem ipsum dolor sit amet'},
+            {text: 'Lorem ipsum dolor sit amet'},
+            {text: 'Lorem ipsum dolor sit amet'},
+            {text: 'Lorem ipsum dolor sit amet'}
+          ]
+        })
+        +checklist({
+          title: 'For the sauce',
+          items: [
+            {text: 'Lorem ipsum dolor sit amet'},
+            {text: 'Lorem ipsum dolor sit amet'},
+            {text: 'Lorem ipsum dolor sit amet'}
+          ]
+        })
+
+      article.details__direction
+        h2.details__direction-title Directions
+        +checklist-big({
+          items: [
+            {
+              text: 'Lorem ipsum dolor sit amet',
+              description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.',
+              img: './img/cook',
+              caption: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.'
+            },
+            {
+              text: 'Lorem ipsum dolor sit amet',
+              description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.'
+            },
+            {
+              text: 'Lorem ipsum dolor sit amet',
+              description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.'
+            },
+          ]
+        })
+
+    aside.sidebar
+      section(aria-labelledby='sidebar-articles').sidebar__articles
+        h2#sidebar-articles.sidebar__heading Other Recipe
+        ul.sidebar__list
+          each item in otherRecipe
+            +sidebar-card({...item})
+      +promo.sidebar__promo
