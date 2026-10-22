@@ -10,9 +10,7 @@
   }
 
   &__container {
-    display: grid;
-    grid-template-columns: 2.1fr 1fr;
-    gap: 60px 40px;
+    @include mix.sidebar;
   }
 
   &__elements {
@@ -26,11 +24,6 @@
   &__pagination {
     grid-column: span 2;
     grid-row: 2;
-  }
-
-  &__sidebar {
-    grid-column: 2;
-    grid-row: 1;
   }
 }
 
@@ -48,7 +41,6 @@
   }
 
   .list__sidebar {
-    grid-column: 1;
     grid-row: 3;
   }
 }

@@ -99,7 +99,7 @@
 
     width: 100%;
     aspect-ratio: 1;
-    background-color: vars.$like;
+    background-color: vars.$no-active;
   }
 
   &__number {
@@ -178,7 +178,7 @@
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background-color: vars.$like;
+    background-color: vars.$no-active;
   }
 
   &__users-text {
