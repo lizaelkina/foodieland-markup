@@ -189,3 +189,44 @@
     --checklist-gap: 12px;
   }
 }
+
+@media print {
+  .checklist {
+    --checklist-gap: 12px;
+
+    .checklist__input:checked ~ .checklist__text {
+      color: vars.$primary;
+      background-size: 0;
+    }
+
+    &__item {
+      border-bottom: none;
+
+      &_num {
+        padding-top: 0;
+        padding-bottom: 12px;
+
+        &:not(:first-child) {
+          padding-top: 0;
+        }
+      }
+    }
+
+    &__label {
+      --checklist-padding-y: 12px;
+    }
+
+    &__input:checked + .checklist__box {
+      background-color: transparent;
+      border-color: vars.$no-active;
+    }
+
+    &__description-wrapper {
+      gap: 12px;
+    }
+
+    &__img {
+      max-width: 500px;
+    }
+  }
+}

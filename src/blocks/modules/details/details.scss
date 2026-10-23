@@ -1,8 +1,18 @@
 @use "../../../styles/helpers/variables" as vars;
 @use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
 
 .details {
   @include mix.section;
+
+  position: relative;
+
+  &__logo-print {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 16px;
+  }
 
   &__header {
     display: grid;
@@ -202,6 +212,35 @@
     &__buttons {
       grid-column: 1;
       grid-row: 4;
+    }
+  }
+}
+
+@media print {
+  .details {
+    gap: 20px;
+
+    &__logo-print {
+      display: block;
+    }
+
+    &__header {
+      gap: 20px;
+    }
+
+    &__title {
+      font-size: func.rem(24);
+    }
+
+    &__information {
+      grid-template-columns: 400px 1fr;
+      grid-template-rows: 450px;
+      margin-top: 0;
+      gap: 10px;
+    }
+
+    &__buttons, &__author, &__play-video {
+      display: none;
     }
   }
 }

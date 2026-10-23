@@ -13,3 +13,9 @@
 .root_no-footer-offset .page__footer {
   margin-top: 40px;
 }
+
+@media print {
+  .root_print .header, .root_print .page__footer, .root_print .subscribe, .root_print .recipes, .root_print .sidebar {
+    display: none;
+  }
+}
