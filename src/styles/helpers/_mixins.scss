@@ -2,6 +2,25 @@
 @use "variables" as vars;
 @use "functions" as func;
 
+// breakpoints
+@mixin down($name) {
+  @media (max-width: map.get(vars.$breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin up($name) {
+  @media (min-width: map.get(vars.$breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin not-down($name) {
+  @media not all and (max-width: map.get(vars.$breakpoints, $name)) {
+    @content;
+  }
+}
+
 // centered content column
 @mixin container {
   width: 100%;
@@ -61,6 +80,48 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+// cross button
+@mixin cross($size, $color) {
+  @include active-state;
+
+  position: relative;
+  width: $size;
+  height: $size;
+  cursor: pointer;
+
+  @include hover-or-focus {
+    &::before, &::after {
+      background-color: vars.$accent;
+    }
+  }
+
+  &::before, &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 6px;
+    background-color: $color;
+    transition: background-color .5s ease;
+
+    @media (forced-colors: active) {
+      forced-color-adjust: none;
+      background-color: currentcolor;
+    }
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
 }
 
 // hover and keyboard focus
@@ -165,25 +226,6 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $line;
   overflow: hidden;
-}
-
-// breakpoints
-@mixin down($name) {
-  @media (max-width: map.get(vars.$breakpoints, $name)) {
-    @content;
-  }
-}
-
-@mixin up($name) {
-  @media (min-width: map.get(vars.$breakpoints, $name)) {
-    @content;
-  }
-}
-
-@mixin not-down($name) {
-  @media not all and (max-width: map.get(vars.$breakpoints, $name)) {
-    @content;
-  }
 }
 
 // fonts

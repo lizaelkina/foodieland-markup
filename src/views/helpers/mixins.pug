@@ -107,10 +107,10 @@ mixin button-round(name, icon)
 mixin button-play-video
   button(
     type='button'
-    aria-label='Play video'
+    aria-label='Open modal video'
     aria-haspopup='dialog'
-    aria-controls='video'
-    aria-expanded='false').play-video.details__play-video
+    aria-controls='modal-video'
+    aria-expanded='false').play-video.details__play-video.js-modal-open
     +svg('play-video').play-video__svg
 
 mixin label-timer(time)

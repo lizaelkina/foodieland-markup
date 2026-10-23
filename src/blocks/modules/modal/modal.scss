@@ -1,0 +1,80 @@
+@use "../../../styles/helpers/variables" as vars;
+@use "../../../styles/helpers/mixins" as mix;
+
+.modal {
+  width: 100%;
+  max-width: 75vw;
+  overflow: visible;
+  border: none;
+  padding: 0;
+  transition: opacity .5s ease, display .5s ease;
+  background-color: transparent;
+  opacity: 0;
+  transition-behavior: allow-discrete;
+
+  &::backdrop {
+    background-color: rgb(0 0 0 / 80%);
+    opacity: 0;
+    transition: opacity .5s ease, display .5s ease;
+    transition-behavior: allow-discrete;
+  }
+
+  &[open] {
+    opacity: 1;
+
+    &::backdrop {
+      opacity: 1;
+    }
+
+    // noinspection CssInvalidAtRule
+    @starting-style {
+      opacity: 0;
+
+      &::backdrop {
+        opacity: 0;
+      }
+    }
+  }
+
+  &.is-closing {
+    opacity: 0;
+
+    &::backdrop {
+      opacity: 0;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 10px;
+  }
+
+  &__close {
+    @include mix.cross(28px, vars.$secondary);
+
+    align-self: flex-end;
+  }
+
+  &__content {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: vars.$background;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  &__iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+@include mix.down(laptop) {
+  .modal {
+    max-width: none;
+  }
+}

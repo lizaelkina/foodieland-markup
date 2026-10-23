@@ -15,7 +15,7 @@
 }
 
 @media print {
-  .root_print .header, .root_print .page__footer, .root_print .subscribe, .root_print .recipes, .root_print .sidebar {
+  .root_print .header, .root_print .footer, .root_print .menu, .root_print .modal, .root_print .subscribe, .root_print .recipes, .root_print .sidebar {
     display: none;
   }
 }

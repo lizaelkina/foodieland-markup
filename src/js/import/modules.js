@@ -4,5 +4,6 @@ import '%modules%/recipes/recipes';
 import '%modules%/instagram/instagram';
 import '%modules%/subscribe/subscribe';
 import '%modules%/contact/contact';
+import '%modules%/modal/modal';
 import '%modules%/menu/menu';
 import '%modules%/not-found/not-found';
