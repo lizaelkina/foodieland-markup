@@ -4,6 +4,7 @@ import http from 'node:http';
 import {once} from 'node:events';
 import {projectRoot, createBuild} from '../gulp-tasks/index.mjs';
 import {chromium} from 'playwright';
+import * as sass from 'sass';
 import {files, inside} from '../gulp-tasks/io.mjs';
 
 export async function fixture(t, {real = false, label = 'fixture-'} = {}) {
@@ -119,3 +120,19 @@ export function hasClass(html, name) {
 
 // Widths probed to find where a component turns on and off at the project's own breakpoints.
 export const PROBE_WIDTHS = [320, 375, 480, 600, 640, 768, 1024, 1280, 1440, 1920];
+
+// $breakpoints compiled by Sass: any formatting of the map works.
+export function readBreakpoints(rootDir) {
+  const {css} = sass.compileString('@use "variables" as v; a { @each $name, $value in v.$breakpoints { --#{$name}: #{$value}; } }', {
+    loadPaths: [path.join(rootDir, 'src/styles/helpers')]
+  });
+  return new Map([...css.matchAll(/--([\w-]+):\s*([^;]+);/g)].map(([, name, value]) => {
+    if (!/^\d+(\.\d+)?px$/.test(value.trim())) throw new Error(`$breakpoints: ${name} is ${value.trim()}, expected px`);
+    return [name, parseFloat(value)];
+  }));
+}
+
+// Slider checks run on a phone, a laptop and a wide screen, and on both sides of every breakpoint.
+export function sliderWidths(breakpoints) {
+  return [...new Set([320, 375, 1280, 1920, ...[...breakpoints.values()].flatMap(width => [width, width + 1])])].sort((a, b) => a - b);
+}
