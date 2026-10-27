@@ -2,12 +2,12 @@ mixin category(data)
   li.categories__item
     +img(data.img, '').categories__img
     h3.categories__name-wrapper
-      a(href='#').categories__name= data.name
+      a(href='recipes.html').categories__name= data.name
 
 section(aria-labelledby='categories-heading').content__container.categories
   div.categories__header
     h2#categories-heading.categories__title Categories
-    a(href='#').button.button_secondary
+    a(href='recipes.html').button.button_secondary
       span.button__text.button__text_secondary
         | View All Categories
   ul.categories__list

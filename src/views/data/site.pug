@@ -16,9 +16,9 @@
   ];
 
   const socials = [
-    {id: 'facebook', title: 'Facebook', href: '#'},
-    {id: 'twitter', title: 'Twitter', href: '#'},
-    {id: 'instagram', title: 'Instagram', href: '#'}
+    {id: 'facebook', title: 'Facebook', href: 'index.html'},
+    {id: 'twitter', title: 'Twitter', href: 'index.html'},
+    {id: 'instagram', title: 'Instagram', href: 'index.html'}
   ];
 
   const recipesBig = [
@@ -250,12 +250,12 @@
     {
       title: 'Full Guide to Becoming a Professional Chef',
       subtitle: 'Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim',
+      subtitleFull: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac ultrices odio. Nulla at congue diam, at dignissim turpis. Ut vehicula sed velit a faucibus. In feugiat vestibulum velit vel pulvinar.',
       authorPhoto: './img/author-7',
       authorName: 'Dianne Russell',
       authorDate: '2021-11-12',
       img: './img/blog-1',
       imgBig: './img/blog-big',
-      imgSmall: './img/blog-small-1',
       href: 'blog-post-1.html'
     },
     {
@@ -265,7 +265,7 @@
       authorPhoto: './img/author-3',
       authorName: 'Wade Warren',
       authorDate: '2022-03-15',
-      img: './img/recipe-16'
+      img: './img/blog-2'
     },
     {
       title: '10 Vegetarian Recipes To Eat This Month',
@@ -273,7 +273,7 @@
       authorPhoto: './img/author-6',
       authorName: 'Robert Fox',
       authorDate: '2021-11-12',
-      img: './img/recipe-9'
+      img: './img/blog-3'
     },
     {
       title: 'Simple & Delicious Vegetarian Lasagna',
@@ -281,7 +281,7 @@
       authorPhoto: './img/author-2',
       authorName: 'Leslie Alexander',
       authorDate: '2021-11-12',
-      img: './img/blog-2'
+      img: './img/blog-4'
     },
     {
       title: 'Plantain and Pinto Stew with Aji Verde',
@@ -289,7 +289,7 @@
       authorPhoto: './img/author-5',
       authorName: 'Courtney Henry',
       authorDate: '2021-11-12',
-      img: './img/blog-3'
+      img: './img/blog-5'
     },
     {
       title: 'We’re Hiring a Communications Assistant!',
@@ -297,7 +297,7 @@
       authorPhoto: './img/author-4',
       authorName: 'Albert Flores',
       authorDate: '2021-11-12',
-      img: './img/blog-4'
+      img: './img/blog-6'
     }
   ];
 
@@ -311,12 +311,14 @@
     {
       title: 'We’re Hiring a Communications Assistant!',
       authorName: 'Albert Flores',
-      img: './img/blog-small-2'
+      img: './img/blog-small-2',
+      href: 'blog.html'
     },
     {
       title: '10 Vegetarian Recipes To Eat This Month',
       authorName: 'Robert Fox',
-      img: './img/blog-small-3'
+      img: './img/blog-small-3',
+      href: 'blog.html'
     }
   ];
 
@@ -341,6 +343,7 @@
   const recipesPage = {
     id: 'recipes-heading',
     title: 'Recipes',
+    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
     searchTitle: 'Search recipe',
     list: [...recipesBig],
     totalPages: 15,
@@ -351,6 +354,7 @@
   const blogsPage = {
     id: 'blog-heading',
     title: 'Blog & Article',
+    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
     searchTitle: 'Search article, news or recipe',
     list: [...blogs],
     totalPages: 10,

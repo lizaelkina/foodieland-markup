@@ -96,12 +96,12 @@ mixin section-heading(data)
     if data.subtitle
       p.heading__subtitle(class=data.sizeSubtitle)= data.subtitle
 
-mixin button(name)
-  a(href='#').button&attributes(attributes)
+mixin button(name, href)
+  a(href=href || 'index.html').button&attributes(attributes)
     span.button__text= name
 
 mixin button-icon(name, icon, href)
-  a(href=href || '#').button.button_icon&attributes(attributes)
+  a(href=href || 'index.html').button.button_icon&attributes(attributes)
     span.button__text= name
     +svg(icon).button__svg
 
@@ -131,9 +131,38 @@ mixin label-timer-details(title, time)
     span.label__text.label__text_details= time
 
 mixin label-category(category)
-  a(href='#').label.label_link&attributes(attributes)
+  a(href='recipes.html').label.label_link&attributes(attributes)
     +svg('fork-knife').label__svg
     span.label__text= category
+
+-
+  const cardSizes = {
+    slide: [
+      '(max-width: 800px) calc(100vw - 32px)',
+      '(max-width: 1024px) 36vw',
+      '(max-width: 1200px) 40vw',
+      '(max-width: 1400px) calc(51.5vw - 62px)',
+      '660px',
+    ].join(', '),
+    recipeBig: [
+      '(max-width: 432px) calc(100vw - 64px)',
+      '(max-width: 640px) 368px',
+      '(max-width: 1024px) calc(50vw - 56px)',
+      '(max-width: 1170px) calc(33.33vw - 59px)',
+      '(max-width: 1312px) calc(33.33vw - 70px)',
+      '368px',
+    ].join(', '),
+    recipeSmall: '(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px',
+    cardList: '(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(50vw - 28px), 290px',
+    sidebar: '(max-width: 480px) calc(100vw - 32px), (max-width: 1024px) calc(33.33vw - 22px), 180px',
+    details: [
+      '(max-width: 1024px) calc(100vw - 32px)',
+      '(max-width: 1170px) calc(100vw - 406px)',
+      '(max-width: 1312px) calc(100vw - 472px)',
+      '840px',
+    ].join(', '),
+    post: '(max-width: 1312px) calc(100vw - 32px), 1280px',
+  };
 
 mixin slide(data)
   article.slide&attributes(attributes)
@@ -157,13 +186,10 @@ mixin slide(data)
       +img(data.imgSlide, '')(
         loading=data.isFirst ? 'eager' : null,
         fetchpriority=data.isFirst ? 'high' : null,
-        sizes='(max-width: 800px) calc(100vw - 32px), ' +
-        '(max-width: 1024px) 36vw, ' +
-        '(max-width: 1200px) 40vw, ' +
-        '(max-width: 1400px) calc(51.5vw - 62px), 660px').slide__img
+        sizes=cardSizes.slide).slide__img
 
-mixin post(data)
-  a(href='#' target='_blank' rel='noopener' aria-label=`Open the Instagram post ${data.title} (opens in new tab)`).card-inst
+mixin card-inst(data)
+  a(href='index.html' target='_blank' rel='noopener' aria-label=`Open the Instagram post ${data.title} (opens in new tab)`).card-inst
     div.card-inst__header
       +img('./img/inst-logo', '').card-inst__avatar
       span.card-inst__acc Foodieland.
@@ -186,41 +212,41 @@ mixin post(data)
 
 mixin recipe-big(data)
   article.card-recipe.card-recipe_big&attributes(attributes)
+    h3.card-recipe__title-wrapper
+      a(href=data.href || 'recipes.html').card-recipe__title= data.title
+    div.card-recipe__labels
+      +label-timer('30 Minutes')
+      +label-category(data.category)
     div.card-recipe__img-wrapper
-      +img(data.img, '').card-recipe__img.card-recipe__img_big
+      +img(data.img, '')(sizes=cardSizes.recipeBig).card-recipe__img.card-recipe__img_big
       button(
         type='button'
         aria-pressed=data.like ? 'true' : 'false'
         aria-label=`Like ${data.title}`).card-recipe__like.card-recipe__like_big.js-card-recipe-like
         +svg('like').card-recipe__svg
-    h3.card-recipe__title-wrapper
-      a(href=data.href || '#').card-recipe__title= data.title
-    div.card-recipe__labels
-      +label-timer('30 Minutes')
-      +label-category(data.category)
 
 mixin recipe-small(data)
   article.card-recipe&attributes(attributes)
+    h3.card-recipe__title-wrapper
+      a(href=data.href || 'recipes.html').card-recipe__title.card-recipe__title_small= data.title
+    div.card-recipe__labels
+      +label-timer('30 Minutes')
+      +label-category(data.category)
     div.card-recipe__img-wrapper
-      +img(data.img, '').card-recipe__img
+      +img(data.img, '')(sizes=cardSizes.recipeSmall).card-recipe__img
       button(
         type='button'
         aria-pressed=data.like ? 'true' : 'false'
         aria-label=`Like ${data.title}`).card-recipe__like.js-card-recipe-like
         +svg('like').card-recipe__svg
-    h3.card-recipe__title-wrapper
-      a(href=data.href || '#').card-recipe__title.card-recipe__title_small= data.title
-    div.card-recipe__labels
-      +label-timer('30 Minutes')
-      +label-category(data.category)
 
 mixin card-list(data)
   article.card-list&attributes(attributes)
     div.card-list__img-wrapper
-      +img(data.img, '').card-list__img
+      +img(data.img, '')(sizes=cardSizes.cardList).card-list__img
     div.card-list__container
       h2.card-list__title-wrapper
-        a(href=data.href || '#').card-list__title= data.title
+        a(href=data.href || 'blog.html').card-list__title= data.title
       p.card-list__subtitle= data.subtitle
       div.author.author_blog
         +img(data.authorPhoto, '').author__photo.author__photo_blog
@@ -230,10 +256,10 @@ mixin card-list(data)
 mixin sidebar-card(data)
   li.sidebar__card
     div.sidebar__img-wrapper
-      +img(data.img, '').sidebar__img
+      +img(data.img, '')(sizes=cardSizes.sidebar).sidebar__img
     div.sidebar__container
       h3.sidebar__title-wrapper
-        a(href=data.href || '#').sidebar__title= data.title
+        a(href=data.href || 'recipes.html').sidebar__title= data.title
       a(href='#').sidebar__author= `By ${data.authorName}`
 
 mixin promo
@@ -242,7 +268,7 @@ mixin promo
       | Don’t forget to eat healthy food
     div.promo__media
       +img('./img/promo', 'Salad with grilled salmon').promo__img
-    +external-link('www.foodieland.com', '#').promo__link
+    +external-link('www.foodieland.com', 'index.html').promo__link
 
 mixin search(name)
   search(aria-label=name)&attributes(attributes)
