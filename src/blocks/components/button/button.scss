@@ -8,14 +8,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: fit-content;
   min-width: 200px;
+  max-width: 100%;
   min-height: 60px;
   padding: 20px 46px;
+  transition: background-color .5s ease;
   border-radius: 16px;
   color: vars.$secondary;
   background-color: vars.$primary;
-  transition: background-color .5s ease;
   cursor: pointer;
 
   @media (forced-colors: active) {

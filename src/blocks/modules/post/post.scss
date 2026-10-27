@@ -23,7 +23,7 @@
 
   &__container {
     display: grid;
-    grid-template-columns: 1fr fit-content(100%);
+    grid-template-columns: minmax(0, 1fr) fit-content(100%);
     margin: 0 auto;
     gap: 40px 50px;
   }
@@ -145,7 +145,7 @@
 
 @include mix.down(tablet) {
   .post__container {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .post__social {

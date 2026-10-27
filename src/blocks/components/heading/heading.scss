@@ -40,6 +40,10 @@
     width: 100%;
     max-width: 840px;
 
+    &_section {
+      @include mix.text-overflow(5);
+    }
+
     &_type_big {
       max-width: 1060px;
     }

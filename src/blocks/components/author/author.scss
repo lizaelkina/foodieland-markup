@@ -6,6 +6,7 @@
   display: grid;
   position: relative;
   width: fit-content;
+  min-width: 0;
   grid-template-columns: repeat(2, fit-content(100%));
   gap: 8px 16px;
 
@@ -37,6 +38,7 @@
 
   &__name {
     @include mix.active-state;
+    @include mix.text-overflow(1);
 
     align-self: end;
     grid-column: 2;
@@ -46,6 +48,7 @@
     font-size: func.rem(16);
     letter-spacing: -0.02em;
     color: vars.$primary;
+    overflow-wrap: anywhere;
 
     @include mix.hover-or-focus {
       color: vars.$accent;

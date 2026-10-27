@@ -27,6 +27,7 @@
     @include mix.text-label;
     @include mix.text-overflow(1);
 
+    overflow-wrap: anywhere;
     transition: color .5s ease;
 
     &_hot {

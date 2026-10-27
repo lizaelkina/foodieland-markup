@@ -65,8 +65,7 @@
 
   &__information {
     display: grid;
-    grid-template-columns: 1fr 400px;
-    margin-top: -20px;
+    grid-template-columns: minmax(0, 1fr) 400px;
     gap: 40px;
   }
 
@@ -101,13 +100,15 @@
   &__ingredients {
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 48px;
+
+    & .checklist + .checklist {
+      margin-top: 16px;
+    }
   }
 
   &__ingredients-title {
     @include mix.sidebar-title;
-
-    margin-bottom: -16px;
   }
 
   &__direction {
@@ -136,12 +137,12 @@
     }
 
     &__information {
-      grid-template-columns: 1fr 350px;
+      grid-template-columns: minmax(0, 1fr) 350px;
       gap: 24px;
     }
 
     &__ingredients {
-      gap: 40px;
+      gap: 24px;
     }
   }
 }
@@ -176,10 +177,12 @@
     }
 
     &__information {
-      grid-template-columns: 1fr;
-      grid-template-rows: 450px 500px;
-      margin-top: 0;
+      grid-template-columns: minmax(0, 1fr);
       gap: 24px;
+    }
+
+    &__img {
+      height: auto;
     }
 
     &__direction {
@@ -232,11 +235,17 @@
       font-size: func.rem(24);
     }
 
+    &__labels {
+      grid-column: span 2;
+    }
+
     &__information {
-      grid-template-columns: 400px 1fr;
-      grid-template-rows: 450px;
-      margin-top: 0;
-      gap: 10px;
+      grid-template-columns: minmax(0, 1fr) .8fr;
+      gap: 5px;
+    }
+
+    &__img {
+      height: 100%;
     }
 
     &__buttons, &__author, &__play-video {

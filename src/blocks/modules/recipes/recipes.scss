@@ -8,11 +8,11 @@
   @include mix.not-down(mobile-wide) {
     &__container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 40px;
 
       &_small {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
 
@@ -47,7 +47,7 @@
 
 @include mix.down(laptop) {
   .recipes__container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 16px;
   }
 

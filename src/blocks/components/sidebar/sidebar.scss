@@ -80,6 +80,7 @@
 
     z-index: 3;
     width: fit-content;
+    overflow-wrap: anywhere;
     transition: color .5s ease;
 
     @include mix.hover-or-focus {

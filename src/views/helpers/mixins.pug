@@ -94,7 +94,7 @@ mixin section-heading(data)
   hgroup.heading&attributes(attributes)
     h2.heading__title-section(id= data.id class=data.sizeTitle)= data.title
     if data.subtitle
-      p.heading__subtitle(class=data.sizeSubtitle)= data.subtitle
+      p.heading__subtitle.heading__subtitle_section(class=data.sizeSubtitle)= data.subtitle
 
 mixin button(name, href)
   a(href=href || 'index.html').button&attributes(attributes)

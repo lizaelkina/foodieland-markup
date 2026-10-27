@@ -4,7 +4,7 @@
 .list {
   @include mix.section;
 
-  &__searh {
+  &__search {
     display: flex;
     justify-content: center;
   }
@@ -17,7 +17,7 @@
     display: grid;
     grid-column: 1;
     grid-row: 1;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 32px 24px;
   }
 
@@ -33,7 +33,7 @@
   }
 
   .list__elements {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .list__pagination {
@@ -47,6 +47,6 @@
 
 @include mix.down(mobile-wide) {
   .list__elements {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }

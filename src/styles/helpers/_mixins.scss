@@ -49,7 +49,7 @@
 // sidebar container
 @mixin sidebar {
   display: grid;
-  grid-template-columns: 2.1fr 1fr;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
   gap: 60px 40px;
 
   @include down(laptop) {
