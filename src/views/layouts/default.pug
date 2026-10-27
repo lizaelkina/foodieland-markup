@@ -18,6 +18,8 @@ html(lang=site.lang)
     meta(name="author" content=site.author)
     title= documentTitle
     != faviconHtml
+    link(rel="preload" href="fonts/Lobster.woff2" as="font" type="font/woff2" crossorigin)
+    link(rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin)
     link(rel="stylesheet" href="styles/main.css")
     block head
   body.root(class=current.bodyClass || false)

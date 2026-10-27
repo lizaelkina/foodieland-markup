@@ -72,11 +72,17 @@ mixin nav-list(place, itemClass)
         li(class=itemClass)
           +link(item.title, item.href)(aria-current=item.id != null && item.id === current.id && 'page')
 
-mixin logo(loadingAttr)
+mixin logo
   a(href='index.html').logo&attributes(attributes)
-    picture
-      source(srcset='./img/logo-2' + '.webp' media='(forced-colors: active)')
-      +img('./img/logo', `${site.name} - home`)(loading=loadingAttr).logo__img
+    span.logo__text= `${site.name}`
+    span.logo__drop
+    span.logo__drop
+    span.logo__drop
+    span.logo__drop
+    span.logo__drop
+    span.logo__drop
+    span.logo__drop
+    span.logo__drop
 
 mixin page-heading(data)
   hgroup.heading&attributes(attributes)

@@ -1,23 +1,105 @@
+@use "sass:map";
+@use "sass:list";
+@use "../../../styles/helpers/variables" as vars;
 @use "../../../styles/helpers/mixins" as mix;
 
 .logo {
   @include mix.active-state;
 
-  flex-shrink: 0;
-  width: fit-content;
-  transition: scale .5s ease;
+  display: inline-flex;
+  align-items: baseline;
+  position: relative;
 
   @include mix.hover-or-focus {
-    scale: 1.2;
+    .logo__text {
+      color: vars.$accent;
+    }
+
+    .logo__text::after {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    .logo__drop {
+      animation: logo-splash-blast 0.65s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+    }
   }
 
-  &__img {
-    width: 110px;
-    aspect-ratio: 110 / 30;
-    object-fit: contain;
+  &__text {
+    @include mix.text-overflow(1);
+
+    font-family: vars.$font-promo;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    color: vars.$primary;
+    transition: color .12s ease-out;
+
+    &::after {
+      content: ".";
+      display: inline-block;
+      color: vars.$accent;
+      transform-origin: center;
+      transition: transform .12s ease-out, opacity .12s ease-out;
+    }
   }
 
-  &:focus-visible {
-    scale: none;
+  &__drop {
+    position: absolute;
+    right: -2px;
+    bottom: 0.25em;
+    width: 7px;
+    height: 7px;
+    transform: scale(0);
+    background-color: vars.$accent;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+
+    $logo-drops-translate: (
+      1: (-35px, -50px, 0.8, 0s),
+      2: (35px, -45px, 1.1, 0.02s),
+      3: (-55px, -25px, 0.6, 0.01s),
+      4: (50px, -20px, 0.9, 0.04s),
+      5: (-15px, -65px, 1.2, 0.03s),
+      6: (15px, -60px, 0.7, 0.01s),
+      7: (-45px, -10px, 0.5, 0.05s),
+      8: (40px, -12px, 1, 0.02s)
+    );
+
+    @for $i from 1 through 8 {
+      $logo-drops-data: map.get($logo-drops-translate, $i);
+
+      &:nth-child(#{$i + 1}) {
+        --logo-drop-tx: #{list.nth($logo-drops-data, 1)};
+        --logo-drop-ty: #{list.nth($logo-drops-data, 2)};
+        --logo-drop-scale: #{list.nth($logo-drops-data, 3)};
+
+        animation-delay: #{list.nth($logo-drops-data, 4)};
+      }
+    }
+  }
+}
+
+/* animation */
+@keyframes logo-splash-blast {
+  0% {
+    transform: translate(0, 0) scale(var(--logo-drop-scale, 1));
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(var(--logo-drop-tx), calc(var(--logo-drop-ty) + 35px)) scale(0);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo__drop {
+    display: none;
   }
 }
