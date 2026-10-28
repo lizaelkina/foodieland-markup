@@ -16,9 +16,10 @@ article(aria-labelledby='recipe-details-heading').content__container.details
           +label-category(recipeData.category)
       ul(aria-label='Page actions').details__buttons
         li
-          +button-round('Print', 'printer')(onclick='window.print()')
+          +button-round('Print', 'printer').js-print-button
         li
-          +button-round('Share', 'share')(aria-haspopup='true' aria-expanded='false')
+          +button-round('Share', 'share').js-share-button
+          span.visually-hidden(role='status').js-share-status
     div.details__information
       div.details__img-wrapper
         +img(recipeData.imgVideo, recipeData.title)(loading='eager' fetchpriority='high' sizes=cardSizes.details).details__img
