@@ -1,34 +1,29 @@
-section(aria-labelledby='recipe-details-heading').content__container.details
+article(aria-labelledby='recipe-details-heading').content__container.details
   +logo.details__logo-print
-  div.details__header
-    h1#recipe-details-heading.details__title= resipeData.title || 'Recipe'
-    div.author.details__author
-      +img(resipeData.authorPhoto, '').author__photo
-      a(href='#').author__name= resipeData.authorName
-      +date(resipeData.authorDate).author__date
-    div.details__labels
-      div.details__column
-        +label-timer-details('Prep time', resipeData.prepTime).label_details
-      div.details__column
-        +label-timer-details('Cook time', resipeData.cookTime).label_details
-      div.details__column
-        +label-category(resipeData.category)
-    ul(aria-label='Page actions').details__buttons
-      li
-        +button-round('Print', 'printer')(onclick='window.print()')
-      li
-        +button-round('Share', 'share')(aria-haspopup='true' aria-expanded='false')
-  div.details__information
-    div.details__img-wrapper
-      +img(resipeData.imgVideo, '')(
-        loading='eager'
-        fetchpriority='high'
-        sizes='(max-width: 800px) calc(100vw - 32px), ' +
-        '(max-width: 1024px) 36vw, ' +
-        '(max-width: 1200px) 40vw, ' +
-        '(max-width: 1400px) calc(51.5vw - 62px), 660px').details__img
-      +button-play-video
-    +nutrition
+  div.details__intro
+    header.details__header
+      h1#recipe-details-heading.details__title= recipeData.title || 'Recipe'
+      div.author.details__author
+        +img(recipeData.authorPhoto, '').author__photo
+        a(href='#').author__name= recipeData.authorName
+        +date(recipeData.authorDate).author__date
+      div.details__labels
+        div.details__column
+          +label-timer-details('Prep time', recipeData.prepTime).label_details
+        div.details__column
+          +label-timer-details('Cook time', recipeData.cookTime).label_details
+        div.details__column
+          +label-category(recipeData.category)
+      ul(aria-label='Page actions').details__buttons
+        li
+          +button-round('Print', 'printer')(onclick='window.print()')
+        li
+          +button-round('Share', 'share')(aria-haspopup='true' aria-expanded='false')
+    div.details__information
+      div.details__img-wrapper
+        +img(recipeData.imgVideo, recipeData.title)(loading='eager' fetchpriority='high' sizes=cardSizes.details).details__img
+        +button-play-video
+      +nutrition
   p.details__text
     | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     | Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -36,8 +31,8 @@ section(aria-labelledby='recipe-details-heading').content__container.details
     | Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
   div.details__container
-    div.details__intro
-      article.details__ingredients
+    div.details__steps
+      section.details__ingredients
         h2.details__ingredients-title Ingredients
         +checklist({
           title: 'For main dish',
@@ -58,7 +53,7 @@ section(aria-labelledby='recipe-details-heading').content__container.details
           ]
         })
 
-      article.details__direction
+      section.details__direction
         h2.details__direction-title Directions
         +checklist-big({
           items: [

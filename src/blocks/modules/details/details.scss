@@ -14,6 +14,12 @@
     right: 16px;
   }
 
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
   &__header {
     display: grid;
     grid-template-columns: fit-content(100%) 1fr fit-content(100%);
@@ -93,7 +99,7 @@
     @include mix.sidebar;
   }
 
-  &__intro {
+  &__steps {
     @include mix.section;
   }
 
@@ -124,6 +130,10 @@
 
 @include mix.down(desktop-small) {
   .details {
+    &__intro {
+      gap: 40px;
+    }
+
     &__header {
       row-gap: 32px;
     }
@@ -225,6 +235,10 @@
 
     &__logo-print {
       display: block;
+    }
+
+    &__intro {
+      gap: 20px;
     }
 
     &__header {

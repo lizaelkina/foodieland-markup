@@ -5,6 +5,12 @@
 .post {
   @include mix.section;
 
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+
   &__heading {
     gap: 32px;
   }
@@ -14,7 +20,6 @@
   }
 
   &__img {
-    margin-top: -16px;
     width: 100%;
     max-width: 1280px;
     aspect-ratio: 1280 / 600;
@@ -29,11 +34,14 @@
   }
 
   &__interview {
+    --post-interview-gap: 95px;
+    --post-quote-gap: 60px;
+
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 920px;
-    gap: 95px;
+    gap: var(--post-quote-gap);
   }
 
   &__interview-wrapper {
@@ -41,6 +49,10 @@
     flex-direction: column;
     padding-left: 40px;
     gap: 24px;
+
+    & + .post__interview-wrapper {
+      margin-top: calc(var(--post-interview-gap) - var(--post-quote-gap));
+    }
 
     &_img {
       gap: 32px;
@@ -72,15 +84,15 @@
     border-radius: 20px;
   }
 
-  &__blockquote {
+  &__quote {
     margin-inline: 0;
-    margin-block: -35px;
+    margin-block: 0;
     border-top: vars.$border;
     border-bottom: vars.$border;
     background: vars.$quote-gradient;
   }
 
-  &__blockquote-text {
+  &__quote-text {
     padding: 48px 40px;
     font-weight: 500;
     font-style: italic;
@@ -109,37 +121,37 @@
 
 @include mix.down(desktop-small) {
   .post__interview {
-    gap: 70px;
+    --post-interview-gap: 70px;
+    --post-quote-gap: 35px;
+  }
+
+  .post__header {
+    gap: 40px;
   }
 }
 
 @include mix.down(laptop) {
-  .post__author {
-    margin-bottom: 0;
-  }
+  .post {
+    .post__author {
+      margin-bottom: 0;
+    }
 
-  .post__img {
-    margin-top: 0;
-  }
+    &__interview {
+      --post-interview-gap: 40px;
+      --post-quote-gap: 40px;
+    }
 
-  .post__interview {
-    gap: 40px;
-  }
+    &__interview-wrapper {
+      padding-left: 0;
+    }
 
-  .post__interview-wrapper {
-    padding-left: 0;
-  }
+    &__quote-text {
+      padding: 28px;
+    }
 
-  .post__blockquote {
-    margin-block: 0;
-  }
-
-  .post__blockquote-text {
-    padding: 28px;
-  }
-
-  .post__social {
-    padding-right: 0;
+    &__social {
+      padding-right: 0;
+    }
   }
 }
 

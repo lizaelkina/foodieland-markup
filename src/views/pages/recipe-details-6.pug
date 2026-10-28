@@ -1,9 +1,9 @@
 extends ../layouts/default
 
 block variables
-  - resipeData = recipesBig[5];
+  - recipeData = recipesBig[5];
   - otherRecipe = smallRecipes;
-  - const page = {id: 'recipe-details-6', title: resipeData.title, bodyClass: 'root_print'};
+  - const page = {id: 'recipe-details-6', title: recipeData.title, bodyClass: 'root_print'};
   - const checkHeading = 'You may like these recipe too';
 
 block content
