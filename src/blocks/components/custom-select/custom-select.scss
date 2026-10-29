@@ -12,6 +12,10 @@
   border-radius: 16px;
   background-color: vars.$secondary;
 
+  @include mix.hover-or-focus {
+    border-color: vars.$promo;
+  }
+
   &:focus-within:not(.is-open) {
     outline: 3px solid vars.$primary;
     outline-offset: 3px;

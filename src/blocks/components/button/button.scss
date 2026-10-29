@@ -38,6 +38,21 @@
     }
   }
 
+  &[aria-disabled="true"] {
+    opacity: .6;
+    cursor: progress;
+
+    @include mix.hover-or-focus {
+      background-color: vars.$primary;
+      opacity: .6;
+      cursor: progress;
+
+      .button__text {
+        color: vars.$secondary;
+      }
+    }
+  }
+
   &__text {
     @include mix.text-overflow(1);
 

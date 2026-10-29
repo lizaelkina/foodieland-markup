@@ -12,7 +12,7 @@ section(aria-labelledby='contact-heading').content__container.contact
           type='text'
           name='contactName'
           autocomplete='name'
-          placeholder="Enter your name...")
+          placeholder='Enter your name...')
       div.contact__field
         label(for='contact-email').contact__label Email address
         input.contact__input(
@@ -21,7 +21,7 @@ section(aria-labelledby='contact-heading').content__container.contact
           type='email'
           name='contactEmail'
           autocomplete='email'
-          placeholder="Your email address...")
+          placeholder='Your email address...')
       div.contact__field
         label(for='contact-subject').contact__label Subject
         input.contact__input(
@@ -29,8 +29,7 @@ section(aria-labelledby='contact-heading').content__container.contact
           required
           type='text'
           name='contactSubject'
-          autocomplete="on"
-          placeholder="Enter subject...")
+          placeholder='Enter subject...')
       div.contact__field
         label(for='enquiry-type').contact__label Enquiry type
         select.visually-hidden.js-custom-select(
@@ -46,10 +45,10 @@ section(aria-labelledby='contact-heading').content__container.contact
           id='contact-message'
           required
           name='contactMessage'
-          autocomplete="on"
-          placeholder="Enter your messages...")
+          placeholder='Enter your messages...')
 
-    button(type='submit').button.contact__submit.js-contact-submit
-      span.button__text Send message
-    span(aria-hidden='true').contact__message.js-contact-message Thank you for your message!
-    span.visually-hidden.js-contact-status(role='status')
+    div.contact__actions
+      button(type='submit').button.contact__submit.js-contact-submit
+        span.button__text Send message
+      span(aria-hidden='true').contact__message.js-contact-message Thank you for your message!
+      span.visually-hidden.js-contact-status(role='status')

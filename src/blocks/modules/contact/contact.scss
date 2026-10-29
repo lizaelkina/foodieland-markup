@@ -58,6 +58,9 @@
 
   &__label {
     @include mix.text-form-label;
+    @include mix.active-state;
+
+    width: fit-content;
   }
 
   &__input {
@@ -69,12 +72,24 @@
     border-radius: 16px;
     background-color: vars.$secondary;
 
+    @media (forced-colors: active) {
+      border: 1px solid currentcolor;
+    }
+
+    @include mix.hover-or-focus {
+      border-color: vars.$promo;
+    }
+
     &::placeholder {
       background-color: transparent;
     }
 
     &:focus, &:focus-visible {
       border-radius: 16px;
+    }
+
+    &:user-invalid {
+      border-color: vars.$error;
     }
 
     &:-webkit-autofill, &:-webkit-autofill:focus, &:-webkit-autofill:active {
@@ -88,15 +103,16 @@
       min-height: 200px;
       resize: none;
     }
+  }
 
-    @media (forced-colors: active) {
-      border: 1px solid currentcolor;
-    }
+  &__actions {
+    grid-column: 2;
+    grid-row: 3;
+    position: relative;
+    justify-self: start;
   }
 
   &__submit {
-    grid-column: 2;
-    grid-row: 3;
     min-width: 180px;
     padding: 24px 35px;
     text-transform: capitalize;
@@ -105,13 +121,13 @@
   &__message {
     @include mix.text-form-input;
 
-    align-self: center;
-    grid-column: 2;
-    grid-row: 3;
-    transition: visibility .3s ease-in-out, opacity .3s ease-in-out;
-    margin-top: -105px;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 0;
+    white-space: nowrap;
     visibility: hidden;
     opacity: 0;
+    transition: visibility .3s ease-in-out, opacity .3s ease-in-out;
 
     &.is-success {
       visibility: visible;
@@ -121,56 +137,58 @@
 }
 
 @include mix.down(desktop-small) {
-  .contact__form {
-    grid-template-columns: minmax(0, 320px) 1fr;
-    column-gap: 24px;
-  }
+  .contact {
+    &__form {
+      grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+      column-gap: 24px;
+    }
 
-  .contact__title {
-    margin-bottom: 12px;
-  }
+    &__title {
+      margin-bottom: 12px;
+    }
 
-  .contact__img {
-    max-width: 270px;
-  }
+    &__img {
+      max-width: 270px;
+    }
 
-  .contact__fields-wrapper {
-    column-gap: 24px;
+    &__fields-wrapper {
+      column-gap: 24px;
+    }
   }
 }
 
 @include mix.down(laptop) {
-  .contact__form {
-    grid-template-columns: 1fr;
-    row-gap: 40px;
-  }
+  .contact {
+    &__form {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 40px;
+    }
 
-  .contact__title {
-    grid-column: 1;
-    grid-row: 1;
-    justify-self: center;
-    margin-bottom: 0;
-  }
+    &__title {
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: center;
+      margin-bottom: 0;
+    }
 
-  .contact__img-wrapper {
-    display: none;
-  }
+    &__img-wrapper {
+      display: none;
+    }
 
-  .contact__fields-wrapper {
-    grid-column: 1;
-    grid-row: 2;
-  }
+    &__fields-wrapper {
+      grid-column: 1;
+      grid-row: 2;
+    }
 
-  .contact__submit {
-    grid-column: 1;
-    grid-row: 3;
-    justify-self: center;
-  }
+    &__actions {
+      grid-column: 1;
+      justify-self: center;
+    }
 
-  .contact__message {
-    grid-column: 1;
-    grid-row: 3;
-    justify-self: center;
+    &__message {
+      left: 50%;
+      translate: -50% 0;
+    }
   }
 }
 
