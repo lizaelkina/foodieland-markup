@@ -16,6 +16,7 @@
   }
 
   &__num {
+    counter-reset: checklist-step;
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -124,6 +125,11 @@
       @include mix.card-title;
 
       line-height: var(--checklist-text-height);
+
+      &::before {
+        content: counter(checklist-step) ". ";
+        counter-increment: checklist-step;
+      }
     }
   }
 
@@ -157,7 +163,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .checklist__box, .checklist__box path, .checklist__text {
+  .checklist__box, .checklist__box path, .checklist__input:checked + .checklist__box, .checklist__input:checked + .checklist__box path, .checklist__text {
     transition: none;
     animation: none;
   }

@@ -342,8 +342,7 @@ mixin checklist(data)
             span.checklist__text= item.text
 
 mixin checklist-big(data)
-  fieldset.checklist
-    legend
+  div.checklist
     ol.checklist__num
       each item, index in data.items
         li.checklist__item.checklist__item_num
@@ -352,11 +351,11 @@ mixin checklist-big(data)
             span(aria-hidden='true').checklist__box
               svg(viewBox="0 0 14 14")
                 path(pathLength="1" d="M3 7.3l2.7 2.7L11 4.5")
-            span.checklist__text.checklist__text_num= `${index + 1}. ${item.text}`
+            span.checklist__text.checklist__text_num= item.text
           if item.description
             div.checklist__description-wrapper
               p.checklist__description= item.description
               if item.img
-                +img(item.img, 'Directions').checklist__img
+                +img(item.img, '').checklist__img
               if item.caption
                 p.checklist__description= item.caption
