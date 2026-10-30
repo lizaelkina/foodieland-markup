@@ -30,16 +30,21 @@
 
   &__title-wrapper {
     @include mix.title-wrapper;
+
+    min-width: 0;
   }
 
   &__title {
     @include mix.section-title;
 
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   &__title-text {
     grid-area: 1 / 1;
+    width: 100%;
+    max-width: 1000px;
 
     &[data-title="default"] {
       visibility: visible;

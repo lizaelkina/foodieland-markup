@@ -24,17 +24,15 @@
   }
 
   async function transitionTitleTo(state) {
-    titleContainer.dataset.state = state === 'success'
-      ? 'to-success'
-      : 'to-default';
 
+    titleContainer.dataset.state = `to-${state}`;
     const nextTitle = titleContainer.querySelector(`[data-title="${state}"]`);
 
     if (nextTitle) {
-      await Promise.allSettled(
-        nextTitle.getAnimations().map(animation => animation.finished)
-      );
+      await Promise.allSettled(nextTitle.getAnimations().map(animation => animation.finished));
     }
+
+    titleContainer.dataset.state = state;
   }
 
   async function handleSubmit(event) {

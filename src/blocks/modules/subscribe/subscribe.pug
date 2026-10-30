@@ -1,8 +1,8 @@
 section(aria-labelledby='subscription-heading').content__container.subscribe.js-subscribe
   form(method='post').subscribe__form.js-subscribe-form
-    hgroup.subscribe__title-wrapper
-      h2#subscription-heading.subscribe__title.js-subscribe-title
-        span.visually-hidden Deliciousness to your inbox
+    div.subscribe__title-wrapper
+      div.subscribe__title.js-subscribe-title
+        h2#subscription-heading.visually-hidden Deliciousness to your inbox
         span.subscribe__title-text(
           aria-hidden='true'
           data-title='default') Deliciousness to your inbox
@@ -20,7 +20,7 @@ section(aria-labelledby='subscription-heading').content__container.subscribe.js-
         type='email'
         name='subscribeEmail'
         autocomplete='email'
-        placeholder="Your email address...")
+        placeholder='Your email address...')
       button(type='submit').button.input__submit.js-subscribe-submit
         span.button__text Subscribe
     span.visually-hidden.js-subscribe-status(role='status')
