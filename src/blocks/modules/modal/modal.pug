@@ -1,10 +1,11 @@
-dialog#modal-video(aria-label='Modal video').modal.js-modal
+dialog#modal-video(aria-label='Recipe video').modal.js-modal
   div.modal__container
-    button(type='button' aria-label='Close modal video').modal__close.js-modal-close
+    button(type='button' aria-label='Close recipe video').modal__close.js-modal-close
     div.modal__content
       iframe.modal__iframe.js-iframe(
-        src=resipeData.srcVideo
-        title="Recipe"
+        src='about:blank'
+        data-src=recipeData.srcVideo
+        title=`Video: ${recipeData.title}`
         allow='autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
         allowfullscreen
       )

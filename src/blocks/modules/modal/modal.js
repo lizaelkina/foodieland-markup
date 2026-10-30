@@ -11,7 +11,7 @@ import {initDialog} from '../../components/dialog/dialog';
 
   if (!closeButton || !iframe) return;
 
-  const videoSrc = iframe ? iframe.src : '';
+  const videoSrc = iframe.dataset.src;
 
   initDialog({
     dialog: modalDialog,

@@ -2,8 +2,7 @@
 @use "../../../styles/helpers/mixins" as mix;
 
 .modal {
-  width: 100%;
-  max-width: 75vw;
+  width: min(100%, 75vw, (100dvh - 2em - 76px) * 16 / 9 + 32px);
   overflow: visible;
   border: none;
   padding: 0;
@@ -75,6 +74,6 @@
 
 @include mix.down(laptop) {
   .modal {
-    max-width: none;
+    width: min(100%, (100dvh - 2em - 76px) * 16 / 9 + 32px);
   }
 }
