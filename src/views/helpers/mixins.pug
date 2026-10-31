@@ -76,16 +76,16 @@ mixin nav-list(place, itemClass)
           +link(item.title, item.href)(aria-current=item.id != null && item.id === current.id && 'page')
 
 mixin logo
-  a(href='index.html').logo&attributes(attributes)
-    span.logo__text= `${site.name}`
-    span.logo__drop
-    span.logo__drop
-    span.logo__drop
-    span.logo__drop
-    span.logo__drop
-    span.logo__drop
-    span.logo__drop
-    span.logo__drop
+  a(href='index.html' aria-label=`${site.name} - home`).logo&attributes(attributes)
+    span(aria-hidden='true').logo__text= `${site.name}`
+    span(aria-hidden='true').logo__drop
+    span(aria-hidden='true').logo__drop
+    span(aria-hidden='true').logo__drop
+    span(aria-hidden='true').logo__drop
+    span(aria-hidden='true').logo__drop
+    span(aria-hidden='true').logo__drop
+    span(aria-hidden='true').logo__drop
+    span(aria-hidden='true').logo__drop
 
 mixin page-heading(data)
   hgroup.heading&attributes(attributes)

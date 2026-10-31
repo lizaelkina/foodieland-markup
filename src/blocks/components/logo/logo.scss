@@ -27,13 +27,12 @@
   }
 
   &__text {
-    @include mix.text-overflow(1);
-
     font-family: vars.$font-promo;
     font-weight: 400;
     font-size: func.rem(24);
     line-height: 30px;
     color: vars.$primary;
+    overflow-wrap: normal;
     transition: color .12s ease-out;
 
     &::after {
@@ -41,7 +40,7 @@
       display: inline-block;
       color: vars.$accent;
       transform-origin: center;
-      transition: transform .12s ease-out, opacity .12s ease-out;
+      transition: transform .12s ease-out, opacity .12s ease-out, color .12s ease-out;
     }
   }
 
@@ -99,8 +98,18 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce), (forced-colors: active) {
   .logo__drop {
     display: none;
+  }
+
+  .logo {
+    @include mix.hover-or-focus {
+      .logo__text::after {
+        transform: none;
+        opacity: 1;
+        color: vars.$primary;
+      }
+    }
   }
 }

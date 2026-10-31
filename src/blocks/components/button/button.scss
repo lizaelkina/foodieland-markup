@@ -11,7 +11,8 @@
   width: 100%;
   max-width: 200px;
   min-height: 60px;
-  padding: 20px 46px;
+  border: 1px solid transparent;
+  padding: 20px 45px;
   transition: background-color .5s ease;
   border-radius: 16px;
   color: vars.$secondary;
@@ -78,12 +79,12 @@
   }
 
   &_secondary {
-    padding: 20px 26px;
+    padding: 20px 25px;
     background-color: vars.$background;
   }
 
   &_icon {
-    padding: 18px 33px;
+    padding: 18px 32px;
     gap: 15px;
   }
 }

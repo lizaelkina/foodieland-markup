@@ -10,6 +10,12 @@
   cursor: pointer;
 
   @include mix.hover-or-focus {
+    @media (forced-colors: active) {
+      .button-round__svg {
+        stroke: currentcolor;
+      }
+    }
+
     .button-round__svg {
       stroke: vars.$accent;
     }
@@ -28,6 +34,12 @@
     stroke: vars.$primary;
     border-radius: 50%;
     background-color: vars.$background;
+
+    @media (forced-colors: active) {
+      border: 1px solid currentcolor;
+      stroke: currentcolor;
+      background-color: transparent;
+    }
   }
 
   &__text {
