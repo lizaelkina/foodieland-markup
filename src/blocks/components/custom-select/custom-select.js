@@ -75,7 +75,13 @@ import customSelect from 'custom-select';
         if (NAV_KEYS.includes(event.key)) {
           event.preventDefault();
         }
-      });
+
+        if (event.key === 'Enter' && !mySelect.open) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          mySelect.open = true;
+        }
+      }, {capture: true});
 
       const label = nativeSelect.labels?.[0] ||
         (nativeSelect.id ? document.querySelector(`label[for="${nativeSelect.id}"]`) : null);

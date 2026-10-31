@@ -6,9 +6,10 @@
   const liveStatus = contactForm.querySelector('.js-contact-status');
   const submitButton = contactForm.querySelector('.js-contact-submit');
   const successText = contactForm.querySelector('.js-contact-message');
-  const successMessage = successText.textContent.trim();
 
   if (!liveStatus || !submitButton || !successText) return;
+
+  const successMessage = successText.textContent.trim();
 
   const SUCCESS_MESSAGE_DURATION_MS = 2000;
 
