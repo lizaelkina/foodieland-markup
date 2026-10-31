@@ -110,6 +110,8 @@
   }
 
   &__social-title {
+    width: 100%;
+    max-width: 133px;
     font-weight: 600;
     font-size: func.rem(14);
     line-height: 122%;

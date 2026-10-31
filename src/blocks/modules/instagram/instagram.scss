@@ -30,6 +30,10 @@
     max-width: 290px;
     height: auto;
   }
+
+  &__button {
+    max-width: 230px;
+  }
 }
 
 @include mix.down(desktop-small) {

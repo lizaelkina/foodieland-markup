@@ -70,7 +70,9 @@
     @include mix.focus-ring-contrast;
     @include mix.active-state;
 
+    text-align: center;
     color: vars.$promo-text;
+    overflow-wrap: anywhere;
     transition: color .5s ease;
 
     @include mix.hover-or-focus {

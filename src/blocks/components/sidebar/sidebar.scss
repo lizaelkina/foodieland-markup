@@ -16,6 +16,9 @@
   &__heading {
     @include mix.sidebar-title;
     @include mix.text-overflow(2);
+
+    width: 100%;
+    max-width: 300px;
   }
 
   &__list {
@@ -66,7 +69,6 @@
     @include mix.small-title;
     @include mix.text-overflow(2);
     @include mix.active-state;
-
 
     &::before {
       @include mix.stretched-link;

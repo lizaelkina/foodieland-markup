@@ -11,6 +11,7 @@
   line-height: 120%;
   letter-spacing: -0.02em;
   color: vars.$primary;
+  overflow-wrap: anywhere;
 
   &[aria-current="page"], &[aria-current="location"] {
     color: vars.$accent;

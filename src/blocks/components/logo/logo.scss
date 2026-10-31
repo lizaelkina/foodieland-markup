@@ -2,6 +2,7 @@
 @use "sass:list";
 @use "../../../styles/helpers/variables" as vars;
 @use "../../../styles/helpers/mixins" as mix;
+@use "../../../styles/helpers/functions" as func;
 
 .logo {
   @include mix.active-state;
@@ -30,7 +31,7 @@
 
     font-family: vars.$font-promo;
     font-weight: 400;
-    font-size: 24px;
+    font-size: func.rem(24);
     line-height: 30px;
     color: vars.$primary;
     transition: color .12s ease-out;

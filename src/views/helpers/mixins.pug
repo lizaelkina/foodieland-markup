@@ -141,7 +141,7 @@ mixin label-category(category)
       '(max-width: 1024px) 36vw',
       '(max-width: 1200px) 40vw',
       '(max-width: 1400px) calc(51.5vw - 62px)',
-      '660px',
+      '660px'
     ].join(', '),
     recipeBig: [
       '(max-width: 432px) calc(100vw - 64px)',
@@ -149,7 +149,7 @@ mixin label-category(category)
       '(max-width: 1024px) calc(50vw - 56px)',
       '(max-width: 1170px) calc(33.33vw - 59px)',
       '(max-width: 1312px) calc(33.33vw - 70px)',
-      '368px',
+      '368px'
     ].join(', '),
     recipeSmall: '(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px',
     cardList: '(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(50vw - 28px), 290px',
@@ -158,9 +158,9 @@ mixin label-category(category)
       '(max-width: 1024px) calc(100vw - 32px)',
       '(max-width: 1170px) calc(100vw - 406px)',
       '(max-width: 1312px) calc(100vw - 472px)',
-      '840px',
+      '840px'
     ].join(', '),
-    post: '(max-width: 1312px) calc(100vw - 32px), 1280px',
+    bigImg: '(max-width: 1312px) calc(100vw - 32px), 1280px',
   };
 
 mixin slide(data)
@@ -355,6 +355,6 @@ mixin checklist-big(data)
             div.checklist__description-wrapper
               p.checklist__description= item.description
               if item.img
-                +img(item.img, '').checklist__img
+                +img(item.img, '')(sizes=cardSizes.bigImg).checklist__img
               if item.caption
                 p.checklist__description= item.caption
