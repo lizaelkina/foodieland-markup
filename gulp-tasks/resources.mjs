@@ -21,12 +21,14 @@ export async function images({rootDir, outputDir}) {
   const jobs = [];
   for (const name of inputs) {
     if (reserved(name)) throw new Error(`Reserved image directory: ${name}`);
-    jobs.push([name, name, null]);
-    if (/\.(png|jpe?g|tiff)$/i.test(name)) {
-      const base = name.replace(/\.[^.]+$/, '');
-      jobs.push([`${base}.webp`, name, 0]);
-      for (const width of responsiveWidths) jobs.push([`${base}-${width}w.webp`, name, width]);
+    // Raster sources only feed the WebP copies: pages never link to them, and they are heavy.
+    if (!/\.(png|jpe?g|tiff)$/i.test(name)) {
+      jobs.push([name, name, null]);
+      continue;
     }
+    const base = name.replace(/\.[^.]+$/, '');
+    jobs.push([`${base}.webp`, name, 0]);
+    for (const width of responsiveWidths) jobs.push([`${base}-${width}w.webp`, name, width]);
   }
   unique(jobs);
   const entries = [];

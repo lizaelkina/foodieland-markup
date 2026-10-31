@@ -84,7 +84,7 @@ test('missing optional resources create no empty output directories', async t =>
   }
 });
 
-test('binary copies, WebP orientation, collisions and stale outputs', {timeout: 20000}, async t => {
+test('binary copies, raster sources as WebP only, orientation, collisions and stale outputs', {timeout: 20000}, async t => {
   const f = await fixture(t);
   const png = await sharp({create: {width: 9, height: 5, channels: 3, background: '#f00'}}).png().toBuffer();
   const oriented = await sharp(png).jpeg().withMetadata({orientation: 6}).toBuffer();
@@ -93,7 +93,7 @@ test('binary copies, WebP orientation, collisions and stale outputs', {timeout: 
   await f.put('src/files/blob', binary);
   await f.put('src/fonts/font.woff2', binary);
   await Promise.all([f.tasks.images(), f.tasks.files(), f.tasks.fonts()]);
-  assert.deepEqual(await fs.readFile(path.join(f.outputDir, 'img/photo.jpg')), oriented);
+  assert.deepEqual(await files(path.join(f.outputDir, 'img')), ['photo.webp']);
   assert.deepEqual(await fs.readFile(path.join(f.outputDir, 'files/blob')), binary);
   assert.deepEqual(await fs.readFile(path.join(f.outputDir, 'fonts/font.woff2')), binary);
   const metadata = await sharp(await fs.readFile(path.join(f.outputDir, 'img/photo.webp'))).metadata();
@@ -330,7 +330,7 @@ test('+img takes width and height from the source image, EXIF rotation included'
   await f.put('src/views/index.pug', [
     'include helpers/mixins',
     "+img('./img/wide', 'Wide')",
-    "+img('img/nested/turned.jpg', 'Turned')",
+    "+img('img/nested/turned', 'Turned')",
     "+img('./img/wide', 'Sized')(width='3' height='2')",
     "+img('./img/missing', 'Missing')"
   ].join('\n'));
@@ -367,4 +367,18 @@ test('images get narrower WebP copies and +img builds srcset from sizes', {timeo
   assert.doesNotMatch(tag('Plain'), /srcset=/);
   await f.put('src/views/index.pug', ['include helpers/mixins', "+img('./img/wide.png', 'Bad')(sizes='100vw')"].join('\n'));
   await assert.rejects(f.tasks.views(), /sizes needs/);
+});
+
+test('+img rejects raster sources with an extension, dist has only their WebP copies', async t => {
+  const f = await fixture(t);
+  await f.put('src/views/helpers/mixins.pug', await fs.readFile(path.join(projectRoot, 'src/views/helpers/mixins.pug')));
+  for (const src of ['./img/photo.png', 'img/photo.JPG', 'img/photo.jpeg', 'img/photo.tiff']) {
+    await f.put('src/views/index.pug', ['include helpers/mixins', `+img('${src}', 'Photo')`].join('\n'));
+    await assert.rejects(f.tasks.views(), /drop the extension/, src);
+  }
+  await f.put('src/views/index.pug', ['include helpers/mixins', "+img('./img/photo', 'Photo')", "+img('./img/mark.svg', 'Mark')"].join('\n'));
+  await f.tasks.views();
+  const html = await fs.readFile(path.join(f.outputDir, 'index.html'), 'utf8');
+  assert.match(html, /src="\.\/img\/photo\.webp"/);
+  assert.match(html, /src="\.\/img\/mark\.svg"/);
 });
