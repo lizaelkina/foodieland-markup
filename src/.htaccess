@@ -1,0 +1,82 @@
+# CORS: картинки для canvas и шрифты, запрошенные с другого домена.
+<IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+        <FilesMatch "\.(gif|png|jpe?g|svg|ico|webp|avif)$">
+            SetEnvIf Origin ":" IS_CORS
+            Header set Access-Control-Allow-Origin "*" env=IS_CORS
+        </FilesMatch>
+    </IfModule>
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(woff|woff2)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
+# MIME-типы
+AddType text/javascript .js .mjs
+AddType application/json .json .map
+AddType application/manifest+json .webmanifest
+AddType application/xml .rss .atom .xml
+
+AddType audio/ogg .oga .ogg
+AddType audio/mp4 .m4a
+AddType video/ogg .ogv
+AddType video/mp4 .mp4 .m4v
+AddType video/webm .webm
+AddType text/vtt .vtt
+
+AddType image/svg+xml .svg
+AddType image/x-icon .ico
+AddType image/webp .webp
+AddType image/avif .avif
+
+AddType font/woff .woff
+AddType font/woff2 .woff2
+
+# Сжатие текстовых ответов (woff/woff2 и картинки уже сжаты).
+<IfModule mod_deflate.c>
+    # Accept-Encoding, испорченный прокси и антивирусами.
+    <IfModule mod_setenvif.c>
+        <IfModule mod_headers.c>
+            SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+            RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+        </IfModule>
+    </IfModule>
+
+    <IfModule mod_filter.c>
+        AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript text/xml text/vtt
+        AddOutputFilterByType DEFLATE application/javascript application/json application/ld+json application/manifest+json
+        AddOutputFilterByType DEFLATE application/xml application/xhtml+xml application/rss+xml application/atom+xml
+        AddOutputFilterByType DEFLATE image/svg+xml image/x-icon
+    </IfModule>
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive Off
+</IfModule>
+
+FileETag MTime Size
+
+<IfModule mod_headers.c>
+    Header set Cache-Control "no-cache"
+    Header unset Expires
+    <FilesMatch "\.[0-9a-f]{8}\.js$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(jpe?g|png|webp)$">
+        Header merge Vary Accept
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_ACCEPT} image/webp [NC]
+    RewriteCond %{REQUEST_FILENAME} ^(.+)\.(?:jpe?g|png)$ [NC]
+    RewriteCond %1.webp -f
+    RewriteRule ^(.+)\.(?:jpe?g|png)$ $1.webp [END]
+</IfModule>
+
+# Страница 404: путь от корня домена, например /404.html или /repo-name/404.html.
+ErrorDocument 404 /foodieland-markup/404.html

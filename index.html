@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Foodieland - a catalog of simple and tasty recipes">
+    <meta name="author" content="Liza Elkina">
+    <title>Foodieland</title><link rel="icon" type="image/x-icon" href="img/favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
+    <link rel="preload" href="fonts/Lobster.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles/main.css?v=27fed7b4">
+  </head>
+  <body class="root"><a class="skip-link js-skip-link" href="#content">Skip to content</a>
+    <div class="page">
+      <header class="header page__header js-header">
+        <div class="header__container">
+          <div class="header__logo"><a class="logo" href="index.html" aria-label="Foodieland - home"><span class="logo__text" aria-hidden="true">Foodieland</span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span></a>
+          </div>
+          <nav class="header__nav header__desktop" aria-label="Main">
+            <ul class="header__list">
+              <li><a class="link" href="index.html" aria-current="page">Home</a>
+              </li>
+              <li><a class="link" href="recipes.html">Recipes</a>
+              </li>
+              <li><a class="link" href="blog.html">Blog</a>
+              </li>
+              <li><a class="link" href="contact.html">Contact</a>
+              </li>
+              <li><a class="link" href="about.html">About us</a>
+              </li>
+            </ul>
+          </nav>
+          <ul class="socials header__desktop" aria-label="Our socials">
+            <li><a class="socials__link socials__link_facebook" href="index.html" target="_blank" rel="noopener" aria-label="Facebook (opens in new tab)">
+                <svg class="socials__svg" data-svg="facebook" aria-hidden="true">
+                  <use href="./img/sprites/sprite.svg#facebook"></use>
+                </svg></a></li>
+            <li><a class="socials__link socials__link_twitter" href="index.html" target="_blank" rel="noopener" aria-label="Twitter (opens in new tab)">
+                <svg class="socials__svg" data-svg="twitter" aria-hidden="true">
+                  <use href="./img/sprites/sprite.svg#twitter"></use>
+                </svg></a></li>
+            <li><a class="socials__link socials__link_instagram" href="index.html" target="_blank" rel="noopener" aria-label="Instagram (opens in new tab)">
+                <svg class="socials__svg" data-svg="instagram" aria-hidden="true">
+                  <use href="./img/sprites/sprite.svg#instagram"></use>
+                </svg></a></li>
+          </ul>
+          <div class="header__mobile">
+            <button class="burger js-menu-open" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false"><span class="burger__line"></span></button>
+          </div>
+        </div>
+      </header>
+      <main class="content" id="content" tabindex="-1">
+        <section class="content__container content__container_slider hero" aria-labelledby="slider-heading">
+          <h1 class="visually-hidden" id="slider-heading">Foodieland</h1>
+          <div class="swiper hero__slider js-hero-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide hero__slide">
+                <article class="slide hero__card">
+                  <div class="slide__content">
+                    <div class="label label_hot"><span class="label__text label__text_hot">Hot Recipes</span></div>
+                    <hgroup class="slide__title-wrapper">
+                      <h2 class="slide__title">Spicy delicious chicken wings</h2>
+                      <p class="slide__subtitle">Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
+                    </hgroup>
+                    <div class="slide__labels">
+                      <div class="label label_slide">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link label_slide" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Chicken</span></a>
+                    </div>
+                    <div class="slide__container">
+                      <div class="author"><img class="author__photo" src="./img/author-1.webp" alt="" loading="lazy" width="200" height="200"><a class="author__name" href="#">John Smith</a>
+                        <time class="author__date" datetime="2022-03-15">15 March 2022</time>
+                      </div><a class="button button_icon" href="recipe-details-1.html"><span class="button__text">View Recipes</span>
+                        <svg class="button__svg" data-svg="play" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#play"></use>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="slide__img-wrapper"><img class="slide__handpicked" src="./img/handpicked.webp" alt="Handpicked" width="300" height="300"><img class="slide__img" src="./img/slide-img-1.webp" alt="" fetchpriority="high" sizes="(max-width: 800px) calc(100vw - 32px), (max-width: 1024px) 36vw, (max-width: 1200px) 40vw, (max-width: 1400px) calc(51.5vw - 62px), 660px" width="1320" height="1280" srcset="./img/slide-img-1-640w.webp 640w, ./img/slide-img-1-960w.webp 960w, ./img/slide-img-1.webp 1320w">
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide hero__slide">
+                <article class="slide hero__card">
+                  <div class="slide__content">
+                    <div class="label label_hot"><span class="label__text label__text_hot">Hot Recipes</span></div>
+                    <hgroup class="slide__title-wrapper">
+                      <h2 class="slide__title">Healthy Japanese Fried Rice with Asparagus</h2>
+                      <p class="slide__subtitle">Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
+                    </hgroup>
+                    <div class="slide__labels">
+                      <div class="label label_slide">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link label_slide" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Healthy</span></a>
+                    </div>
+                    <div class="slide__container">
+                      <div class="author"><img class="author__photo" src="./img/author-2.webp" alt="" loading="lazy" width="128" height="128"><a class="author__name" href="#">Leslie Alexander</a>
+                        <time class="author__date" datetime="2022-03-15">15 March 2022</time>
+                      </div><a class="button button_icon" href="recipe-details-2.html"><span class="button__text">View Recipes</span>
+                        <svg class="button__svg" data-svg="play" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#play"></use>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="slide__img-wrapper"><img class="slide__handpicked" src="./img/handpicked.webp" alt="Handpicked" loading="lazy" width="300" height="300"><img class="slide__img" src="./img/slide-img-2.webp" alt="" loading="lazy" sizes="(max-width: 800px) calc(100vw - 32px), (max-width: 1024px) 36vw, (max-width: 1200px) 40vw, (max-width: 1400px) calc(51.5vw - 62px), 660px" width="1320" height="1280" srcset="./img/slide-img-2-640w.webp 640w, ./img/slide-img-2-960w.webp 960w, ./img/slide-img-2.webp 1320w">
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide hero__slide">
+                <article class="slide hero__card">
+                  <div class="slide__content">
+                    <div class="label label_hot"><span class="label__text label__text_hot">Hot Recipes</span></div>
+                    <hgroup class="slide__title-wrapper">
+                      <h2 class="slide__title">Mixed Tropical Fruit Salad with Superfood Boosts</h2>
+                      <p class="slide__subtitle">Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
+                    </hgroup>
+                    <div class="slide__labels">
+                      <div class="label label_slide">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link label_slide" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Healthy</span></a>
+                    </div>
+                    <div class="slide__container">
+                      <div class="author"><img class="author__photo" src="./img/author-3.webp" alt="" loading="lazy" width="200" height="200"><a class="author__name" href="#">Wade Warren</a>
+                        <time class="author__date" datetime="2022-03-15">15 March 2022</time>
+                      </div><a class="button button_icon" href="recipe-details-3.html"><span class="button__text">View Recipes</span>
+                        <svg class="button__svg" data-svg="play" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#play"></use>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="slide__img-wrapper"><img class="slide__handpicked" src="./img/handpicked.webp" alt="Handpicked" loading="lazy" width="300" height="300"><img class="slide__img" src="./img/slide-img-3.webp" alt="" loading="lazy" sizes="(max-width: 800px) calc(100vw - 32px), (max-width: 1024px) 36vw, (max-width: 1200px) 40vw, (max-width: 1400px) calc(51.5vw - 62px), 660px" width="1320" height="1244" srcset="./img/slide-img-3-640w.webp 640w, ./img/slide-img-3-960w.webp 960w, ./img/slide-img-3.webp 1320w">
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide hero__slide">
+                <article class="slide hero__card">
+                  <div class="slide__content">
+                    <div class="label label_hot"><span class="label__text label__text_hot">Hot Recipes</span></div>
+                    <hgroup class="slide__title-wrapper">
+                      <h2 class="slide__title">Big and Juicy Wagyu Beef</h2>
+                      <p class="slide__subtitle">Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
+                    </hgroup>
+                    <div class="slide__labels">
+                      <div class="label label_slide">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link label_slide" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Western</span></a>
+                    </div>
+                    <div class="slide__container">
+                      <div class="author"><img class="author__photo" src="./img/author-4.webp" alt="" loading="lazy" width="200" height="200"><a class="author__name" href="#">Albert Flores</a>
+                        <time class="author__date" datetime="2022-03-15">15 March 2022</time>
+                      </div><a class="button button_icon" href="recipe-details-4.html"><span class="button__text">View Recipes</span>
+                        <svg class="button__svg" data-svg="play" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#play"></use>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="slide__img-wrapper"><img class="slide__handpicked" src="./img/handpicked.webp" alt="Handpicked" loading="lazy" width="300" height="300"><img class="slide__img" src="./img/slide-img-4.webp" alt="" loading="lazy" sizes="(max-width: 800px) calc(100vw - 32px), (max-width: 1024px) 36vw, (max-width: 1200px) 40vw, (max-width: 1400px) calc(51.5vw - 62px), 660px" width="1320" height="1280" srcset="./img/slide-img-4-640w.webp 640w, ./img/slide-img-4-960w.webp 960w, ./img/slide-img-4.webp 1320w">
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide hero__slide">
+                <article class="slide hero__card">
+                  <div class="slide__content">
+                    <div class="label label_hot"><span class="label__text label__text_hot">Hot Recipes</span></div>
+                    <hgroup class="slide__title-wrapper">
+                      <h2 class="slide__title">Strawberry Oatmeal Pancake with Honey Syrup</h2>
+                      <p class="slide__subtitle">Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim</p>
+                    </hgroup>
+                    <div class="slide__labels">
+                      <div class="label label_slide">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link label_slide" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Breakfast</span></a>
+                    </div>
+                    <div class="slide__container">
+                      <div class="author"><img class="author__photo" src="./img/author-3.webp" alt="" loading="lazy" width="200" height="200"><a class="author__name" href="#">Wade Warren</a>
+                        <time class="author__date" datetime="2022-03-15">15 March 2022</time>
+                      </div><a class="button button_icon" href="recipe-details-5.html"><span class="button__text">View Recipes</span>
+                        <svg class="button__svg" data-svg="play" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#play"></use>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="slide__img-wrapper"><img class="slide__handpicked" src="./img/handpicked.webp" alt="Handpicked" loading="lazy" width="300" height="300"><img class="slide__img" src="./img/slide-img-5.webp" alt="" loading="lazy" sizes="(max-width: 800px) calc(100vw - 32px), (max-width: 1024px) 36vw, (max-width: 1200px) 40vw, (max-width: 1400px) calc(51.5vw - 62px), 660px" width="1320" height="1280" srcset="./img/slide-img-5-640w.webp 640w, ./img/slide-img-5-960w.webp 960w, ./img/slide-img-5.webp 1320w">
+                  </div>
+                </article>
+              </div>
+              <div class="swiper-slide hero__slide">
+                <article class="slide hero__card">
+                  <div class="slide__content">
+                    <div class="label label_hot"><span class="label__text label__text_hot">Hot Recipes</span></div>
+                    <hgroup class="slide__title-wrapper">
+                      <h2 class="slide__title">Big and Juicy Wagyu Beef Cheeseburger</h2>
+                      <p class="slide__subtitle">Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
+                    </hgroup>
+                    <div class="slide__labels">
+                      <div class="label label_slide">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link label_slide" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Snack</span></a>
+                    </div>
+                    <div class="slide__container">
+                      <div class="author"><img class="author__photo" src="./img/author-5.webp" alt="" loading="lazy" width="200" height="200"><a class="author__name" href="#">Courtney Henry</a>
+                        <time class="author__date" datetime="2022-03-15">15 March 2022</time>
+                      </div><a class="button button_icon" href="recipe-details-6.html"><span class="button__text">View Recipes</span>
+                        <svg class="button__svg" data-svg="play" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#play"></use>
+                        </svg></a>
+                    </div>
+                  </div>
+                  <div class="slide__img-wrapper"><img class="slide__handpicked" src="./img/handpicked.webp" alt="Handpicked" loading="lazy" width="300" height="300"><img class="slide__img" src="./img/slide-img-6.webp" alt="" loading="lazy" sizes="(max-width: 800px) calc(100vw - 32px), (max-width: 1024px) 36vw, (max-width: 1200px) 40vw, (max-width: 1400px) calc(51.5vw - 62px), 660px" width="1320" height="1280" srcset="./img/slide-img-6-640w.webp 640w, ./img/slide-img-6-960w.webp 960w, ./img/slide-img-6.webp 1320w">
+                  </div>
+                </article>
+              </div>
+            </div>
+            <button class="swiper-button-prev js-hero-button-prev" type="button" aria-label="Previous slide" disabled>
+              <svg class="swiper-navigation-icon" data-svg="swiper-arrow" aria-hidden="true">
+                <use href="./img/sprites/sprite.svg#swiper-arrow"></use>
+              </svg>
+            </button>
+            <button class="swiper-button-next js-hero-button-next" type="button" aria-label="Next slide" disabled>
+              <svg class="swiper-navigation-icon" data-svg="swiper-arrow" aria-hidden="true">
+                <use href="./img/sprites/sprite.svg#swiper-arrow"></use>
+              </svg>
+            </button>
+            <div class="swiper-pagination hero__pagination js-hero-pagination"></div>
+          </div>
+        </section>
+        <section class="content__container categories" aria-labelledby="categories-heading">
+          <div class="categories__header">
+            <h2 class="categories__title" id="categories-heading">Categories</h2><a class="button button_secondary" href="recipes.html"><span class="button__text button__text_secondary">View All Categories</span></a>
+          </div>
+          <ul class="categories__list">
+                    <li class="categories__item"><img class="categories__img" src="./img/category-breakfast.webp" alt="" loading="lazy" width="200" height="200">
+                      <h3 class="categories__name-wrapper"><a class="categories__name" href="recipes.html">Breakfast</a></h3>
+                    </li>
+                    <li class="categories__item"><img class="categories__img" src="./img/category-vegan.webp" alt="" loading="lazy" width="200" height="200">
+                      <h3 class="categories__name-wrapper"><a class="categories__name" href="recipes.html">Vegan</a></h3>
+                    </li>
+                    <li class="categories__item"><img class="categories__img" src="./img/category-meat.webp" alt="" loading="lazy" width="200" height="200">
+                      <h3 class="categories__name-wrapper"><a class="categories__name" href="recipes.html">Meat</a></h3>
+                    </li>
+                    <li class="categories__item"><img class="categories__img" src="./img/category-dessert.webp" alt="" loading="lazy" width="200" height="200">
+                      <h3 class="categories__name-wrapper"><a class="categories__name" href="recipes.html">Dessert</a></h3>
+                    </li>
+                    <li class="categories__item"><img class="categories__img" src="./img/category-lunch.webp" alt="" loading="lazy" width="200" height="200">
+                      <h3 class="categories__name-wrapper"><a class="categories__name" href="recipes.html">Lunch</a></h3>
+                    </li>
+                    <li class="categories__item"><img class="categories__img" src="./img/category-chocolate.webp" alt="" loading="lazy" width="200" height="200">
+                      <h3 class="categories__name-wrapper"><a class="categories__name" href="recipes.html">Chocolate</a></h3>
+                    </li>
+          </ul>
+        </section>
+        <section class="recipes" aria-labelledby="simple-heading">
+          <hgroup class="heading recipes__heading">
+            <h2 class="heading__title-section" id="simple-heading">Simple and tasty recipes</h2>
+            <p class="heading__subtitle heading__subtitle_section heading__subtitle_type_small">Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim</p>
+          </hgroup>
+          <div class="content__container recipes__container">
+            <div class="swiper recipes__slider js-recipes-slider" data-swiper-media="(max-width: 640px)">
+              <div class="swiper-wrapper recipes__slider-wrapper">
+                <div class="swiper-slide recipes__slide">
+                  <article class="card-recipe card-recipe_big">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title" href="recipe-details-6.html">Big and Juicy Wagyu Beef Cheeseburger</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Snack</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img card-recipe__img_big" src="./img/recipe-1.webp" alt="" sizes="(max-width: 432px) calc(100vw - 64px), (max-width: 640px) 368px, (max-width: 1024px) calc(50vw - 56px), (max-width: 1170px) calc(33.33vw - 59px), (max-width: 1312px) calc(33.33vw - 70px), 368px" loading="lazy" width="1104" height="750" srcset="./img/recipe-1-640w.webp 640w, ./img/recipe-1-960w.webp 960w, ./img/recipe-1.webp 1104w">
+                      <button class="card-recipe__like card-recipe__like_big js-card-recipe-like" type="button" aria-pressed="true" aria-label="Like Big and Juicy Wagyu Beef Cheeseburger">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide">
+                  <article class="card-recipe card-recipe_big">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title" href="recipes.html">Fresh Lime Roasted Salmon with Ginger Sauce</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Fish</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img card-recipe__img_big" src="./img/recipe-2.webp" alt="" sizes="(max-width: 432px) calc(100vw - 64px), (max-width: 640px) 368px, (max-width: 1024px) calc(50vw - 56px), (max-width: 1170px) calc(33.33vw - 59px), (max-width: 1312px) calc(33.33vw - 70px), 368px" loading="lazy" width="1104" height="750" srcset="./img/recipe-2-640w.webp 640w, ./img/recipe-2-960w.webp 960w, ./img/recipe-2.webp 1104w">
+                      <button class="card-recipe__like card-recipe__like_big js-card-recipe-like" type="button" aria-pressed="false" aria-label="Like Fresh Lime Roasted Salmon with Ginger Sauce">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide">
+                  <article class="card-recipe card-recipe_big">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title" href="recipe-details-5.html">Strawberry Oatmeal Pancake with Honey Syrup</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Breakfast</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img card-recipe__img_big" src="./img/recipe-3.webp" alt="" sizes="(max-width: 432px) calc(100vw - 64px), (max-width: 640px) 368px, (max-width: 1024px) calc(50vw - 56px), (max-width: 1170px) calc(33.33vw - 59px), (max-width: 1312px) calc(33.33vw - 70px), 368px" loading="lazy" width="1104" height="750" srcset="./img/recipe-3-640w.webp 640w, ./img/recipe-3-960w.webp 960w, ./img/recipe-3.webp 1104w">
+                      <button class="card-recipe__like card-recipe__like_big js-card-recipe-like" type="button" aria-pressed="false" aria-label="Like Strawberry Oatmeal Pancake with Honey Syrup">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide">
+                  <article class="card-recipe card-recipe_big">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title" href="recipes.html">Fresh and Healthy Mixed Mayonnaise Salad</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Healthy</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img card-recipe__img_big" src="./img/recipe-4.webp" alt="" sizes="(max-width: 432px) calc(100vw - 64px), (max-width: 640px) 368px, (max-width: 1024px) calc(50vw - 56px), (max-width: 1170px) calc(33.33vw - 59px), (max-width: 1312px) calc(33.33vw - 70px), 368px" loading="lazy" width="1104" height="750" srcset="./img/recipe-4-640w.webp 640w, ./img/recipe-4-960w.webp 960w, ./img/recipe-4.webp 1104w">
+                      <button class="card-recipe__like card-recipe__like_big js-card-recipe-like" type="button" aria-pressed="true" aria-label="Like Fresh and Healthy Mixed Mayonnaise Salad">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide">
+                  <article class="card-recipe card-recipe_big">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title" href="recipes.html">Chicken Meatballs with Cream Cheese</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Meat</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img card-recipe__img_big" src="./img/recipe-5.webp" alt="" sizes="(max-width: 432px) calc(100vw - 64px), (max-width: 640px) 368px, (max-width: 1024px) calc(50vw - 56px), (max-width: 1170px) calc(33.33vw - 59px), (max-width: 1312px) calc(33.33vw - 70px), 368px" loading="lazy" width="1104" height="750" srcset="./img/recipe-5-640w.webp 640w, ./img/recipe-5-960w.webp 960w, ./img/recipe-5.webp 1104w">
+                      <button class="card-recipe__like card-recipe__like_big js-card-recipe-like" type="button" aria-pressed="false" aria-label="Like Chicken Meatballs with Cream Cheese">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide">
+                  <article class="card-recipe card-recipe_big">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title" href="recipes.html">Fruity Pancake with Orange &amp; Blueberry</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Sweet</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img card-recipe__img_big" src="./img/recipe-6.webp" alt="" sizes="(max-width: 432px) calc(100vw - 64px), (max-width: 640px) 368px, (max-width: 1024px) calc(50vw - 56px), (max-width: 1170px) calc(33.33vw - 59px), (max-width: 1312px) calc(33.33vw - 70px), 368px" loading="lazy" width="1104" height="750" srcset="./img/recipe-6-640w.webp 640w, ./img/recipe-6-960w.webp 960w, ./img/recipe-6.webp 1104w">
+                      <button class="card-recipe__like card-recipe__like_big js-card-recipe-like" type="button" aria-pressed="true" aria-label="Like Fruity Pancake with Orange &amp; Blueberry">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide">
+                  <article class="card-recipe card-recipe_big">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title" href="recipes.html">The Best Easy One Pot Chicken and Rice</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Chicken</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img card-recipe__img_big" src="./img/recipe-7.webp" alt="" sizes="(max-width: 432px) calc(100vw - 64px), (max-width: 640px) 368px, (max-width: 1024px) calc(50vw - 56px), (max-width: 1170px) calc(33.33vw - 59px), (max-width: 1312px) calc(33.33vw - 70px), 368px" loading="lazy" width="1104" height="750" srcset="./img/recipe-7-640w.webp 640w, ./img/recipe-7-960w.webp 960w, ./img/recipe-7.webp 1104w">
+                      <button class="card-recipe__like card-recipe__like_big js-card-recipe-like" type="button" aria-pressed="false" aria-label="Like The Best Easy One Pot Chicken and Rice">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide">
+                  <article class="card-recipe card-recipe_big">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title" href="recipes.html">The Creamiest Creamy Chicken and Bacon Pasta</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Noodles</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img card-recipe__img_big" src="./img/recipe-8.webp" alt="" sizes="(max-width: 432px) calc(100vw - 64px), (max-width: 640px) 368px, (max-width: 1024px) calc(50vw - 56px), (max-width: 1170px) calc(33.33vw - 59px), (max-width: 1312px) calc(33.33vw - 70px), 368px" loading="lazy" width="1104" height="750" srcset="./img/recipe-8-640w.webp 640w, ./img/recipe-8-960w.webp 960w, ./img/recipe-8.webp 1104w">
+                      <button class="card-recipe__like card-recipe__like_big js-card-recipe-like" type="button" aria-pressed="false" aria-label="Like The Creamiest Creamy Chicken and Bacon Pasta">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <div class="swiper-pagination recipes__pagination js-recipes-pagination"></div>
+            </div>
+            <aside class="recipes__promo">
+              <article class="promo promo_recipes">
+                <h3 class="promo__title">Don’t forget to eat healthy food</h3>
+                <div class="promo__media"><img class="promo__img" src="./img/promo.webp" alt="Salad with grilled salmon" loading="lazy" width="405" height="405">
+                </div><a class="promo__link" href="index.html" target="_blank" rel="noopener" aria-label="www.foodieland.com (opens in new tab)">www.foodieland.com</a>
+              </article>
+            </aside>
+          </div>
+        </section>
+        <section class="content__container everyone-can" aria-labelledby="everyone-can-heading">
+          <div class="everyone-can__content">
+            <hgroup class="heading heading_left">
+              <h2 class="heading__title-section heading__title-section_type_left" id="everyone-can-heading">Everyone can be a chef in their own kitchen</h2>
+              <p class="heading__subtitle heading__subtitle_section heading__subtitle_type_left">Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim</p>
+            </hgroup><a class="button everyone-can__button" href="about.html"><span class="button__text">Learn More</span></a>
+          </div>
+          <div class="everyone-can__container" aria-hidden="true">
+            <div class="everyone-can__background"></div>
+          </div>
+        </section>
+        <section class="instagram" aria-labelledby="instagram-heading">
+          <div class="content__container content__container_slider instagram__container">
+            <hgroup class="heading instagram__heading">
+              <h2 class="heading__title-section" id="instagram-heading">Check out @foodieland on Instagram</h2>
+              <p class="heading__subtitle heading__subtitle_section">Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim</p>
+            </hgroup>
+            <div class="swiper instagram__slider js-instagram-slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide instagram__slide"><a class="card-inst" href="index.html" target="_blank" rel="noopener" aria-label="Open the Instagram post The vegetables dishes need to have certain vitamin for those people (opens in new tab)">
+                    <div class="card-inst__header"><img class="card-inst__avatar" src="./img/inst-logo.webp" alt="" loading="lazy" width="50" height="50"><span class="card-inst__acc">Foodieland.</span><span class="card-inst__place">Tokyo, Japan</span>
+                      <svg class="card-inst__more" data-svg="inst-more" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-more"></use>
+                      </svg>
+                    </div>
+                    <div class="card-inst__img-wrapper"><img class="card-inst__img" src="./img/inst-img-1.webp" alt="" loading="lazy" width="580" height="580">
+                      <div class="card-inst__number" aria-hidden="true">1/3</div>
+                    </div>
+                    <div class="card-inst__nav" aria-hidden="true">
+                      <svg class="card-inst__like" data-svg="inst-like" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-like"></use>
+                      </svg>
+                      <svg class="card-inst__comment" data-svg="inst-comment" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-comment"></use>
+                      </svg>
+                      <svg class="card-inst__messenger" data-svg="inst-messenger" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-messenger"></use>
+                      </svg>
+                      <svg class="card-inst__pagination" data-svg="inst-pagination" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-pagination"></use>
+                      </svg>
+                      <svg class="card-inst__save" data-svg="inst-save" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-save"></use>
+                      </svg>
+                    </div>
+                    <div class="card-inst__users-wrapper"><img class="card-inst__users-avatar" src="./img/inst-avatar.webp" alt="" loading="lazy" width="27" height="27"><span class="card-inst__users-text">Liked by <strong>craig_love</strong> and <strong>44,686 others</strong></span>
+                      <h3 class="card-inst__title"><strong aria-hidden="true">Foodieland.</strong> The vegetables dishes need to have certain vitamin for those people</h3>
+                      <time class="card-inst__date" datetime="09-19">September 19</time>
+                    </div></a>
+                </div>
+                <div class="swiper-slide instagram__slide"><a class="card-inst" href="index.html" target="_blank" rel="noopener" aria-label="Open the Instagram post Sweet food can bring someon into happiness as long as they don’t eat to much (opens in new tab)">
+                    <div class="card-inst__header"><img class="card-inst__avatar" src="./img/inst-logo.webp" alt="" loading="lazy" width="50" height="50"><span class="card-inst__acc">Foodieland.</span><span class="card-inst__place">Tokyo, Japan</span>
+                      <svg class="card-inst__more" data-svg="inst-more" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-more"></use>
+                      </svg>
+                    </div>
+                    <div class="card-inst__img-wrapper"><img class="card-inst__img" src="./img/inst-img-2.webp" alt="" loading="lazy" width="580" height="580">
+                      <div class="card-inst__number" aria-hidden="true">1/3</div>
+                    </div>
+                    <div class="card-inst__nav" aria-hidden="true">
+                      <svg class="card-inst__like" data-svg="inst-like" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-like"></use>
+                      </svg>
+                      <svg class="card-inst__comment" data-svg="inst-comment" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-comment"></use>
+                      </svg>
+                      <svg class="card-inst__messenger" data-svg="inst-messenger" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-messenger"></use>
+                      </svg>
+                      <svg class="card-inst__pagination" data-svg="inst-pagination" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-pagination"></use>
+                      </svg>
+                      <svg class="card-inst__save" data-svg="inst-save" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-save"></use>
+                      </svg>
+                    </div>
+                    <div class="card-inst__users-wrapper"><img class="card-inst__users-avatar" src="./img/inst-avatar.webp" alt="" loading="lazy" width="27" height="27"><span class="card-inst__users-text">Liked by <strong>craig_love</strong> and <strong>44,686 others</strong></span>
+                      <h3 class="card-inst__title"><strong aria-hidden="true">Foodieland.</strong> Sweet food can bring someon into happiness as long as they don’t eat to much</h3>
+                      <time class="card-inst__date" datetime="09-19">September 19</time>
+                    </div></a>
+                </div>
+                <div class="swiper-slide instagram__slide"><a class="card-inst" href="index.html" target="_blank" rel="noopener" aria-label="Open the Instagram post What are you doing before start cooking? prepare the  tools or ingredients? (opens in new tab)">
+                    <div class="card-inst__header"><img class="card-inst__avatar" src="./img/inst-logo.webp" alt="" loading="lazy" width="50" height="50"><span class="card-inst__acc">Foodieland.</span><span class="card-inst__place">Tokyo, Japan</span>
+                      <svg class="card-inst__more" data-svg="inst-more" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-more"></use>
+                      </svg>
+                    </div>
+                    <div class="card-inst__img-wrapper"><img class="card-inst__img" src="./img/inst-img-3.webp" alt="" loading="lazy" width="580" height="580">
+                      <div class="card-inst__number" aria-hidden="true">1/3</div>
+                    </div>
+                    <div class="card-inst__nav" aria-hidden="true">
+                      <svg class="card-inst__like" data-svg="inst-like" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-like"></use>
+                      </svg>
+                      <svg class="card-inst__comment" data-svg="inst-comment" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-comment"></use>
+                      </svg>
+                      <svg class="card-inst__messenger" data-svg="inst-messenger" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-messenger"></use>
+                      </svg>
+                      <svg class="card-inst__pagination" data-svg="inst-pagination" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-pagination"></use>
+                      </svg>
+                      <svg class="card-inst__save" data-svg="inst-save" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-save"></use>
+                      </svg>
+                    </div>
+                    <div class="card-inst__users-wrapper"><img class="card-inst__users-avatar" src="./img/inst-avatar.webp" alt="" loading="lazy" width="27" height="27"><span class="card-inst__users-text">Liked by <strong>craig_love</strong> and <strong>44,686 others</strong></span>
+                      <h3 class="card-inst__title"><strong aria-hidden="true">Foodieland.</strong> What are you doing before start cooking? prepare the  tools or ingredients?</h3>
+                      <time class="card-inst__date" datetime="09-19">September 19</time>
+                    </div></a>
+                </div>
+                <div class="swiper-slide instagram__slide"><a class="card-inst" href="index.html" target="_blank" rel="noopener" aria-label="Open the Instagram post Steak never be wrong, it’s suitable for you who want romantic dinner (opens in new tab)">
+                    <div class="card-inst__header"><img class="card-inst__avatar" src="./img/inst-logo.webp" alt="" loading="lazy" width="50" height="50"><span class="card-inst__acc">Foodieland.</span><span class="card-inst__place">Tokyo, Japan</span>
+                      <svg class="card-inst__more" data-svg="inst-more" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-more"></use>
+                      </svg>
+                    </div>
+                    <div class="card-inst__img-wrapper"><img class="card-inst__img" src="./img/inst-img-4.webp" alt="" loading="lazy" width="580" height="580">
+                      <div class="card-inst__number" aria-hidden="true">1/3</div>
+                    </div>
+                    <div class="card-inst__nav" aria-hidden="true">
+                      <svg class="card-inst__like" data-svg="inst-like" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-like"></use>
+                      </svg>
+                      <svg class="card-inst__comment" data-svg="inst-comment" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-comment"></use>
+                      </svg>
+                      <svg class="card-inst__messenger" data-svg="inst-messenger" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-messenger"></use>
+                      </svg>
+                      <svg class="card-inst__pagination" data-svg="inst-pagination" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-pagination"></use>
+                      </svg>
+                      <svg class="card-inst__save" data-svg="inst-save" aria-hidden="true">
+                        <use href="./img/sprites/sprite.svg#inst-save"></use>
+                      </svg>
+                    </div>
+                    <div class="card-inst__users-wrapper"><img class="card-inst__users-avatar" src="./img/inst-avatar.webp" alt="" loading="lazy" width="27" height="27"><span class="card-inst__users-text">Liked by <strong>craig_love</strong> and <strong>44,686 others</strong></span>
+                      <h3 class="card-inst__title"><strong aria-hidden="true">Foodieland.</strong> Steak never be wrong, it’s suitable for you who want romantic dinner</h3>
+                      <time class="card-inst__date" datetime="09-19">September 19</time>
+                    </div></a>
+                </div>
+              </div>
+              <button class="swiper-button-prev js-instagram-button-prev" type="button" aria-label="Previous slide" disabled>
+                <svg class="swiper-navigation-icon" data-svg="swiper-arrow" aria-hidden="true">
+                  <use href="./img/sprites/sprite.svg#swiper-arrow"></use>
+                </svg>
+              </button>
+              <button class="swiper-button-next js-instagram-button-next" type="button" aria-label="Next slide" disabled>
+                <svg class="swiper-navigation-icon" data-svg="swiper-arrow" aria-hidden="true">
+                  <use href="./img/sprites/sprite.svg#swiper-arrow"></use>
+                </svg>
+              </button>
+            </div><a class="button button_icon instagram__button" href="index.html" target="_blank" rel="noopener" aria-label="Visit Our Instagram (opens in new tab)"><span class="button__text">Visit Our Instagram</span>
+              <svg class="button__svg" data-svg="instagram" aria-hidden="true">
+                <use href="./img/sprites/sprite.svg#instagram"></use>
+              </svg></a>
+          </div>
+        </section>
+        <section class="recipes" aria-labelledby="try-heading">
+          <hgroup class="heading heading_row recipes__heading">
+            <h2 class="heading__title-section heading__title-section_type_row" id="try-heading">Try this delicious recipe to make your day</h2>
+            <p class="heading__subtitle heading__subtitle_section heading__subtitle_type_row">Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim</p>
+          </hgroup>
+          <div class="content__container recipes__container recipes__container_small">
+            <div class="swiper recipes__slider js-recipes-slider" data-swiper-media="(max-width: 640px)">
+              <div class="swiper-wrapper recipes__slider-wrapper">
+                <div class="swiper-slide recipes__slide recipes__slide_small">
+                  <article class="card-recipe">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title card-recipe__title_small" href="recipe-details-3.html">Mixed Tropical Fruit Salad with Superfood Boosts</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Healthy</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-9.webp" alt="" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-9-640w.webp 640w, ./img/recipe-9-960w.webp 960w, ./img/recipe-9.webp 1160w">
+                      <button class="card-recipe__like js-card-recipe-like" type="button" aria-pressed="true" aria-label="Like Mixed Tropical Fruit Salad with Superfood Boosts">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide recipes__slide_small">
+                  <article class="card-recipe">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title card-recipe__title_small" href="recipe-details-4.html">Big and Juicy Wagyu Beef</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Western</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-10.webp" alt="" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-10-640w.webp 640w, ./img/recipe-10-960w.webp 960w, ./img/recipe-10.webp 1160w">
+                      <button class="card-recipe__like js-card-recipe-like" type="button" aria-pressed="false" aria-label="Like Big and Juicy Wagyu Beef">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide recipes__slide_small">
+                  <article class="card-recipe">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title card-recipe__title_small" href="recipe-details-2.html">Healthy Japanese Fried Rice with Asparagus</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Healthy</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-11.webp" alt="" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-11-640w.webp 640w, ./img/recipe-11-960w.webp 960w, ./img/recipe-11.webp 1160w">
+                      <button class="card-recipe__like js-card-recipe-like" type="button" aria-pressed="true" aria-label="Like Healthy Japanese Fried Rice with Asparagus">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide recipes__slide_small">
+                  <article class="card-recipe">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title card-recipe__title_small" href="recipes.html">Cauliflower Walnut Vegetarian Taco Meat</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Eastern</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-12.webp" alt="" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-12-640w.webp 640w, ./img/recipe-12-960w.webp 960w, ./img/recipe-12.webp 1160w">
+                      <button class="card-recipe__like js-card-recipe-like" type="button" aria-pressed="false" aria-label="Like Cauliflower Walnut Vegetarian Taco Meat">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide recipes__slide_small">
+                  <article class="card-recipe">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title card-recipe__title_small" href="recipes.html">Rainbow Chicken Salad with Almond Honey Mustard Dressing</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Healthy</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-13.webp" alt="" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-13-640w.webp 640w, ./img/recipe-13-960w.webp 960w, ./img/recipe-13.webp 1160w">
+                      <button class="card-recipe__like js-card-recipe-like" type="button" aria-pressed="true" aria-label="Like Rainbow Chicken Salad with Almond Honey Mustard Dressing">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide recipes__slide_small">
+                  <article class="card-recipe">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title card-recipe__title_small" href="recipes.html">Barbeque Spicy Sandwiches with Chips</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Snack</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-14.webp" alt="" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-14-640w.webp 640w, ./img/recipe-14-960w.webp 960w, ./img/recipe-14.webp 1160w">
+                      <button class="card-recipe__like js-card-recipe-like" type="button" aria-pressed="false" aria-label="Like Barbeque Spicy Sandwiches with Chips">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide recipes__slide_small">
+                  <article class="card-recipe">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title card-recipe__title_small" href="recipes.html">Firecracker Vegan Lettuce Wraps - Spicy!</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Seafood</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-15.webp" alt="" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-15-640w.webp 640w, ./img/recipe-15-960w.webp 960w, ./img/recipe-15.webp 1160w">
+                      <button class="card-recipe__like js-card-recipe-like" type="button" aria-pressed="false" aria-label="Like Firecracker Vegan Lettuce Wraps - Spicy!">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                <div class="swiper-slide recipes__slide recipes__slide_small">
+                  <article class="card-recipe">
+                    <h3 class="card-recipe__title-wrapper"><a class="card-recipe__title card-recipe__title_small" href="recipes.html">Chicken Ramen Soup with Mushroom</a></h3>
+                    <div class="card-recipe__labels">
+                      <div class="label">
+                        <svg class="label__svg" data-svg="timer" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#timer"></use>
+                        </svg><span class="label__text">30 Minutes</span>
+                      </div><a class="label label_link" href="recipes.html">
+                        <svg class="label__svg" data-svg="fork-knife" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#fork-knife"></use>
+                        </svg><span class="label__text">Noodles</span></a>
+                    </div>
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-16.webp" alt="" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-16-640w.webp 640w, ./img/recipe-16-960w.webp 960w, ./img/recipe-16.webp 1160w">
+                      <button class="card-recipe__like js-card-recipe-like" type="button" aria-pressed="true" aria-label="Like Chicken Ramen Soup with Mushroom">
+                        <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
+                          <use href="./img/sprites/sprite.svg#like"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <div class="swiper-pagination recipes__pagination recipes__pagination_small js-recipes-pagination"></div>
+            </div>
+          </div>
+        </section>
+        <section class="content__container subscribe js-subscribe" aria-labelledby="subscription-heading">
+          <form class="subscribe__form js-subscribe-form" method="post">
+            <div class="subscribe__title-wrapper">
+              <div class="subscribe__title js-subscribe-title">
+                <h2 class="visually-hidden" id="subscription-heading">Deliciousness to your inbox</h2><span class="subscribe__title-text" aria-hidden="true" data-title="default">Deliciousness to your inbox</span><span class="subscribe__title-text" aria-hidden="true" data-title="success">Thanks for subscribing!</span>
+              </div>
+              <p class="subscribe__subtitle">
+                Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqut enim ad minim
+              </p>
+            </div>
+            <div class="input">
+              <label class="visually-hidden" for="subscribe-email">Enter your email address</label>
+              <input class="input__field" id="subscribe-email" required type="email" name="subscribeEmail" autocomplete="email" placeholder="Your email address...">
+              <button class="button input__submit js-subscribe-submit" type="submit"><span class="button__text">Subscribe</span></button>
+            </div><span class="visually-hidden js-subscribe-status" role="status"></span>
+          </form>
+        </section>
+      </main>
+      <footer class="footer page__footer">
+        <div class="footer__top">
+          <div class="footer__container">
+            <div><a class="logo" href="index.html" aria-label="Foodieland - home"><span class="logo__text" aria-hidden="true">Foodieland</span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span><span class="logo__drop" aria-hidden="true"></span></a>
+            </div>
+            <p class="footer__text">Lorem ipsum dolor sit amet, consectetuipisicing elit</p>
+          </div>
+          <nav aria-label="Footer">
+            <ul class="footer__list">
+              <li><a class="link" href="recipes.html">Recipes</a>
+              </li>
+              <li><a class="link" href="blog.html">Blog</a>
+              </li>
+              <li><a class="link" href="contact.html">Contact</a>
+              </li>
+              <li><a class="link" href="about.html">About us</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="footer__bottom">
+          <ul class="socials footer__socials" aria-label="Our socials">
+            <li><a class="socials__link socials__link_facebook" href="index.html" target="_blank" rel="noopener" aria-label="Facebook (opens in new tab)">
+                <svg class="socials__svg" data-svg="facebook" aria-hidden="true">
+                  <use href="./img/sprites/sprite.svg#facebook"></use>
+                </svg></a></li>
+            <li><a class="socials__link socials__link_twitter" href="index.html" target="_blank" rel="noopener" aria-label="Twitter (opens in new tab)">
+                <svg class="socials__svg" data-svg="twitter" aria-hidden="true">
+                  <use href="./img/sprites/sprite.svg#twitter"></use>
+                </svg></a></li>
+            <li><a class="socials__link socials__link_instagram" href="index.html" target="_blank" rel="noopener" aria-label="Instagram (opens in new tab)">
+                <svg class="socials__svg" data-svg="instagram" aria-hidden="true">
+                  <use href="./img/sprites/sprite.svg#instagram"></use>
+                </svg></a></li>
+          </ul>
+          <div class="footer__copyright">
+            <p class="footer__copyright-text">© 2020 Flowbase. Powered by <a class="footer__link" href="index.html" target="_blank" rel="noopener" aria-label="Webflow (opens in new tab)">Webflow</a>
+            </p>
+          </div>
+        </div>
+      </footer>
+      <dialog class="menu js-menu" id="mobile-menu" aria-label="Menu">
+        <div class="menu__container">
+          <div class="menu__buttons">
+            <button class="burger js-menu-close" autofocus type="button" aria-label="Close menu"><span class="burger__line"></span></button>
+          </div>
+          <nav aria-label="Mobile">
+            <ul class="menu__list">
+              <li class="js-menu-link"><a class="link" href="index.html" aria-current="page">Home</a>
+              </li>
+              <li class="js-menu-link"><a class="link" href="recipes.html">Recipes</a>
+              </li>
+              <li class="js-menu-link"><a class="link" href="blog.html">Blog</a>
+              </li>
+              <li class="js-menu-link"><a class="link" href="contact.html">Contact</a>
+              </li>
+              <li class="js-menu-link"><a class="link" href="about.html">About us</a>
+              </li>
+            </ul>
+          </nav>
+          <ul class="socials socials_menu" aria-label="Our socials">
+            <li><a class="socials__link socials__link_facebook" href="index.html" target="_blank" rel="noopener" aria-label="Facebook (opens in new tab)">
+                <svg class="socials__svg" data-svg="facebook" aria-hidden="true">
+                  <use href="./img/sprites/sprite.svg#facebook"></use>
+                </svg></a></li>
+            <li><a class="socials__link socials__link_twitter" href="index.html" target="_blank" rel="noopener" aria-label="Twitter (opens in new tab)">
+                <svg class="socials__svg" data-svg="twitter" aria-hidden="true">
+                  <use href="./img/sprites/sprite.svg#twitter"></use>
+                </svg></a></li>
+            <li><a class="socials__link socials__link_instagram" href="index.html" target="_blank" rel="noopener" aria-label="Instagram (opens in new tab)">
+                <svg class="socials__svg" data-svg="instagram" aria-hidden="true">
+                  <use href="./img/sprites/sprite.svg#instagram"></use>
+                </svg></a></li>
+          </ul>
+        </div>
+      </dialog>
+    </div>
+    <script defer src="js/main.js?v=c8d6fa88"></script>
+  </body>
+</html>
