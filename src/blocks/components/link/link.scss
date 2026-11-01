@@ -19,5 +19,11 @@
     &::after {
       display: none;
     }
+
+    @media (forced-colors: active) {
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+      text-underline-offset: 0.3em;
+    }
   }
 }

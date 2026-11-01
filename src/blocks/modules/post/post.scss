@@ -24,6 +24,7 @@
     max-width: 1280px;
     aspect-ratio: 1280 / 600;
     border-radius: 30px;
+    background-color: vars.$background;
   }
 
   &__container {
@@ -82,6 +83,7 @@
     max-width: 840px;
     aspect-ratio: 840 / 400;
     border-radius: 20px;
+    background-color: vars.$no-active;
   }
 
   &__quote {
