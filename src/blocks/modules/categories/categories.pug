@@ -1,6 +1,6 @@
 mixin category(data)
   li.categories__item
-    +img(data.img, '').categories__img
+    +img(data.img, `Icon ${data.name}`)(aria-hidden='true').categories__img
     h3.categories__name-wrapper
       a(href='recipes.html').categories__name= data.name
 

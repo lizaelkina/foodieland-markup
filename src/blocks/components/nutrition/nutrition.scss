@@ -20,34 +20,40 @@
     text-transform: capitalize;
   }
 
-  &__table {
+  &__list {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
   }
 
-  &__table-row {
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-bottom: vars.$border;
 
-    &:first-child .nutrition__table-th, &:first-child .nutrition__table-td {
-      padding-top: 0;
+    &:first-child {
+      .nutrition__label, .nutrition__value {
+        padding-top: 0;
+      }
     }
   }
 
-  &__table-th {
+  &__label {
     @include mix.text-table;
 
-    text-align: left;
+    flex: 1;
     padding: 16px 0;
     text-transform: capitalize;
     color: vars.$text-subtitle;
   }
 
-  &__table-td {
+  &__value {
     @include mix.text-table;
 
-    text-align: right;
+    flex: 1;
     padding: 16px 0;
+    text-align: right;
     color: vars.$primary;
   }
 

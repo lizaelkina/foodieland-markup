@@ -35,7 +35,7 @@
 
     width: 100%;
     border: none;
-    padding: 10px 24px;
+    padding: 20px 24px;
     border-radius: 16px;
     background-color: vars.$secondary;
     font-size: func.rem(16);
@@ -50,7 +50,7 @@
     }
 
     &_search {
-      padding: 10px 30px 10px 24px;
+      padding: 20px 30px 20px 24px;
     }
 
     &::placeholder {
@@ -113,7 +113,7 @@
 
     &__field {
       max-width: 350px;
-      padding: 16px;
+      padding: 20px;
 
       &_search {
         max-width: none;

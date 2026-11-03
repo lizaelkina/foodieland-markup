@@ -4,7 +4,7 @@ article(aria-labelledby='recipe-details-heading').content__container.details
     header.details__header
       h1#recipe-details-heading.details__title= recipeData.title || 'Recipe'
       div.author.details__author
-        +img(recipeData.authorPhoto, '').author__photo
+        +img(recipeData.authorPhoto, 'Author avatar')(aria-hidden='true').author__photo
         a(href='#').author__name= recipeData.authorName
         +date(recipeData.authorDate).author__date
       div.details__labels
@@ -22,7 +22,7 @@ article(aria-labelledby='recipe-details-heading').content__container.details
           span.visually-hidden(role='status').js-share-status
     div.details__information
       div.details__img-wrapper
-        +img(recipeData.imgVideo, recipeData.title)(loading='eager' fetchpriority='high' sizes=cardSizes.details).details__img
+        +img(recipeData.imgVideo, 'Photo of the dish')(loading='eager' fetchpriority='high' sizes=cardSizes.details).details__img
         +button-play-video
       +nutrition
   p.details__text
@@ -33,8 +33,8 @@ article(aria-labelledby='recipe-details-heading').content__container.details
 
   div.details__container
     div.details__steps
-      section.details__ingredients
-        h2.details__ingredients-title Ingredients
+      section(aria-labelledby='ingredients').details__ingredients
+        h2#ingredients.details__ingredients-title Ingredients
         +checklist({
           title: 'For main dish',
           items: [
@@ -54,8 +54,8 @@ article(aria-labelledby='recipe-details-heading').content__container.details
           ]
         })
 
-      section.details__direction
-        h2.details__direction-title Directions
+      section(aria-labelledby='direction').details__direction
+        h2#direction.details__direction-title Directions
         +checklist-big({
           items: [
             {

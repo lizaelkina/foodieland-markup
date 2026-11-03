@@ -89,6 +89,7 @@
     @include mix.active-state;
 
     z-index: 3;
+    min-width: fit-content;
 
     @include mix.hover-or-focus {
       .label__text {

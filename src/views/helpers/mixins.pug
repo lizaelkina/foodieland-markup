@@ -179,13 +179,13 @@ mixin slide(data)
         +label-category(data.category).label_slide
       div.slide__container
         div.author
-          +img(data.authorPhoto, '').author__photo
+          +img(data.authorPhoto, 'Author avatar')(aria-hidden='true').author__photo
           a(href='#').author__name= data.authorName
           +date(data.authorDate).author__date
         +button-icon('View Recipes', 'play', data.href)
     div.slide__img-wrapper
       +img('./img/handpicked', 'Handpicked')(loading=data.isFirst ? 'eager' : null).slide__handpicked
-      +img(data.imgSlide, '')(
+      +img(data.imgSlide, data.altImg || 'Photo of the dish')(
         loading=data.isFirst ? 'eager' : null,
         fetchpriority=data.isFirst ? 'high' : null,
         sizes=cardSizes.slide).slide__img
@@ -193,12 +193,12 @@ mixin slide(data)
 mixin card-inst(data)
   a(href='index.html' target='_blank' rel='noopener' aria-label=`Open the Instagram post ${data.title} (opens in new tab)`).card-inst
     div.card-inst__header
-      +img('./img/inst-logo', '').card-inst__avatar
+      +img('./img/inst-logo', 'Instagram avatar')(aria-hidden='true').card-inst__avatar
       span.card-inst__acc Foodieland.
       span.card-inst__place Tokyo, Japan
       +svg('inst-more').card-inst__more
     div.card-inst__img-wrapper
-      +img(data.img, '').card-inst__img
+      +img(data.img, data.altImg || 'Photo of the dish').card-inst__img
       div(aria-hidden='true').card-inst__number 1/3
     div(aria-hidden='true').card-inst__nav
       +svg('inst-like').card-inst__like
@@ -207,7 +207,7 @@ mixin card-inst(data)
       +svg('inst-pagination').card-inst__pagination
       +svg('inst-save').card-inst__save
     div.card-inst__users-wrapper
-      +img('./img/inst-avatar', '').card-inst__users-avatar
+      +img('./img/inst-avatar', 'User avatar')(aria-hidden='true').card-inst__users-avatar
       span.card-inst__users-text Liked by #[strong craig_love] and #[strong 44,686 others]
       h3.card-inst__title #[strong(aria-hidden='true') Foodieland.] #{data.title}
       time(datetime='09-19').card-inst__date September 19
@@ -220,7 +220,7 @@ mixin recipe-big(data)
       +label-timer('30 Minutes')
       +label-category(data.category)
     div.card-recipe__img-wrapper
-      +img(data.img, '')(sizes=cardSizes.recipeBig).card-recipe__img.card-recipe__img_big
+      +img(data.img, data.altImg || 'Photo of the dish')(sizes=cardSizes.recipeBig).card-recipe__img.card-recipe__img_big
       button(
         type='button'
         aria-pressed=data.like ? 'true' : 'false'
@@ -235,7 +235,7 @@ mixin recipe-small(data)
       +label-timer('30 Minutes')
       +label-category(data.category)
     div.card-recipe__img-wrapper
-      +img(data.img, '')(sizes=cardSizes.recipeSmall).card-recipe__img
+      +img(data.img, data.altImg || 'Photo of the dish')(sizes=cardSizes.recipeSmall).card-recipe__img
       button(
         type='button'
         aria-pressed=data.like ? 'true' : 'false'
@@ -245,20 +245,20 @@ mixin recipe-small(data)
 mixin card-list(data)
   article.card-list&attributes(attributes)
     div.card-list__img-wrapper
-      +img(data.img, '')(sizes=cardSizes.cardList).card-list__img
+      +img(data.img, data.altImg || 'Photo of the dish')(sizes=cardSizes.cardList).card-list__img
     div.card-list__container
       h2.card-list__title-wrapper
         a(href=data.href || 'blog.html').card-list__title= data.title
       p.card-list__subtitle= data.subtitle
       div.author.author_blog
-        +img(data.authorPhoto, '').author__photo.author__photo_blog
+        +img(data.authorPhoto, 'Author avatar')(aria-hidden='true').author__photo.author__photo_blog
         a(href='#').author__name.author__name_blog= data.authorName
         +date(data.authorDate).author__date.author__date_blog
 
 mixin sidebar-card(data)
   li.sidebar__card
     div.sidebar__img-wrapper
-      +img(data.img, '')(sizes=cardSizes.sidebar).sidebar__img
+      +img(data.img, data.altImg || 'Photo of the dish')(sizes=cardSizes.sidebar).sidebar__img
     div.sidebar__container
       h3.sidebar__title-wrapper
         a(href=data.href || 'recipes.html').sidebar__title= data.title
@@ -303,29 +303,24 @@ mixin pagination(data)
               span.pagination__dots …
 
 mixin nutrition
-  section.nutrition&attributes(attributes)
+  section(aria-labelledby='nutrition-information').nutrition&attributes(attributes)
     h2#nutrition-information.nutrition__title Nutrition information
-    table(aria-labelledby='nutrition-information').nutrition__table
-      thead.visually-hidden
-        tr
-          th(scope='col') Nutrient
-          th(scope='col') Amount
-      tbody
-        tr.nutrition__table-row
-          th.nutrition__table-th(scope='row') Calories
-          td.nutrition__table-td 219.9 kcal
-        tr.nutrition__table-row
-          th.nutrition__table-th(scope='row') Total fat
-          td.nutrition__table-td 10.7 g
-        tr.nutrition__table-row
-          th.nutrition__table-th(scope='row') Protein
-          td.nutrition__table-td 7.9 g
-        tr.nutrition__table-row
-          th.nutrition__table-th(scope='row') Carbohydrate
-          td.nutrition__table-td 22.3 g
-        tr.nutrition__table-row
-          th.nutrition__table-th(scope='row') Cholesterol
-          td.nutrition__table-td 37.4 mg
+    dl.nutrition__list
+      .nutrition__item
+        dt.nutrition__label Calories
+        dd.nutrition__value 219.9 kcal
+      .nutrition__item
+        dt.nutrition__label Total fat
+        dd.nutrition__value 10.7 g
+      .nutrition__item
+        dt.nutrition__label Protein
+        dd.nutrition__value 7.9 g
+      .nutrition__item
+        dt.nutrition__label Carbohydrate
+        dd.nutrition__value 22.3 g
+      .nutrition__item
+        dt.nutrition__label Cholesterol
+        dd.nutrition__value 37.4 mg
     p.nutrition__caption
       | adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
@@ -358,6 +353,6 @@ mixin checklist-big(data)
             div.checklist__description-wrapper
               p.checklist__description= item.description
               if item.img
-                +img(item.img, '')(sizes=cardSizes.bigImg).checklist__img
+                +img(item.img, 'Illustration for recipe step')(sizes=cardSizes.bigImg).checklist__img
               if item.caption
                 p.checklist__description= item.caption
