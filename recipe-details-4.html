@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
     <link rel="preload" href="fonts/Lobster.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles/main.css?v=cc97abc2">
+    <link rel="stylesheet" href="styles/main.css?v=9d868a53">
   </head>
   <body class="root root_print"><a class="skip-link js-skip-link" href="#content">Skip to content</a>
     <div class="page">
@@ -57,7 +57,7 @@
           <div class="details__intro">
             <header class="details__header">
               <h1 class="details__title" id="recipe-details-heading">Big and Juicy Wagyu Beef</h1>
-              <div class="author details__author"><img class="author__photo" src="./img/author-4.webp" alt="" loading="lazy" width="200" height="200"><a class="author__name" href="#">Albert Flores</a>
+              <div class="author details__author"><img class="author__photo" src="./img/author-4.webp" alt="Author avatar" aria-hidden="true" loading="lazy" width="200" height="200"><a class="author__name" href="#">Albert Flores</a>
                 <time class="author__date" datetime="2022-03-15">15 March 2022</time>
               </div>
               <div class="details__labels">
@@ -99,45 +99,37 @@
               </ul>
             </header>
             <div class="details__information">
-              <div class="details__img-wrapper"><img class="details__img" src="./img/video-img-4.webp" alt="Big and Juicy Wagyu Beef" fetchpriority="high" sizes="(max-width: 1024px) calc(100vw - 32px), (max-width: 1170px) calc(100vw - 406px), (max-width: 1312px) calc(100vw - 472px), 840px" width="1680" height="1200" srcset="./img/video-img-4-640w.webp 640w, ./img/video-img-4-960w.webp 960w, ./img/video-img-4.webp 1680w">
+              <div class="details__img-wrapper"><img class="details__img" src="./img/video-img-4.webp" alt="Photo of the dish" fetchpriority="high" sizes="(max-width: 1024px) calc(100vw - 32px), (max-width: 1170px) calc(100vw - 406px), (max-width: 1312px) calc(100vw - 472px), 840px" width="1680" height="1200" srcset="./img/video-img-4-640w.webp 640w, ./img/video-img-4-960w.webp 960w, ./img/video-img-4.webp 1680w">
                 <button class="play-video details__play-video js-modal-open" type="button" aria-label="Open modal video" aria-haspopup="dialog" aria-controls="modal-video">
                   <svg class="play-video__svg" data-svg="play-video" aria-hidden="true">
                     <use href="./img/sprites/sprite.svg#play-video"></use>
                   </svg>
                 </button>
               </div>
-              <section class="nutrition">
+              <section class="nutrition" aria-labelledby="nutrition-information">
                 <h2 class="nutrition__title" id="nutrition-information">Nutrition information</h2>
-                <table class="nutrition__table" aria-labelledby="nutrition-information">
-                  <thead class="visually-hidden">
-                    <tr>
-                      <th scope="col">Nutrient</th>
-                      <th scope="col">Amount</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="nutrition__table-row">
-                      <th class="nutrition__table-th" scope="row">Calories</th>
-                      <td class="nutrition__table-td">219.9 kcal</td>
-                    </tr>
-                    <tr class="nutrition__table-row">
-                      <th class="nutrition__table-th" scope="row">Total fat</th>
-                      <td class="nutrition__table-td">10.7 g</td>
-                    </tr>
-                    <tr class="nutrition__table-row">
-                      <th class="nutrition__table-th" scope="row">Protein</th>
-                      <td class="nutrition__table-td">7.9 g</td>
-                    </tr>
-                    <tr class="nutrition__table-row">
-                      <th class="nutrition__table-th" scope="row">Carbohydrate</th>
-                      <td class="nutrition__table-td">22.3 g</td>
-                    </tr>
-                    <tr class="nutrition__table-row">
-                      <th class="nutrition__table-th" scope="row">Cholesterol</th>
-                      <td class="nutrition__table-td">37.4 mg</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <dl class="nutrition__list">
+                  <div class="nutrition__item">
+                    <dt class="nutrition__label">Calories</dt>
+                    <dd class="nutrition__value">219.9 kcal</dd>
+                  </div>
+                  <div class="nutrition__item">
+                    <dt class="nutrition__label">Total fat</dt>
+                    <dd class="nutrition__value">10.7 g</dd>
+                  </div>
+                  <div class="nutrition__item">
+                    <dt class="nutrition__label">Protein</dt>
+                    <dd class="nutrition__value">7.9 g</dd>
+                  </div>
+                  <div class="nutrition__item">
+                    <dt class="nutrition__label">Carbohydrate</dt>
+                    <dd class="nutrition__value">22.3 g</dd>
+                  </div>
+                  <div class="nutrition__item">
+                    <dt class="nutrition__label">Cholesterol</dt>
+                    <dd class="nutrition__value">37.4 mg</dd>
+                  </div>
+                </dl>
                 <p class="nutrition__caption">adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </section>
             </div>
@@ -150,8 +142,8 @@
           </p>
           <div class="details__container">
             <div class="details__steps">
-              <section class="details__ingredients">
-                <h2 class="details__ingredients-title">Ingredients</h2>
+              <section class="details__ingredients" aria-labelledby="ingredients">
+                <h2 class="details__ingredients-title" id="ingredients">Ingredients</h2>
                 <fieldset class="checklist">
                   <legend>
                     <h3 class="checklist__title">For main dish</h3>
@@ -231,8 +223,8 @@
                   </ul>
                 </fieldset>
               </section>
-              <section class="details__direction">
-                <h2 class="details__direction-title">Directions</h2>
+              <section class="details__direction" aria-labelledby="direction">
+                <h2 class="details__direction-title" id="direction">Directions</h2>
                 <div class="checklist">
                   <ol class="checklist__num">
                     <li class="checklist__item checklist__item_num">
@@ -243,7 +235,7 @@
                           </svg></span><span class="checklist__text checklist__text_num">Lorem ipsum dolor sit amet</span>
                       </label>
                       <div class="checklist__description-wrapper">
-                        <p class="checklist__description">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><img class="checklist__img" src="./img/cook.webp" alt="" sizes="(max-width: 1312px) calc(100vw - 32px), 1280px" loading="lazy" width="1584" height="800" srcset="./img/cook-640w.webp 640w, ./img/cook-960w.webp 960w, ./img/cook.webp 1584w">
+                        <p class="checklist__description">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p><img class="checklist__img" src="./img/cook.webp" alt="Illustration for recipe step" sizes="(max-width: 1312px) calc(100vw - 32px), 1280px" loading="lazy" width="1584" height="800" srcset="./img/cook-640w.webp 640w, ./img/cook-960w.webp 960w, ./img/cook.webp 1584w">
                         <p class="checklist__description">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
                       </div>
                     </li>
@@ -278,21 +270,21 @@
                 <h2 class="sidebar__heading" id="sidebar-articles">Other Recipe</h2>
                 <ul class="sidebar__list">
                   <li class="sidebar__card">
-                    <div class="sidebar__img-wrapper"><img class="sidebar__img" src="./img/recipe-small-1.webp" alt="" sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 1024px) calc(33.33vw - 22px), 180px" loading="lazy" width="720" height="480" srcset="./img/recipe-small-1-640w.webp 640w, ./img/recipe-small-1.webp 720w">
+                    <div class="sidebar__img-wrapper"><img class="sidebar__img" src="./img/recipe-small-1.webp" alt="Photo of the dish" sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 1024px) calc(33.33vw - 22px), 180px" loading="lazy" width="720" height="480" srcset="./img/recipe-small-1-640w.webp 640w, ./img/recipe-small-1.webp 720w">
                     </div>
                     <div class="sidebar__container">
                       <h3 class="sidebar__title-wrapper"><a class="sidebar__title" href="recipes.html">Chicken Meatballs with Cream Cheese</a></h3><a class="sidebar__author" href="#">By Andreas Paula</a>
                     </div>
                   </li>
                   <li class="sidebar__card">
-                    <div class="sidebar__img-wrapper"><img class="sidebar__img" src="./img/recipe-small-2.webp" alt="" sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 1024px) calc(33.33vw - 22px), 180px" loading="lazy" width="720" height="480" srcset="./img/recipe-small-2-640w.webp 640w, ./img/recipe-small-2.webp 720w">
+                    <div class="sidebar__img-wrapper"><img class="sidebar__img" src="./img/recipe-small-2.webp" alt="Photo of the dish" sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 1024px) calc(33.33vw - 22px), 180px" loading="lazy" width="720" height="480" srcset="./img/recipe-small-2-640w.webp 640w, ./img/recipe-small-2.webp 720w">
                     </div>
                     <div class="sidebar__container">
                       <h3 class="sidebar__title-wrapper"><a class="sidebar__title" href="recipes.html">Traditional Bolognaise Ragu</a></h3><a class="sidebar__author" href="#">By Courtney Henry</a>
                     </div>
                   </li>
                   <li class="sidebar__card">
-                    <div class="sidebar__img-wrapper"><img class="sidebar__img" src="./img/recipe-small-3.webp" alt="" sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 1024px) calc(33.33vw - 22px), 180px" loading="lazy" width="720" height="480" srcset="./img/recipe-small-3-640w.webp 640w, ./img/recipe-small-3.webp 720w">
+                    <div class="sidebar__img-wrapper"><img class="sidebar__img" src="./img/recipe-small-3.webp" alt="Photo of the dish" sizes="(max-width: 480px) calc(100vw - 32px), (max-width: 1024px) calc(33.33vw - 22px), 180px" loading="lazy" width="720" height="480" srcset="./img/recipe-small-3-640w.webp 640w, ./img/recipe-small-3.webp 720w">
                     </div>
                     <div class="sidebar__container">
                       <h3 class="sidebar__title-wrapper"><a class="sidebar__title" href="recipes.html">Pork and Chive Chinese Dumplings</a></h3><a class="sidebar__author" href="#">By John Smith</a>
@@ -344,7 +336,7 @@
                           <use href="./img/sprites/sprite.svg#fork-knife"></use>
                         </svg><span class="label__text">Healthy</span></a>
                     </div>
-                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-9.webp" alt="" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-9-640w.webp 640w, ./img/recipe-9-960w.webp 960w, ./img/recipe-9.webp 1160w">
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-9.webp" alt="Photo of the dish" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-9-640w.webp 640w, ./img/recipe-9-960w.webp 960w, ./img/recipe-9.webp 1160w">
                       <button class="card-recipe__like js-card-recipe-like" type="button" aria-pressed="true" aria-label="Like Mixed Tropical Fruit Salad with Superfood Boosts">
                         <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
                           <use href="./img/sprites/sprite.svg#like"></use>
@@ -366,7 +358,7 @@
                           <use href="./img/sprites/sprite.svg#fork-knife"></use>
                         </svg><span class="label__text">Western</span></a>
                     </div>
-                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-10.webp" alt="" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-10-640w.webp 640w, ./img/recipe-10-960w.webp 960w, ./img/recipe-10.webp 1160w">
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-10.webp" alt="Photo of the dish" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-10-640w.webp 640w, ./img/recipe-10-960w.webp 960w, ./img/recipe-10.webp 1160w">
                       <button class="card-recipe__like js-card-recipe-like" type="button" aria-pressed="false" aria-label="Like Big and Juicy Wagyu Beef">
                         <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
                           <use href="./img/sprites/sprite.svg#like"></use>
@@ -388,7 +380,7 @@
                           <use href="./img/sprites/sprite.svg#fork-knife"></use>
                         </svg><span class="label__text">Healthy</span></a>
                     </div>
-                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-11.webp" alt="" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-11-640w.webp 640w, ./img/recipe-11-960w.webp 960w, ./img/recipe-11.webp 1160w">
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-11.webp" alt="Photo of the dish" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-11-640w.webp 640w, ./img/recipe-11-960w.webp 960w, ./img/recipe-11.webp 1160w">
                       <button class="card-recipe__like js-card-recipe-like" type="button" aria-pressed="true" aria-label="Like Healthy Japanese Fried Rice with Asparagus">
                         <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
                           <use href="./img/sprites/sprite.svg#like"></use>
@@ -410,7 +402,7 @@
                           <use href="./img/sprites/sprite.svg#fork-knife"></use>
                         </svg><span class="label__text">Eastern</span></a>
                     </div>
-                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-12.webp" alt="" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-12-640w.webp 640w, ./img/recipe-12-960w.webp 960w, ./img/recipe-12.webp 1160w">
+                    <div class="card-recipe__img-wrapper"><img class="card-recipe__img" src="./img/recipe-12.webp" alt="Photo of the dish" sizes="(max-width: 640px) 290px, (max-width: 1024px) calc(50vw - 24px), (max-width: 1170px) calc(25vw - 26px), (max-width: 1312px) calc(25vw - 38px), 290px" loading="lazy" width="1160" height="800" srcset="./img/recipe-12-640w.webp 640w, ./img/recipe-12-960w.webp 960w, ./img/recipe-12.webp 1160w">
                       <button class="card-recipe__like js-card-recipe-like" type="button" aria-pressed="false" aria-label="Like Cauliflower Walnut Vegetarian Taco Meat">
                         <svg class="card-recipe__svg" data-svg="like" aria-hidden="true">
                           <use href="./img/sprites/sprite.svg#like"></use>
